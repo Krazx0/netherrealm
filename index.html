@@ -6,14 +6,9 @@
 
 <title>NETHERREALM | Comunidad Oficial</title>
 
-<meta name="description" content="Netherrealm — comunidad oficial de Discord y gaming.">
+<meta name="description" content="Netherrealm — comunidad oficial de Discord, Minecraft y gaming.">
 
 <style>
-
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -31,9 +26,9 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
+/* =================================
    FONDO
-========================= */
+================================= */
 
 body::before{
     content:"";
@@ -44,18 +39,18 @@ body::before{
     background:
         radial-gradient(
             circle at 50% 100%,
-            rgba(255,70,0,.25),
-            transparent 35%
+            rgba(255,70,0,.28),
+            transparent 38%
         ),
         radial-gradient(
-            circle at 10% 20%,
-            rgba(180,0,0,.18),
+            circle at 15% 20%,
+            rgba(190,0,0,.16),
             transparent 35%
         ),
         linear-gradient(
             180deg,
             #010000 0%,
-            #130000 50%,
+            #120000 48%,
             #030000 100%
         );
 }
@@ -69,31 +64,51 @@ body::after{
     background-image:
         radial-gradient(
             circle,
-            #ff6500 1px,
+            rgba(255,100,0,.9) 1px,
             transparent 2px
         );
 
-    background-size:55px 55px;
-    opacity:.17;
+    background-size:60px 60px;
+    opacity:.16;
 
-    animation:embers 15s linear infinite;
+    animation:embers 14s linear infinite;
 }
 
 @keyframes embers{
-
     from{
         transform:translateY(0);
     }
-
     to{
         transform:translateY(-180px);
     }
-
 }
 
-/* =========================
+/* =================================
+   CURSOR GLOW
+================================= */
+
+.cursor-glow{
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,70,0,.10),
+            transparent 70%
+        );
+
+    transform:translate(-50%,-50%);
+}
+
+/* =================================
    NAVBAR
-========================= */
+================================= */
 
 nav{
     position:fixed;
@@ -101,8 +116,7 @@ nav{
     left:0;
 
     width:100%;
-
-    padding:15px 7%;
+    padding:14px 7%;
 
     display:flex;
     justify-content:space-between;
@@ -110,11 +124,22 @@ nav{
 
     z-index:100;
 
-    background:rgba(3,0,0,.78);
+    background:rgba(3,0,0,.62);
+    backdrop-filter:blur(14px);
 
-    backdrop-filter:blur(15px);
+    border-bottom:
+        1px solid
+        rgba(255,70,0,.16);
 
-    border-bottom:1px solid rgba(255,70,0,.2);
+    transition:.35s;
+}
+
+nav.scrolled{
+    background:rgba(5,0,0,.92);
+
+    box-shadow:
+        0 10px 35px
+        rgba(255,40,0,.12);
 }
 
 .logo{
@@ -122,14 +147,13 @@ nav{
     align-items:center;
     gap:12px;
 
+    color:#ff6500;
+
     font-weight:1000;
     letter-spacing:3px;
 
-    color:#ff6500;
-
     text-shadow:
-        0 0 10px #ff4500,
-        0 0 25px #ff2200;
+        0 0 12px #ff4500;
 }
 
 .logo img{
@@ -141,19 +165,20 @@ nav{
     border:2px solid #ff5a00;
 
     box-shadow:
-        0 0 15px #ff4500;
+        0 0 18px #ff4500;
 }
 
 .navlinks{
     display:flex;
-    gap:25px;
+    gap:24px;
 }
 
 .navlinks a{
     color:#aaa;
+
     text-decoration:none;
 
-    font-size:13px;
+    font-size:12px;
     font-weight:bold;
 
     transition:.3s;
@@ -166,79 +191,87 @@ nav{
         0 0 12px #ff4500;
 }
 
-/* =========================
+/* =================================
    HERO
-========================= */
+================================= */
 
 .hero{
     min-height:100vh;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     text-align:center;
 
-    padding:130px 20px 80px;
+    padding:
+        130px 20px 80px;
+
+    position:relative;
 }
 
 .hero-content{
-    max-width:1000px;
+    max-width:1050px;
+
+    transform:
+        translateY(var(--parallax,0px));
 }
 
 .hero-icon{
-    width:115px;
-    height:115px;
+    width:120px;
+    height:120px;
 
     border-radius:50%;
 
-    border:3px solid #ff5a00;
+    border:
+        3px solid
+        #ff5a00;
 
     box-shadow:
         0 0 25px #ff4500,
-        0 0 70px rgba(255,50,0,.45);
-
-    margin-bottom:25px;
+        0 0 80px rgba(255,50,0,.45);
 
     animation:
-        pulse 2s infinite alternate,
-        heroEnter 1s ease;
+        heroIcon 2s infinite alternate,
+        heroIn 1s ease;
 }
 
-@keyframes pulse{
-
+@keyframes heroIcon{
     from{
         box-shadow:
             0 0 20px #ff4500,
-            0 0 40px rgba(255,50,0,.3);
+            0 0 45px rgba(255,50,0,.3);
     }
 
     to{
         box-shadow:
             0 0 35px #ff6500,
-            0 0 80px rgba(255,50,0,.7);
+            0 0 90px rgba(255,50,0,.7);
     }
-
 }
 
-@keyframes heroEnter{
-
+@keyframes heroIn{
     from{
         opacity:0;
-        transform:scale(.7) translateY(30px);
+        transform:scale(.65);
+        filter:blur(10px);
     }
 
     to{
         opacity:1;
-        transform:scale(1) translateY(0);
+        transform:scale(1);
+        filter:blur(0);
     }
-
 }
 
 .badge{
     display:inline-block;
 
-    padding:9px 18px;
+    margin-top:25px;
+    margin-bottom:22px;
+
+    padding:
+        9px 18px;
 
     border:
         1px solid
@@ -248,112 +281,107 @@ nav{
 
     color:#ff7200;
 
-    font-size:12px;
+    background:
+        rgba(255,50,0,.05);
+
+    font-size:11px;
     font-weight:bold;
 
-    letter-spacing:3px;
-
-    margin-bottom:25px;
+    letter-spacing:4px;
 
     animation:
         fadeDown 1s ease .2s both;
 }
 
 .hero h1{
-
     font-size:
-        clamp(
-            55px,
-            12vw,
-            145px
-        );
+        clamp(55px,12vw,150px);
 
-    line-height:.85;
+    line-height:.83;
 
     letter-spacing:8px;
 
     font-weight:1000;
 
-    color:#fff;
+    color:white;
 
     text-shadow:
-        0 0 5px #fff,
+        0 0 5px white,
         0 0 20px #ff8500,
         0 0 45px #ff4500,
-        0 0 90px #ff1500;
+        0 0 100px #ff1500;
 
     animation:
-        titleEnter 1.1s ease .25s both,
+        titleIn 1.1s ease .3s both,
         fireGlow 2s infinite alternate;
 }
 
-@keyframes titleEnter{
-
+@keyframes titleIn{
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:
+            translateY(60px)
+            scale(.95);
+
         filter:blur(12px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+            translateY(0)
+            scale(1);
+
         filter:blur(0);
     }
-
 }
 
 @keyframes fireGlow{
-
     from{
         text-shadow:
-            0 0 5px #fff,
+            0 0 5px white,
             0 0 15px #ff8500,
             0 0 35px #ff4500;
     }
 
     to{
         text-shadow:
-            0 0 8px #fff,
+            0 0 8px white,
             0 0 25px #ffb000,
-            0 0 55px #ff4500,
-            0 0 100px #ff1500;
+            0 0 60px #ff4500,
+            0 0 110px #ff1500;
     }
-
 }
 
 .hero h2{
-
     margin-top:25px;
 
     color:#ff6500;
 
-    letter-spacing:4px;
+    letter-spacing:5px;
 
     font-size:20px;
 
     animation:
-        fadeUp 1s ease .5s both;
+        fadeUp 1s ease .6s both;
 }
 
 .hero p{
-
-    max-width:680px;
+    max-width:700px;
 
     margin:25px auto;
 
     color:#aaa;
 
-    font-size:18px;
-
     line-height:1.7;
 
+    font-size:18px;
+
     animation:
-        fadeUp 1s ease .7s both;
+        fadeUp 1s ease .75s both;
 }
 
 .buttons{
-
     display:flex;
 
     justify-content:center;
@@ -369,10 +397,10 @@ nav{
 }
 
 .btn{
-
     display:inline-block;
 
-    padding:15px 30px;
+    padding:
+        15px 30px;
 
     border-radius:9px;
 
@@ -384,8 +412,7 @@ nav{
 }
 
 .primary{
-
-    color:#fff;
+    color:white;
 
     background:
         linear-gradient(
@@ -396,22 +423,20 @@ nav{
 
     box-shadow:
         0 0 25px
-        rgba(255,60,0,.4);
+        rgba(255,60,0,.45);
 }
 
 .primary:hover{
-
     transform:
         translateY(-6px)
         scale(1.04);
 
     box-shadow:
-        0 0 40px
-        rgba(255,70,0,.75);
+        0 0 45px
+        rgba(255,70,0,.8);
 }
 
 .secondary{
-
     color:#ff6500;
 
     border:
@@ -423,60 +448,44 @@ nav{
 }
 
 .secondary:hover{
-
     transform:
         translateY(-6px);
 
     background:
-        rgba(255,50,0,.15);
+        rgba(255,50,0,.14);
 }
 
-/* =========================
-   SECCIONES
-========================= */
-
-section{
-
-    padding:
-        110px 7%;
-}
-
-/* =========================
-   SCROLL ANIMATION
-========================= */
+/* =================================
+   SCROLL REVEAL
+================================= */
 
 .reveal{
-
     opacity:0;
 
     transform:
         translateY(70px);
 
     transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1);
+        opacity .85s ease,
+        transform .85s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.left{
-
     transform:
         translateX(-80px);
 }
 
 .reveal.right{
-
     transform:
         translateX(80px);
 }
 
 .reveal.zoom{
-
     transform:
-        scale(.8);
+        scale(.78);
 }
 
 .reveal.show{
-
     opacity:1;
 
     transform:
@@ -484,19 +493,22 @@ section{
         scale(1);
 }
 
-/* =========================
-   TITULOS
-========================= */
+/* =================================
+   SECCIONES
+================================= */
 
-.title{
+section{
+    padding:
+        110px 7%;
+}
 
+.section-title{
     text-align:center;
 
     margin-bottom:55px;
 }
 
-.title span{
-
+.section-title span{
     color:#ff6500;
 
     font-size:12px;
@@ -506,8 +518,7 @@ section{
     letter-spacing:4px;
 }
 
-.title h2{
-
+.section-title h2{
     margin-top:10px;
 
     font-size:43px;
@@ -517,32 +528,30 @@ section{
         rgba(255,70,0,.5);
 }
 
-.title p{
-
+.section-title p{
     color:#888;
 
     margin-top:12px;
 }
 
-/* =========================
-   DISCORD STATUS
-========================= */
+/* =================================
+   DISCORD PANEL
+================================= */
 
-.status-box{
-
+.discord-panel{
     max-width:1050px;
 
     margin:auto;
 
     padding:30px;
 
-    border-radius:20px;
+    border-radius:22px;
 
     background:
         linear-gradient(
             145deg,
             rgba(40,5,0,.9),
-            rgba(10,1,0,.92)
+            rgba(10,1,0,.94)
         );
 
     border:
@@ -550,12 +559,11 @@ section{
         rgba(255,70,0,.25);
 
     box-shadow:
-        0 20px 70px
-        rgba(255,40,0,.08);
+        0 25px 70px
+        rgba(255,40,0,.09);
 }
 
-.server-top{
-
+.server-header{
     display:flex;
 
     align-items:center;
@@ -566,34 +574,36 @@ section{
 }
 
 .server-icon{
+    width:85px;
+    height:85px;
 
-    width:80px;
-    height:80px;
+    border-radius:20px;
 
-    border-radius:18px;
-
-    border:2px solid #ff5a00;
+    border:
+        2px solid
+        #ff5a00;
 
     box-shadow:
         0 0 25px
         rgba(255,60,0,.45);
 }
 
-.server-info h3{
+.server-info{
+    flex:1;
+}
 
-    font-size:25px;
+.server-info h3{
+    font-size:27px;
 }
 
 .server-info p{
-
     color:#888;
 
     margin-top:5px;
 }
 
-.online-status{
-
-    margin-top:8px;
+.connection{
+    margin-top:9px;
 
     color:#49ff70;
 
@@ -603,7 +613,6 @@ section{
 }
 
 .stats{
-
     display:grid;
 
     grid-template-columns:
@@ -613,49 +622,45 @@ section{
 }
 
 .stat{
-
-    padding:25px 15px;
+    padding:27px 15px;
 
     text-align:center;
 
-    border-radius:14px;
+    border-radius:15px;
 
     background:
-        rgba(20,2,0,.8);
+        rgba(20,2,0,.82);
 
     border:
         1px solid
         rgba(255,70,0,.18);
 
-    transition:.3s;
+    transition:.35s;
 }
 
 .stat:hover{
-
     transform:
-        translateY(-8px)
+        translateY(-9px)
         scale(1.02);
 
     border-color:
-        rgba(255,90,0,.65);
+        rgba(255,90,0,.7);
 
     box-shadow:
-        0 15px 35px
-        rgba(255,50,0,.15);
+        0 18px 40px
+        rgba(255,50,0,.16);
 }
 
 .stat-icon{
-
     font-size:30px;
 }
 
 .number{
-
     display:block;
 
     color:#ff6500;
 
-    font-size:30px;
+    font-size:31px;
 
     font-weight:1000;
 
@@ -663,20 +668,18 @@ section{
 }
 
 .label{
-
     color:#777;
 
-    font-size:12px;
+    font-size:11px;
 
     margin-top:5px;
 }
 
-/* =========================
+/* =================================
    CARDS
-========================= */
+================================= */
 
 .cards{
-
     max-width:1100px;
 
     margin:auto;
@@ -690,10 +693,14 @@ section{
 }
 
 .card{
+    position:relative;
 
-    padding:35px 25px;
+    overflow:hidden;
 
-    border-radius:17px;
+    padding:
+        35px 25px;
+
+    border-radius:18px;
 
     background:
         linear-gradient(
@@ -710,24 +717,17 @@ section{
         transform .35s,
         border-color .35s,
         box-shadow .35s;
-
-    position:relative;
-
-    overflow:hidden;
 }
 
 .card::before{
-
     content:"";
 
     position:absolute;
 
     top:0;
-
     left:-100%;
 
     width:100%;
-
     height:2px;
 
     background:
@@ -742,32 +742,28 @@ section{
 }
 
 .card:hover::before{
-
     left:100%;
 }
 
 .card:hover{
-
     transform:
         translateY(-10px);
 
     border-color:
-        rgba(255,90,0,.65);
+        rgba(255,90,0,.7);
 
     box-shadow:
-        0 20px 50px
-        rgba(255,40,0,.13);
+        0 25px 55px
+        rgba(255,40,0,.14);
 }
 
 .icon{
-
     font-size:43px;
 
     margin-bottom:17px;
 }
 
 .card h3{
-
     color:#ff6500;
 
     font-size:21px;
@@ -776,106 +772,218 @@ section{
 }
 
 .card p{
-
     color:#999;
 
-    line-height:1.6;
+    line-height:1.65;
 }
 
-/* =========================
+/* =================================
    ANUNCIOS
-========================= */
+================================= */
 
 .announcement{
-
     max-width:950px;
 
     margin:auto;
 
-    padding:30px;
+    padding:32px;
 
     border-left:
         3px solid
         #ff6500;
 
-    border-radius:12px;
+    border-radius:13px;
 
     background:
-        rgba(30,3,0,.8);
+        rgba(30,3,0,.82);
+
+    box-shadow:
+        0 15px 50px
+        rgba(255,40,0,.06);
 }
 
 .announcement h3{
-
     color:#ff6500;
 
     margin-bottom:10px;
 }
 
 .announcement p{
-
     color:#aaa;
 
-    line-height:1.6;
+    line-height:1.7;
 }
 
-/* =========================
-   CTA
-========================= */
+/* =================================
+   RULES
+================================= */
 
-.cta{
-
-    max-width:900px;
+.rules{
+    max-width:950px;
 
     margin:auto;
 
-    padding:75px 30px;
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+}
+
+.rule{
+    padding:22px;
+
+    border-radius:14px;
+
+    background:
+        rgba(25,2,0,.78);
+
+    border:
+        1px solid
+        rgba(255,70,0,.16);
+
+    transition:.3s;
+}
+
+.rule:hover{
+    transform:
+        translateX(6px);
+
+    border-color:
+        rgba(255,90,0,.55);
+}
+
+.rule strong{
+    color:#ff6500;
+
+    display:block;
+
+    margin-bottom:7px;
+}
+
+.rule p{
+    color:#999;
+
+    line-height:1.5;
+}
+
+/* =================================
+   CTA
+================================= */
+
+.cta{
+    max-width:920px;
+
+    margin:auto;
+
+    padding:
+        80px 30px;
 
     text-align:center;
 
-    border-radius:25px;
+    border-radius:27px;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,60,0,.18),
+            rgba(255,60,0,.19),
             transparent 65%
         ),
-        rgba(20,2,0,.8);
+        rgba(20,2,0,.82);
 
     border:
         1px solid
         rgba(255,70,0,.3);
 
     box-shadow:
-        0 0 70px
-        rgba(255,40,0,.08);
+        0 0 80px
+        rgba(255,40,0,.09);
 }
 
 .cta h2{
-
-    font-size:40px;
+    font-size:42px;
 }
 
 .cta p{
+    max-width:620px;
+
+    margin:
+        15px auto 30px;
 
     color:#999;
 
-    max-width:600px;
-
-    margin:15px auto 30px;
-
-    line-height:1.6;
+    line-height:1.7;
 }
 
-/* =========================
+/* =================================
+   BACK TO TOP
+================================= */
+
+#topBtn{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff7600,
+            #ff2100
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,60,0,.45);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translateY(15px);
+
+    transition:.3s;
+
+    z-index:90;
+}
+
+#topBtn.show{
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translateY(0);
+}
+
+#topBtn:hover{
+    transform:
+        translateY(-5px)
+        scale(1.08);
+}
+
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 footer{
-
     text-align:center;
 
-    padding:40px 20px;
+    padding:
+        45px 20px;
 
     color:#555;
 
@@ -885,45 +993,44 @@ footer{
 }
 
 footer strong{
-
     color:#ff6500;
 }
 
-/* =========================
+/* =================================
    ANIMACIONES
-========================= */
+================================= */
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:
+            translateY(30px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
-
 }
 
 @keyframes fadeDown{
-
     from{
         opacity:0;
-        transform:translateY(-25px);
+        transform:
+            translateY(-25px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
-
 }
 
-/* =========================
+/* =================================
    RESPONSIVE
-========================= */
+================================= */
 
 @media(max-width:850px){
 
@@ -932,70 +1039,75 @@ footer strong{
     }
 
     .stats{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .cards{
+        grid-template-columns:
+            1fr;
+    }
 
+    .rules{
         grid-template-columns:
             1fr;
     }
 
     section{
-
         padding:
             80px 5%;
     }
-
 }
 
 @media(max-width:500px){
 
     .stats{
-
         grid-template-columns:
             1fr;
     }
 
-    .hero h1{
+    .server-header{
+        flex-direction:column;
 
+        text-align:center;
+    }
+
+    .hero h1{
         letter-spacing:3px;
     }
 
     .hero h2{
-
         font-size:15px;
 
         letter-spacing:2px;
     }
 
     .hero p{
-
         font-size:16px;
     }
 
-    .server-top{
-
-        flex-direction:column;
-
-        text-align:center;
+    .cta h2{
+        font-size:32px;
     }
 
+    #topBtn{
+        right:18px;
+        bottom:18px;
+    }
 }
-
 </style>
 </head>
 
 <body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
 
 
 <!-- =========================
      NAV
 ========================= -->
 
-<nav>
+<nav id="navbar">
 
 <div class="logo">
 
@@ -1029,7 +1141,7 @@ NETHERREALM
 
 <header class="hero">
 
-<div class="hero-content">
+<div class="hero-content" id="heroContent">
 
 <img
 class="hero-icon"
@@ -1097,7 +1209,7 @@ href="#discord"
 
 <section id="discord">
 
-<div class="title reveal">
+<div class="section-title reveal">
 
 <span>DISCORD</span>
 
@@ -1110,14 +1222,14 @@ Datos obtenidos automáticamente desde nuestro servidor.
 </div>
 
 
-<div class="status-box reveal zoom">
+<div class="discord-panel reveal zoom">
 
-<div class="server-top">
+<div class="server-header">
 
 <img
 class="server-icon"
 src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
-alt="Netherrealm Discord"
+alt="Netherrealm"
 >
 
 <div class="server-info">
@@ -1129,15 +1241,21 @@ Comunidad oficial de Discord
 </p>
 
 <div
-class="online-status"
+class="connection"
 id="connection"
 >
-
 ● CONECTANDO CON DISCORD...
-
 </div>
 
 </div>
+
+<a
+class="btn primary"
+href="https://discord.gg/eY5yMRek3b"
+target="_blank"
+>
+UNIRSE
+</a>
 
 </div>
 
@@ -1154,9 +1272,7 @@ id="connection"
 class="number"
 id="members"
 >
-
 ...
-
 </span>
 
 <div class="label">
@@ -1176,9 +1292,7 @@ MIEMBROS
 class="number"
 id="online"
 >
-
 ...
-
 </span>
 
 <div class="label">
@@ -1223,22 +1337,6 @@ AVENTURAS
 
 </div>
 
-<br>
-
-<center>
-
-<a
-class="btn primary"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank"
->
-
-ENTRAR AL DISCORD
-
-</a>
-
-</center>
-
 </div>
 
 </section>
@@ -1250,17 +1348,20 @@ ENTRAR AL DISCORD
 
 <section>
 
-<div class="title reveal">
+<div class="section-title reveal">
 
 <span>NETHERREALM</span>
 
-<h2>¿QUÉ ENCONTRARÁS?</h2>
+<h2>LA COMUNIDAD</h2>
+
+<p>
+Todo empieza cuando cruzas las puertas del Netherrealm.
+</p>
 
 </div>
 
 
 <div class="cards">
-
 
 <div class="card reveal left">
 
@@ -1269,12 +1370,12 @@ ENTRAR AL DISCORD
 </div>
 
 <h3>
-Comunidad
+Discord
 </h3>
 
 <p>
-Conoce personas, conversa, comparte
-contenido y forma parte del servidor.
+Nuestro punto principal de encuentro.
+Habla, conoce gente y comparte momentos.
 </p>
 
 </div>
@@ -1291,8 +1392,8 @@ Eventos
 </h3>
 
 <p>
-Participa en dinámicas y actividades
-organizadas para la comunidad.
+Participa en dinámicas, actividades
+y eventos de la comunidad.
 </p>
 
 </div>
@@ -1309,12 +1410,11 @@ Gaming
 </h3>
 
 <p>
-Comparte tus juegos favoritos y encuentra
-personas con quienes jugar.
+Encuentra personas con quienes jugar
+tus juegos favoritos.
 </p>
 
 </div>
-
 
 </div>
 
@@ -1327,21 +1427,20 @@ personas con quienes jugar.
 
 <section id="minecraft">
 
-<div class="title reveal">
+<div class="section-title reveal">
 
 <span>GAMING</span>
 
 <h2>⛏️ MINECRAFT</h2>
 
 <p>
-Algunos miembros de Netherrealm también juegan Minecraft.
+Una parte de nuestra comunidad también disfruta Minecraft.
 </p>
 
 </div>
 
 
 <div class="cards">
-
 
 <div class="card reveal left">
 
@@ -1372,8 +1471,8 @@ Exploración
 </h3>
 
 <p>
-Descubre nuevos lugares y vive aventuras
-con tus amigos.
+Descubre nuevos mundos y vive
+aventuras con tus amigos.
 </p>
 
 </div>
@@ -1390,12 +1489,11 @@ Aventuras
 </h3>
 
 <p>
-Minecraft es parte de los juegos que
-disfruta nuestra comunidad.
+Minecraft es uno de los juegos
+que disfruta nuestra comunidad.
 </p>
 
 </div>
-
 
 </div>
 
@@ -1408,14 +1506,14 @@ disfruta nuestra comunidad.
 
 <section id="anuncios">
 
-<div class="title reveal">
+<div class="section-title reveal">
 
-<span>COMUNIDAD</span>
+<span>NOTICIAS</span>
 
 <h2>📢 ANUNCIOS</h2>
 
 <p>
-Noticias importantes de Netherrealm.
+Mantente atento a las novedades de Netherrealm.
 </p>
 
 </div>
@@ -1428,8 +1526,8 @@ Noticias importantes de Netherrealm.
 </h3>
 
 <p>
-Mantente atento a nuestro Discord para conocer
-los próximos eventos, novedades y anuncios.
+Las puertas están abiertas. Entra a nuestro Discord
+para conocer los próximos eventos y novedades.
 </p>
 
 </div>
@@ -1443,21 +1541,20 @@ los próximos eventos, novedades y anuncios.
 
 <section id="staff">
 
-<div class="title reveal">
+<div class="section-title reveal">
 
 <span>EQUIPO</span>
 
 <h2>🛡️ STAFF</h2>
 
 <p>
-Nuestro equipo de administración y moderación.
+Personas encargadas de mantener la comunidad activa.
 </p>
 
 </div>
 
 
 <div class="cards">
-
 
 <div class="card reveal left">
 
@@ -1509,6 +1606,74 @@ Información del equipo próximamente.
 
 </div>
 
+</div>
+
+</section>
+
+
+<!-- =========================
+     REGLAS
+========================= -->
+
+<section>
+
+<div class="section-title reveal">
+
+<span>COMUNIDAD</span>
+
+<h2>📜 REGLAS</h2>
+
+<p>
+Respeta a los demás y disfruta Netherrealm.
+</p>
+
+</div>
+
+
+<div class="rules">
+
+<div class="rule reveal left">
+
+<strong>01 · RESPETO</strong>
+
+<p>
+Respeta a todos los miembros de la comunidad.
+</p>
+
+</div>
+
+
+<div class="rule reveal right">
+
+<strong>02 · NO SPAM</strong>
+
+<p>
+Evita spam, flood y contenido molesto.
+</p>
+
+</div>
+
+
+<div class="rule reveal left">
+
+<strong>03 · NO TOXICIDAD</strong>
+
+<p>
+Mantén un ambiente agradable para todos.
+</p>
+
+</div>
+
+
+<div class="rule reveal right">
+
+<strong>04 · DIVIÉRTETE</strong>
+
+<p>
+Participa, conoce gente y disfruta del servidor.
+</p>
+
+</div>
 
 </div>
 
@@ -1524,12 +1689,12 @@ Información del equipo próximamente.
 <div class="cta reveal zoom">
 
 <h2>
-🔥 ¿TE ATREVES A ENTRAR?
+🔥 ENTRA AL NETHER
 </h2>
 
 <p>
-Las puertas del Netherrealm están abiertas.
-Únete al Discord y forma parte de la comunidad.
+Las puertas de Netherrealm están abiertas.
+¿Te atreves a entrar?
 </p>
 
 <a
@@ -1566,11 +1731,18 @@ Comunidad oficial de Discord.
 </footer>
 
 
+<!-- BOTÓN ARRIBA -->
+
+<button id="topBtn">
+↑
+</button>
+
+
 <script>
 
-/* =========================
-   DISCORD API
-========================= */
+/* =================================
+   DISCORD
+================================= */
 
 const API =
 "https://autumn-breeze-3304.dhilandominguez530.workers.dev/members";
@@ -1641,7 +1813,7 @@ async function updateStats(){
             "#ff4444";
 
         console.error(
-            "Netherrealm:",
+            "Netherrealm API:",
             error
         );
 
@@ -1650,12 +1822,7 @@ async function updateStats(){
 }
 
 
-/* Primera actualización */
-
 updateStats();
-
-
-/* Actualizar cada minuto */
 
 setInterval(
     updateStats,
@@ -1663,11 +1830,11 @@ setInterval(
 );
 
 
-/* =========================
+/* =================================
    SCROLL REVEAL
-========================= */
+================================= */
 
-const elements =
+const revealElements =
     document.querySelectorAll(
         ".reveal"
     );
@@ -1678,9 +1845,11 @@ const observer =
         (entries) => {
 
             entries.forEach(
-                (entry) => {
+                entry => {
 
-                    if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
                         entry.target.classList.add(
                             "show"
@@ -1702,12 +1871,130 @@ const observer =
     );
 
 
-elements.forEach(
-    (element) => {
+revealElements.forEach(
+    element => {
 
         observer.observe(
             element
         );
+
+    }
+);
+
+
+/* =================================
+   NAVBAR SCROLL
+================================= */
+
+const navbar =
+    document.getElementById(
+        "navbar"
+    );
+
+
+const topBtn =
+    document.getElementById(
+        "topBtn"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            window.scrollY > 60
+        ){
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+            topBtn.classList.add(
+                "show"
+            );
+
+        }else{
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+            topBtn.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =================================
+   VOLVER ARRIBA
+================================= */
+
+topBtn.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* =================================
+   PARALLAX HERO
+================================= */
+
+const heroContent =
+    document.getElementById(
+        "heroContent"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            window.scrollY < window.innerHeight
+        ){
+
+            heroContent.style.setProperty(
+                "--parallax",
+                (window.scrollY * .12) + "px"
+            );
+
+        }
+
+    }
+);
+
+
+/* =================================
+   CURSOR GLOW
+================================= */
+
+const cursorGlow =
+    document.getElementById(
+        "cursorGlow"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursorGlow.style.left =
+            event.clientX + "px";
+
+        cursorGlow.style.top =
+            event.clientY + "px";
 
     }
 );
