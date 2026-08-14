@@ -2,30 +2,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- =========================
-     FAVICON NETHERREALM
-========================= -->
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<link rel="icon" type="image/webp"
-href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
+<meta
+    name="theme-color"
+    content="#ff4500"
+>
 
-<link rel="shortcut icon" type="image/webp"
-href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
+<meta
+    name="description"
+    content="Netherrealm — Comunidad oficial de Discord, Minecraft, Roblox y gaming."
+>
 
-<link rel="apple-touch-icon"
-href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
+<meta
+    name="author"
+    content="Netherrealm"
+>
+
+<!-- =====================================================
+     NETHERREALM V17
+     FAVICON / ICONO DE LA PESTAÑA
+===================================================== -->
+
+<link
+    rel="icon"
+    type="image/webp"
+    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+>
+
+<link
+    rel="shortcut icon"
+    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+>
+
+<link
+    rel="apple-touch-icon"
+    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+>
 
 <title>𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦 | Comunidad Oficial</title>
 
-<meta name="description"
-content="Netherrealm — Comunidad de Discord, Minecraft, Roblox y gaming.">
-
-<meta name="theme-color" content="#ff4500">
-
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -44,10 +71,6 @@ body{
     overflow-x:hidden;
 }
 
-body.loading{
-    overflow:hidden;
-}
-
 body.modal-open{
     overflow:hidden;
 }
@@ -62,136 +85,34 @@ input{
     font:inherit;
 }
 
-/* =========================
-   LOADER
-========================= */
-
-#loader{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,70,0,.15),
-            transparent 35%
-        ),
-        #030000;
-
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+button{
+    cursor:pointer;
 }
 
-#loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-logo{
-    width:110px;
-    height:110px;
-
-    border-radius:28px;
-
-    border:3px solid #ff5500;
-
-    box-shadow:
-        0 0 30px #ff4500,
-        0 0 90px rgba(255,50,0,.5);
-
-    animation:
-        loaderFloat 2s ease-in-out infinite,
-        loaderGlow 1.5s alternate infinite;
-}
-
-.loader-title{
-    margin-top:25px;
-
-    color:#ff6500;
-
-    font-size:18px;
-    font-weight:1000;
-    letter-spacing:6px;
-
-    text-shadow:
-        0 0 15px #ff4500;
-}
-
-.loader-line{
-    width:180px;
-    height:3px;
-
-    margin-top:22px;
-
-    overflow:hidden;
-
-    border-radius:10px;
-
-    background:rgba(255,70,0,.12);
-}
-
-.loader-line::after{
-    content:"";
-
-    display:block;
-
-    width:45%;
-    height:100%;
-
-    background:#ff5500;
-
-    box-shadow:0 0 15px #ff4500;
-
-    animation:loaderLine 1s linear infinite;
-}
-
-@keyframes loaderFloat{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
-}
-
-@keyframes loaderGlow{
-    from{filter:brightness(1);}
-    to{filter:brightness(1.4);}
-}
-
-@keyframes loaderLine{
-    from{transform:translateX(-130%);}
-    to{transform:translateX(350%);}
-}
-
-/* =========================
-   FONDO NETHER
-========================= */
+/* =====================================================
+   FONDO
+===================================================== */
 
 .bg{
     position:fixed;
     inset:0;
     z-index:-30;
-
     overflow:hidden;
 
     background:
         radial-gradient(
             circle at 50% 100%,
-            rgba(255,65,0,.32),
+            rgba(255,65,0,.30),
             transparent 38%
         ),
         radial-gradient(
             circle at 10% 15%,
-            rgba(180,0,0,.18),
+            rgba(180,0,0,.16),
             transparent 30%
         ),
         radial-gradient(
             circle at 90% 50%,
-            rgba(255,80,0,.10),
+            rgba(255,80,0,.08),
             transparent 28%
         ),
         linear-gradient(
@@ -204,7 +125,6 @@ input{
 
 .bg::before{
     content:"";
-
     position:absolute;
     inset:-30%;
 
@@ -219,32 +139,22 @@ input{
     animation:bgMove 18s linear infinite;
 }
 
-.bg::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 35%,
-            rgba(0,0,0,.5) 100%
-        );
-}
-
 @keyframes bgMove{
-    from{transform:translateY(0);}
-    to{transform:translateY(180px);}
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(180px);
+    }
 }
 
-/* =========================
+/* =====================================================
    LAVA
-========================= */
+===================================================== */
 
 .lava{
     position:absolute;
-
     left:-10%;
     bottom:-12%;
 
@@ -254,7 +164,7 @@ input{
     background:
         radial-gradient(
             ellipse at 50% 100%,
-            rgba(255,50,0,.70),
+            rgba(255,50,0,.65),
             rgba(255,80,0,.25) 35%,
             transparent 70%
         );
@@ -266,6 +176,7 @@ input{
 }
 
 @keyframes lavaPulse{
+
     from{
         transform:scaleX(1);
         opacity:.65;
@@ -277,9 +188,9 @@ input{
     }
 }
 
-/* =========================
+/* =====================================================
    BRASAS
-========================= */
+===================================================== */
 
 #particles{
     position:fixed;
@@ -288,7 +199,6 @@ input{
     z-index:-5;
 
     pointer-events:none;
-
     overflow:hidden;
 }
 
@@ -311,6 +221,7 @@ input{
 }
 
 @keyframes rise{
+
     0%{
         transform:
             translateY(0)
@@ -338,9 +249,9 @@ input{
     }
 }
 
-/* =========================
+/* =====================================================
    HUMO
-========================= */
+===================================================== */
 
 .smoke{
     position:fixed;
@@ -384,6 +295,7 @@ input{
 }
 
 @keyframes smokeMove{
+
     0%{
         transform:
             translateY(0)
@@ -411,9 +323,9 @@ input{
     }
 }
 
-/* =========================
+/* =====================================================
    NAV
-========================= */
+===================================================== */
 
 .nav{
     position:fixed;
@@ -479,12 +391,11 @@ input{
     display:flex;
     align-items:center;
 
-    gap:20px;
+    gap:22px;
 }
 
 .links a{
     font-size:10px;
-
     font-weight:bold;
 
     color:#888;
@@ -509,12 +420,14 @@ input{
     border:
         1px solid rgba(255,80,0,.5);
 
-    color:#ff6500!important;
+    color:#ff6500 !important;
+
+    background:transparent;
 }
 
-/* =========================
+/* =====================================================
    BUSCADOR
-========================= */
+===================================================== */
 
 .search-wrap{
     position:fixed;
@@ -615,7 +528,8 @@ input{
 .search-result:hover{
     color:#ff6500;
 
-    background:rgba(255,50,0,.07);
+    background:
+        rgba(255,50,0,.07);
 }
 
 .search-result small{
@@ -634,15 +548,14 @@ input{
     font-size:12px;
 }
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
 
-    padding:
-        130px 20px 100px;
+    padding:130px 20px 100px;
 
     display:flex;
 
@@ -654,7 +567,6 @@ input{
 
 .hero-inner{
     max-width:1100px;
-
     width:100%;
 }
 
@@ -702,6 +614,8 @@ input{
 
     display:block;
 
+    object-fit:cover;
+
     border-radius:30px;
 
     border:3px solid #ff5500;
@@ -715,6 +629,7 @@ input{
 }
 
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -747,6 +662,7 @@ input{
 }
 
 @keyframes titleGlow{
+
     from{
         text-shadow:
             0 0 7px #fff,
@@ -807,6 +723,8 @@ input{
 
     border-radius:9px;
 
+    border:0;
+
     font-size:12px;
 
     font-weight:1000;
@@ -823,6 +741,8 @@ input{
             #ff7800,
             #ff2100
         );
+
+    color:white;
 
     box-shadow:
         0 0 25px rgba(255,60,0,.4);
@@ -854,9 +774,9 @@ input{
         rgba(255,50,0,.12);
 }
 
-/* =========================
+/* =====================================================
    SECCIONES
-========================= */
+===================================================== */
 
 section{
     padding:110px 7%;
@@ -898,9 +818,9 @@ section{
     line-height:1.7;
 }
 
-/* =========================
+/* =====================================================
    REVEAL
-========================= */
+===================================================== */
 
 .reveal{
     opacity:0;
@@ -926,9 +846,9 @@ section{
     transform:translate(0);
 }
 
-/* =========================
+/* =====================================================
    ANUNCIO
-========================= */
+===================================================== */
 
 .announcement{
     max-width:1100px;
@@ -1037,9 +957,9 @@ section{
     padding:12px 18px;
 }
 
-/* =========================
+/* =====================================================
    DISCORD
-========================= */
+===================================================== */
 
 .discord{
     max-width:1100px;
@@ -1082,6 +1002,8 @@ section{
     height:82px;
 
     border-radius:20px;
+
+    object-fit:cover;
 
     border:2px solid #ff5500;
 
@@ -1163,9 +1085,6 @@ section{
 
     border-color:
         rgba(255,90,0,.6);
-
-    box-shadow:
-        0 15px 40px rgba(255,40,0,.1);
 }
 
 .stat-icon{
@@ -1196,9 +1115,9 @@ section{
     letter-spacing:2px;
 }
 
-/* =========================
+/* =====================================================
    JUEGOS
-========================= */
+===================================================== */
 
 .games{
     max-width:1100px;
@@ -1239,32 +1158,6 @@ section{
     overflow:hidden;
 
     transition:.4s;
-}
-
-.game-card::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-100%;
-
-    width:100%;
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff6500,
-            transparent
-        );
-
-    transition:.5s;
-}
-
-.game-card:hover::before{
-    left:100%;
 }
 
 .game-card::after{
@@ -1346,9 +1239,9 @@ section{
     opacity:.72;
 }
 
-/* =========================
+/* =====================================================
    MINECRAFT
-========================= */
+===================================================== */
 
 .minecraft{
     max-width:1100px;
@@ -1462,9 +1355,9 @@ section{
     font-size:12px;
 }
 
-/* =========================
+/* =====================================================
    ROBLOX
-========================= */
+===================================================== */
 
 .roblox-panel{
     max-width:1100px;
@@ -1476,6 +1369,7 @@ section{
     display:flex;
 
     align-items:center;
+
     justify-content:space-between;
 
     gap:30px;
@@ -1527,9 +1421,9 @@ section{
     line-height:1.7;
 }
 
-/* =========================
+/* =====================================================
    STAFF
-========================= */
+===================================================== */
 
 .staff-grid{
     max-width:1100px;
@@ -1662,9 +1556,9 @@ section{
         0 0 10px rgba(67,255,104,.6);
 }
 
-/* =========================
+/* =====================================================
    EVENTOS
-========================= */
+===================================================== */
 
 .events{
     max-width:950px;
@@ -1745,9 +1639,9 @@ section{
     font-weight:bold;
 }
 
-/* =========================
+/* =====================================================
    REDES
-========================= */
+===================================================== */
 
 .social-card{
     max-width:700px;
@@ -1820,9 +1714,9 @@ section{
     font-size:12px;
 }
 
-/* =========================
+/* =====================================================
    CTA
-========================= */
+===================================================== */
 
 .cta{
     max-width:1000px;
@@ -1862,9 +1756,9 @@ section{
     line-height:1.7;
 }
 
-/* =========================
+/* =====================================================
    NOTIFICACIÓN
-========================= */
+===================================================== */
 
 .notification{
     position:fixed;
@@ -1985,9 +1879,9 @@ section{
     color:#fff;
 }
 
-/* =========================
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
 .modal{
     position:fixed;
@@ -2022,7 +1916,10 @@ section{
 .modal-content{
     position:relative;
 
-    width:min(600px,100%);
+    width:min(
+        600px,
+        100%
+    );
 
     padding:40px;
 
@@ -2087,9 +1984,13 @@ section{
     cursor:pointer;
 }
 
-/* =========================
+.modal-close:hover{
+    color:white;
+}
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     padding:45px 20px;
@@ -2108,9 +2009,9 @@ footer strong{
     color:#ff6500;
 }
 
-/* =========================
-   TOP
-========================= */
+/* =====================================================
+   BOTÓN TOP
+===================================================== */
 
 #top{
     position:fixed;
@@ -2156,9 +2057,9 @@ footer strong{
     transform:translateY(0);
 }
 
-/* =========================
+/* =====================================================
    RESPONSIVE
-========================= */
+===================================================== */
 
 @media(max-width:1050px){
 
@@ -2288,6 +2189,7 @@ footer strong{
     *,
     *::before,
     *::after{
+
         animation-duration:.01ms!important;
 
         animation-iteration-count:1!important;
@@ -2301,31 +2203,11 @@ footer strong{
 </style>
 </head>
 
-<body class="loading">
+<body>
 
-<!-- =========================
-     LOADER
-========================= -->
-
-<div id="loader">
-
-    <img
-        class="loader-logo"
-        src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
-        alt="Netherrealm"
-    >
-
-    <div class="loader-title">
-        NETHERREALM
-    </div>
-
-    <div class="loader-line"></div>
-
-</div>
-
-<!-- =========================
+<!-- =====================================================
      FONDO
-========================= -->
+===================================================== -->
 
 <div class="bg">
     <div class="lava"></div>
@@ -2337,9 +2219,9 @@ footer strong{
 
 <div id="particles"></div>
 
-<!-- =========================
+<!-- =====================================================
      NAV
-========================= -->
+===================================================== -->
 
 <nav class="nav" id="nav">
 
@@ -2357,13 +2239,17 @@ footer strong{
 <div class="links">
 
     <a href="#discord">DISCORD</a>
+
     <a href="#games">JUEGOS</a>
+
     <a href="#minecraft">MINECRAFT</a>
+
     <a href="#roblox">ROBLOX</a>
+
     <a href="#events">EVENTOS</a>
 
     <button
-        class="join btn"
+        class="join"
         id="searchToggle"
         type="button"
         aria-label="Abrir buscador"
@@ -2375,7 +2261,7 @@ footer strong{
         class="join"
         href="https://discord.gg/eY5yMRek3b"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
     >
         ENTRAR
     </a>
@@ -2384,11 +2270,14 @@ footer strong{
 
 </nav>
 
-<!-- =========================
+<!-- =====================================================
      BUSCADOR
-========================= -->
+===================================================== -->
 
-<div class="search-wrap" id="searchWrap">
+<div
+    class="search-wrap"
+    id="searchWrap"
+>
 
     <div class="search-box">
 
@@ -2410,9 +2299,9 @@ footer strong{
 
 </div>
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <header class="hero">
 
@@ -2448,7 +2337,7 @@ footer strong{
             class="btn primary"
             href="https://discord.gg/eY5yMRek3b"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             🔥 ENTRAR AL DISCORD
         </a>
@@ -2466,9 +2355,9 @@ footer strong{
 
 </header>
 
-<!-- =========================
+<!-- =====================================================
      ANUNCIO
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -2508,9 +2397,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      DISCORD
-========================= -->
+===================================================== -->
 
 <section id="discord">
 
@@ -2525,8 +2414,8 @@ footer strong{
     </h2>
 
     <p>
-        Datos obtenidos desde la conexión
-        configurada de Netherrealm.
+        Datos obtenidos directamente desde
+        Netherrealm.
     </p>
 
 </div>
@@ -2567,7 +2456,7 @@ footer strong{
             class="btn primary"
             href="https://discord.gg/eY5yMRek3b"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             UNIRSE
         </a>
@@ -2652,9 +2541,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      JUEGOS
-========================= -->
+===================================================== -->
 
 <section id="games">
 
@@ -2747,9 +2636,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      MINECRAFT
-========================= -->
+===================================================== -->
 
 <section id="minecraft">
 
@@ -2789,7 +2678,7 @@ footer strong{
             class="btn secondary"
             href="https://discord.gg/eY5yMRek3b"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             ⛏️ BUSCAR JUGADORES
         </a>
@@ -2860,9 +2749,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      ROBLOX
-========================= -->
+===================================================== -->
 
 <section id="roblox">
 
@@ -2908,7 +2797,7 @@ footer strong{
         class="btn primary"
         href="https://discord.gg/eY5yMRek3b"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
     >
         🎮 ENCONTRAR JUGADORES
     </a>
@@ -2917,9 +2806,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      STAFF
-========================= -->
+===================================================== -->
 
 <section id="staff">
 
@@ -3045,9 +2934,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      EVENTOS
-========================= -->
+===================================================== -->
 
 <section id="events">
 
@@ -3134,9 +3023,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      REDES
-========================= -->
+===================================================== -->
 
 <section id="social">
 
@@ -3161,7 +3050,7 @@ footer strong{
     class="social-card reveal"
     href="https://www.tiktok.com/@holanosoyyo514"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
 >
 
     <div class="social-icon">
@@ -3188,9 +3077,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      CTA
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -3211,7 +3100,7 @@ footer strong{
             class="btn primary"
             href="https://discord.gg/eY5yMRek3b"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             🔥 ENTRAR AL NETHERREALM
         </a>
@@ -3220,7 +3109,7 @@ footer strong{
             class="btn secondary"
             href="https://www.tiktok.com/@holanosoyyo514"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             🎵 TIKTOK
         </a>
@@ -3231,9 +3120,9 @@ footer strong{
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -3247,20 +3136,21 @@ footer strong{
 
 </footer>
 
-<!-- =========================
-     BOTÓN TOP
-========================= -->
+<!-- =====================================================
+     BOTÓN ARRIBA
+===================================================== -->
 
 <button
     id="top"
     type="button"
+    aria-label="Volver arriba"
 >
     ↑
 </button>
 
-<!-- =========================
+<!-- =====================================================
      NOTIFICACIÓN
-========================= -->
+===================================================== -->
 
 <div
     class="notification"
@@ -3319,9 +3209,9 @@ footer strong{
 
 </div>
 
-<!-- =========================
+<!-- =====================================================
      MODAL
-========================= -->
+===================================================== -->
 
 <div
     class="modal"
@@ -3363,7 +3253,7 @@ footer strong{
                 class="btn primary"
                 href="https://discord.gg/eY5yMRek3b"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
             >
                 🔥 IR AL DISCORD
             </a>
@@ -3384,9 +3274,9 @@ footer strong{
 
 <script>
 
-/* =========================
+/* =====================================================
    CONFIGURACIÓN
-========================= */
+===================================================== */
 
 const API =
     "https://autumn-breeze-3304.dhilandominguez530.workers.dev";
@@ -3397,39 +3287,14 @@ const DISCORD =
 const TIKTOK =
     "https://www.tiktok.com/@holanosoyyo514";
 
-/* =========================
-   LOADER
-========================= */
-
-window.addEventListener(
-    "load",
-    () => {
-
-        setTimeout(
-            () => {
-
-                document
-                    .getElementById("loader")
-                    .classList.add("hide");
-
-                document.body
-                    .classList.remove("loading");
-
-            },
-            700
-        );
-
-    }
-);
-
-/* =========================
+/* =====================================================
    PARTÍCULAS
-========================= */
+===================================================== */
 
 const particles =
     document.getElementById("particles");
 
-for(let i = 0; i < 100; i++){
+for(let i = 0; i < 80; i++){
 
     const particle =
         document.createElement("span");
@@ -3460,9 +3325,9 @@ for(let i = 0; i < 100; i++){
     );
 }
 
-/* =========================
+/* =====================================================
    DISCORD
-========================= */
+===================================================== */
 
 async function loadDiscord(){
 
@@ -3482,7 +3347,6 @@ async function loadDiscord(){
                 "HTTP " +
                 response.status
             );
-
         }
 
         const data =
@@ -3526,7 +3390,6 @@ async function loadDiscord(){
             "● DISCORD CONECTADO";
 
     }
-
     catch(error){
 
         console.error(
@@ -3538,14 +3401,12 @@ async function loadDiscord(){
             "connection"
         ).textContent =
             "● SIN CONEXIÓN";
-
     }
-
 }
 
-/* =========================
+/* =====================================================
    STAFF
-========================= */
+===================================================== */
 
 async function loadStaff(){
 
@@ -3577,7 +3438,6 @@ async function loadStaff(){
                 "HTTP " +
                 response.status
             );
-
         }
 
         const data =
@@ -3590,7 +3450,6 @@ async function loadStaff(){
             throw new Error(
                 "Staff no disponible"
             );
-
         }
 
         data.staff.forEach(
@@ -3632,7 +3491,6 @@ async function loadStaff(){
 
                     avatar.src =
                         member.avatar;
-
                 }
 
                 const displayName =
@@ -3652,14 +3510,12 @@ async function loadStaff(){
 
                     name.textContent =
                         displayName;
-
                 }
 
                 if(member.role){
 
                     role.textContent =
                         member.role;
-
                 }
 
                 if(
@@ -3670,13 +3526,11 @@ async function loadStaff(){
                     username.textContent =
                         "@" +
                         member.username;
-
                 }
                 else{
 
                     username.textContent =
                         "";
-
                 }
 
                 status.className =
@@ -3695,12 +3549,10 @@ async function loadStaff(){
                     },
                     index * 120
                 );
-
             }
         );
 
     }
-
     catch(error){
 
         console.error(
@@ -3732,17 +3584,14 @@ async function loadStaff(){
                     },
                     index * 120
                 );
-
             }
         );
-
     }
-
 }
 
-/* =========================
+/* =====================================================
    CARGA INICIAL
-========================= */
+===================================================== */
 
 loadDiscord();
 loadStaff();
@@ -3757,9 +3606,9 @@ setInterval(
     60000
 );
 
-/* =========================
+/* =====================================================
    REVEAL
-========================= */
+===================================================== */
 
 const observer =
     new IntersectionObserver(
@@ -3779,7 +3628,6 @@ const observer =
                         observer.unobserve(
                             entry.target
                         );
-
                     }
 
                 }
@@ -3802,9 +3650,9 @@ document
             )
     );
 
-/* =========================
+/* =====================================================
    NAV + TOP
-========================= */
+===================================================== */
 
 const nav =
     document.getElementById(
@@ -3842,9 +3690,11 @@ window.addEventListener(
             topButton.classList.remove(
                 "show"
             );
-
         }
 
+    },
+    {
+        passive:true
     }
 );
 
@@ -3860,9 +3710,9 @@ topButton.addEventListener(
     }
 );
 
-/* =========================
+/* =====================================================
    BUSCADOR
-========================= */
+===================================================== */
 
 const searchToggle =
     document.getElementById(
@@ -3894,7 +3744,7 @@ const searchableSections = [
     },
 
     {
-        title:"Juegos",
+        title:"Juegos de la comunidad",
         description:
             "Minecraft, Roblox y próximos juegos",
         target:"#games"
@@ -3924,7 +3774,7 @@ const searchableSections = [
     {
         title:"Eventos",
         description:
-            "Eventos y dinámicas",
+            "Eventos y dinámicas de la comunidad",
         target:"#events"
     },
 
@@ -3969,7 +3819,11 @@ function renderSearchResults(
     if(!results.length){
 
         searchResults.innerHTML =
-            '<div class="no-result">No se encontraron resultados.</div>';
+            `
+            <div class="no-result">
+                No se encontraron resultados.
+            </div>
+            `;
 
         return;
     }
@@ -3978,12 +3832,10 @@ function renderSearchResults(
         results
             .map(
                 item => `
-
                     <a
                         class="search-result"
                         href="${item.target}"
                     >
-
                         <strong>
                             ${item.title}
                         </strong>
@@ -3991,9 +3843,7 @@ function renderSearchResults(
                         <small>
                             ${item.description}
                         </small>
-
                     </a>
-
                 `
             )
             .join("");
@@ -4018,18 +3868,17 @@ function renderSearchResults(
 
                         searchResults.innerHTML =
                             "";
-
                     }
                 );
-
             }
         );
-
 }
 
 searchToggle.addEventListener(
     "click",
-    () => {
+    event => {
+
+        event.stopPropagation();
 
         searchWrap.classList.toggle(
             "open"
@@ -4046,9 +3895,7 @@ searchToggle.addEventListener(
                     searchInput.focus(),
                 100
             );
-
         }
-
     }
 );
 
@@ -4059,7 +3906,6 @@ searchInput.addEventListener(
         renderSearchResults(
             searchInput.value
         );
-
     }
 );
 
@@ -4077,15 +3923,13 @@ document.addEventListener(
             searchWrap.classList.remove(
                 "open"
             );
-
         }
-
     }
 );
 
-/* =========================
-   MODAL EVENTO
-========================= */
+/* =====================================================
+   MODAL
+===================================================== */
 
 const eventModal =
     document.getElementById(
@@ -4111,7 +3955,6 @@ function openEventModal(){
     document.body.classList.add(
         "modal-open"
     );
-
 }
 
 function closeEventModal(){
@@ -4123,7 +3966,6 @@ function closeEventModal(){
     document.body.classList.remove(
         "modal-open"
     );
-
 }
 
 document
@@ -4154,15 +3996,30 @@ eventModal.addEventListener(
         ){
 
             closeEventModal();
-
         }
-
     }
 );
 
-/* =========================
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeEventModal();
+
+            searchWrap.classList.remove(
+                "open"
+            );
+        }
+    }
+);
+
+/* =====================================================
    NOTIFICACIÓN
-========================= */
+===================================================== */
 
 const notification =
     document.getElementById(
@@ -4189,7 +4046,6 @@ function showNotification(){
     notification.classList.add(
         "show"
     );
-
 }
 
 function hideNotification(){
@@ -4197,7 +4053,6 @@ function hideNotification(){
     notification.classList.remove(
         "show"
     );
-
 }
 
 notificationClose.addEventListener(
@@ -4217,40 +4072,24 @@ notificationEvent.addEventListener(
         hideNotification();
 
         openEventModal();
-
     }
 );
 
-/* =========================
-   ESCAPE
-========================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if(
-            event.key === "Escape"
-        ){
-
-            closeEventModal();
-
-            searchWrap.classList.remove(
-                "open"
-            );
-
-        }
-
-    }
-);
-
-/* =========================
-   NOTIFICACIÓN AUTOMÁTICA
-========================= */
+/* =====================================================
+   MOSTRAR NOTIFICACIÓN
+===================================================== */
 
 setTimeout(
     showNotification,
-    3500
+    2500
+);
+
+/* =====================================================
+   V17 - CONFIRMACIÓN DEL FAVICON
+===================================================== */
+
+console.log(
+    "🔥 Netherrealm V17 cargado correctamente."
 );
 
 </script>
