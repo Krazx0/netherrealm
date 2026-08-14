@@ -1,547 +1,743 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NETHERREALM | Servidor Oficial</title>
+<title>NETHERREALM | Comunidad Oficial</title>
 
-    <meta name="description" content="Bienvenido a Netherrealm. Un servidor donde comienza el caos.">
+<meta name="description" content="Netherrealm — comunidad de Discord, eventos y Minecraft.">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080000;
-            color: white;
-            overflow-x: hidden;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050000;
+    color:#fff;
+    overflow-x:hidden;
+}
 
-        /* ===== FONDO ===== */
+/* =========================
+   FONDO
+========================= */
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -3;
-            background:
-                radial-gradient(circle at 50% 100%, rgba(255, 70, 0, 0.25), transparent 40%),
-                radial-gradient(circle at 20% 20%, rgba(180, 0, 0, 0.18), transparent 35%),
-                linear-gradient(180deg, #050000 0%, #160000 50%, #090000 100%);
-        }
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+        radial-gradient(circle at 50% 100%,rgba(255,70,0,.22),transparent 35%),
+        radial-gradient(circle at 10% 30%,rgba(180,0,0,.15),transparent 35%),
+        linear-gradient(180deg,#020000,#130000 50%,#050000);
+}
 
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            opacity: 0.25;
-            background-image:
-                radial-gradient(circle, #ff4500 1px, transparent 1px);
-            background-size: 45px 45px;
-            animation: particles 12s linear infinite;
-        }
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background-image:
+        radial-gradient(circle,rgba(255,90,0,.8) 1px,transparent 2px);
+    background-size:55px 55px;
+    opacity:.18;
+    animation:embers 15s linear infinite;
+}
 
-        @keyframes particles {
-            from {
-                transform: translateY(0);
-            }
+@keyframes embers{
+    from{transform:translateY(0);}
+    to{transform:translateY(-180px);}
+}
 
-            to {
-                transform: translateY(-120px);
-            }
-        }
+/* humo */
 
-        /* ===== BARRA ===== */
+.smoke{
+    position:fixed;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(255,40,0,.05);
+    filter:blur(90px);
+    z-index:-3;
+    animation:smoke 8s ease-in-out infinite alternate;
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(5, 0, 0, 0.75);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 69, 0, 0.2);
-        }
+.smoke.one{
+    left:-200px;
+    bottom:-200px;
+}
 
-        .nav-logo {
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: #ff5a00;
-            text-shadow:
-                0 0 10px #ff4500,
-                0 0 25px #ff2200;
-        }
+.smoke.two{
+    right:-250px;
+    top:20%;
+    animation-delay:2s;
+}
 
-        .nav-link {
-            color: #ddd;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+@keyframes smoke{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(60px,-40px) scale(1.2);}
+}
 
-        .nav-link:hover {
-            color: #ff5a00;
-            text-shadow: 0 0 12px #ff4500;
-        }
+/* =========================
+   NAVBAR
+========================= */
 
-        /* ===== HERO ===== */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    background:rgba(3,0,0,.72);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,70,0,.2);
+}
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-        }
+.logo{
+    font-size:22px;
+    font-weight:1000;
+    letter-spacing:4px;
+    color:#ff6200;
+    text-shadow:0 0 12px #ff4500,0 0 30px #ff2200;
+}
 
-        .hero-content {
-            max-width: 900px;
-        }
+.nav-links{
+    display:flex;
+    gap:25px;
+}
 
-        .small-title {
-            color: #ff6500;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            animation: fadeUp 1s ease;
-        }
+.nav-links a{
+    color:#ccc;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+}
 
-        .hero h1 {
-            font-size: clamp(55px, 11vw, 130px);
-            font-weight: 1000;
-            letter-spacing: 8px;
-            line-height: 0.9;
-            color: #fff;
-            text-shadow:
-                0 0 5px #fff,
-                0 0 15px #ff6500,
-                0 0 35px #ff4500,
-                0 0 70px #ff2200;
-            animation: titleGlow 2s infinite alternate;
-        }
+.nav-links a:hover{
+    color:#ff6500;
+    text-shadow:0 0 12px #ff4500;
+}
 
-        @keyframes titleGlow {
-            from {
-                text-shadow:
-                    0 0 5px #fff,
-                    0 0 15px #ff6500,
-                    0 0 35px #ff4500;
-            }
+/* =========================
+   HERO
+========================= */
 
-            to {
-                text-shadow:
-                    0 0 8px #fff,
-                    0 0 25px #ff8500,
-                    0 0 55px #ff4500,
-                    0 0 90px #ff1500;
-            }
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:130px 20px 80px;
+}
 
-        .hero p {
-            margin: 30px auto;
-            max-width: 650px;
-            color: #cfcfcf;
-            font-size: 18px;
-            line-height: 1.7;
-        }
+.hero-content{
+    max-width:1000px;
+}
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+.badge{
+    display:inline-block;
+    padding:9px 18px;
+    border:1px solid rgba(255,90,0,.5);
+    border-radius:50px;
+    background:rgba(255,50,0,.07);
+    color:#ff7200;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:25px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            transition: 0.3s;
-        }
+.hero h1{
+    font-size:clamp(60px,12vw,145px);
+    line-height:.85;
+    letter-spacing:8px;
+    font-weight:1000;
+    color:#fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff8500,
+        0 0 35px #ff4500,
+        0 0 80px #ff1800;
+    animation:fireGlow 2s infinite alternate;
+}
 
-        .btn-discord {
-            background: linear-gradient(135deg, #ff6500, #ff2600);
-            color: white;
-            box-shadow:
-                0 0 15px rgba(255, 69, 0, 0.5),
-                0 0 40px rgba(255, 40, 0, 0.2);
-        }
+@keyframes fireGlow{
+    from{
+        text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff8500,
+        0 0 35px #ff4500;
+    }
+    to{
+        text-shadow:
+        0 0 8px #fff,
+        0 0 25px #ffb000,
+        0 0 55px #ff4500,
+        0 0 100px #ff1500;
+    }
+}
 
-        .btn-discord:hover {
-            transform: translateY(-5px) scale(1.04);
-            box-shadow:
-                0 0 25px rgba(255, 90, 0, 0.8),
-                0 0 60px rgba(255, 40, 0, 0.5);
-        }
+.hero h2{
+    margin-top:25px;
+    color:#ff6500;
+    font-size:20px;
+    letter-spacing:4px;
+}
 
-        .btn-secondary {
-            border: 1px solid #ff4d00;
-            color: #ff6500;
-            background: rgba(255, 60, 0, 0.05);
-        }
+.hero p{
+    max-width:680px;
+    margin:25px auto;
+    color:#aaa;
+    font-size:18px;
+    line-height:1.7;
+}
 
-        .btn-secondary:hover {
-            background: rgba(255, 60, 0, 0.15);
-            transform: translateY(-5px);
-        }
+.buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:35px;
+}
 
-        /* ===== SECCIONES ===== */
+.btn{
+    display:inline-block;
+    padding:16px 30px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:900;
+    transition:.3s;
+}
 
-        section {
-            padding: 100px 7%;
-        }
+.primary{
+    color:#fff;
+    background:linear-gradient(135deg,#ff7600,#ff2100);
+    box-shadow:0 0 20px rgba(255,70,0,.4);
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
+.primary:hover{
+    transform:translateY(-5px) scale(1.04);
+    box-shadow:0 0 35px rgba(255,70,0,.7);
+}
 
-        .section-title h2 {
-            font-size: 42px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
-        }
+.secondary{
+    color:#ff6500;
+    border:1px solid #ff5000;
+    background:rgba(255,50,0,.05);
+}
 
-        .section-title p {
-            margin-top: 12px;
-            color: #999;
-        }
+.secondary:hover{
+    transform:translateY(-5px);
+    background:rgba(255,60,0,.13);
+}
 
-        /* ===== CARDS ===== */
+/* =========================
+   SECCIONES
+========================= */
 
-        .cards {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
+section{
+    padding:100px 7%;
+}
 
-        .card {
-            padding: 35px 25px;
-            border-radius: 15px;
-            background: linear-gradient(
-                145deg,
-                rgba(40, 5, 0, 0.8),
-                rgba(15, 2, 0, 0.9)
-            );
-            border: 1px solid rgba(255, 69, 0, 0.2);
-            transition: 0.35s;
-            position: relative;
-            overflow: hidden;
-        }
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
 
-        .card::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            top: 0;
-            left: -100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #ff6500,
-                transparent
-            );
-            transition: 0.5s;
-        }
+.section-title span{
+    color:#ff6500;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:bold;
+}
 
-        .card:hover::before {
-            left: 100%;
-        }
+.section-title h2{
+    font-size:43px;
+    margin-top:10px;
+    text-shadow:0 0 25px rgba(255,70,0,.5);
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 90, 0, 0.7);
-            box-shadow: 0 15px 40px rgba(255, 50, 0, 0.15);
-        }
+.section-title p{
+    color:#888;
+    margin-top:12px;
+}
 
-        .card-icon {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+/* =========================
+   STATS
+========================= */
 
-        .card h3 {
-            font-size: 21px;
-            margin-bottom: 12px;
-            color: #ff6500;
-        }
+.stats{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
 
-        .card p {
-            color: #aaa;
-            line-height: 1.6;
-        }
+.stat{
+    text-align:center;
+    padding:30px 15px;
+    border-radius:15px;
+    background:rgba(25,3,0,.7);
+    border:1px solid rgba(255,70,0,.18);
+}
 
-        /* ===== DISCORD ===== */
+.stat-icon{
+    font-size:30px;
+}
 
-        .discord-section {
-            text-align: center;
-        }
+.stat-number{
+    display:block;
+    margin-top:12px;
+    font-size:30px;
+    font-weight:1000;
+    color:#ff6500;
+}
 
-        .discord-box {
-            max-width: 850px;
-            margin: auto;
-            padding: 60px 30px;
-            border-radius: 20px;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255, 69, 0, 0.18),
-                    transparent 65%
-                ),
-                rgba(20, 2, 0, 0.8);
-            border: 1px solid rgba(255, 69, 0, 0.35);
-            box-shadow: 0 0 60px rgba(255, 40, 0, 0.1);
-        }
+.stat-name{
+    color:#888;
+    font-size:13px;
+    margin-top:5px;
+}
 
-        .discord-box h2 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+/* =========================
+   CARDS
+========================= */
 
-        .discord-box p {
-            color: #aaa;
-            margin-bottom: 30px;
-        }
+.cards{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
 
-        /* ===== FOOTER ===== */
+.card{
+    padding:35px 25px;
+    border-radius:17px;
+    background:
+        linear-gradient(145deg,rgba(40,5,0,.82),rgba(10,1,0,.9));
+    border:1px solid rgba(255,70,0,.18);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
 
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            border-top: 1px solid rgba(255, 69, 0, 0.15);
-            color: #666;
-            font-size: 14px;
-        }
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,90,0,.65);
+    box-shadow:0 20px 50px rgba(255,40,0,.12);
+}
 
-        footer strong {
-            color: #ff5a00;
-        }
+.card-icon{
+    font-size:43px;
+    margin-bottom:18px;
+}
 
-        /* ===== ANIMACIÓN ===== */
+.card h3{
+    color:#ff6500;
+    font-size:21px;
+    margin-bottom:12px;
+}
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
+.card p{
+    color:#999;
+    line-height:1.6;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* =========================
+   DISCORD
+========================= */
 
-        /* ===== RESPONSIVE ===== */
+.discord{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:70px 30px;
+    border-radius:25px;
+    border:1px solid rgba(255,70,0,.3);
+    background:
+        radial-gradient(circle,rgba(255,60,0,.16),transparent 65%),
+        rgba(20,2,0,.75);
+    box-shadow:0 0 70px rgba(255,40,0,.08);
+}
 
-        @media (max-width: 800px) {
+.discord h2{
+    font-size:40px;
+}
 
-            nav {
-                padding: 18px 5%;
-            }
+.discord p{
+    color:#999;
+    margin:15px auto 30px;
+    max-width:600px;
+    line-height:1.6;
+}
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
+/* =========================
+   FOOTER
+========================= */
 
-            section {
-                padding: 75px 5%;
-            }
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#555;
+    border-top:1px solid rgba(255,70,0,.15);
+}
 
-            .hero h1 {
-                letter-spacing: 3px;
-            }
+footer strong{
+    color:#ff6500;
+}
 
-            .section-title h2 {
-                font-size: 32px;
-            }
-        }
-    </style>
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+    .hero h1{
+        letter-spacing:3px;
+    }
+}
+
+@media(max-width:500px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:15px;
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVEGACIÓN -->
+<div class="smoke one"></div>
+<div class="smoke two"></div>
 
-    <nav>
-        <div class="nav-logo">NETHERREALM</div>
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        NETHERREALM
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#comunidad">COMUNIDAD</a>
+        <a href="#minecraft">MINECRAFT</a>
+        <a href="#discord">DISCORD</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-content">
+
+    <div class="badge">
+        🔥 COMUNIDAD OFICIAL
+    </div>
+
+    <h1>NETHERREALM</h1>
+
+    <h2>DONDE COMIENZA EL CAOS</h2>
+
+    <p>
+        Bienvenido a Netherrealm.
+        Una comunidad de Discord para conocer gente,
+        participar en eventos y compartir nuestra pasión por los juegos.
+    </p>
+
+    <div class="buttons">
 
         <a
-            class="nav-link"
+            class="btn primary"
             href="https://discord.gg/eY5yMRek3b"
             target="_blank"
         >
-            DISCORD
+            💬 UNIRSE AL DISCORD
         </a>
-    </nav>
+
+        <a
+            class="btn secondary"
+            href="#comunidad"
+        >
+            🔥 EXPLORAR
+        </a>
+
+    </div>
+
+</div>
+
+</header>
 
 
-    <!-- HERO -->
+<!-- STATS -->
 
-    <header class="hero">
+<section id="comunidad">
 
-        <div class="hero-content">
+<div class="section-title">
 
-            <div class="small-title">
-                Bienvenido al reino del caos
-            </div>
+    <span>NETHERREALM</span>
 
-            <h1>NETHERREALM</h1>
+    <h2>NUESTRA COMUNIDAD</h2>
 
-            <p>
-                Un servidor creado para quienes buscan una comunidad,
-                diversión y momentos que recordar.
-                Entra al Netherrealm y descubre lo que hay más allá.
-            </p>
+    <p>
+        Una comunidad que sigue creciendo.
+    </p>
 
-            <div class="buttons">
+</div>
 
-                <a
-                    class="btn btn-discord"
-                    href="https://discord.gg/eY5yMRek3b"
-                    target="_blank"
-                >
-                    🔥 UNIRSE AL DISCORD
-                </a>
+<div class="stats">
 
-                <a
-                    class="btn btn-secondary"
-                    href="#features"
-                >
-                    EXPLORAR
-                </a>
+    <div class="stat">
 
-            </div>
+        <div class="stat-icon">👥</div>
 
-        </div>
+        <span class="stat-number">600+</span>
 
-    </header>
+        <span class="stat-name">MIEMBROS</span>
 
+    </div>
 
-    <!-- CARACTERÍSTICAS -->
+    <div class="stat">
 
-    <section id="features">
+        <div class="stat-icon">💬</div>
 
-        <div class="section-title">
+        <span class="stat-number">24/7</span>
 
-            <h2>¿Qué encontrarás?</h2>
+        <span class="stat-name">COMUNIDAD</span>
 
-            <p>
-                Todo comienza cuando cruzas las puertas del Netherrealm.
-            </p>
+    </div>
 
-        </div>
+    <div class="stat">
 
+        <div class="stat-icon">🔥</div>
 
-        <div class="cards">
+        <span class="stat-number">EVENTOS</span>
 
-            <div class="card">
+        <span class="stat-name">DINÁMICAS</span>
 
-                <div class="card-icon">🔥</div>
+    </div>
 
-                <h3>Comunidad</h3>
+    <div class="stat">
 
-                <p>
-                    Conoce nuevos jugadores, haz amigos y forma parte
-                    de una comunidad activa.
-                </p>
+        <div class="stat-icon">⚔️</div>
 
-            </div>
+        <span class="stat-number">∞</span>
+
+        <span class="stat-name">AVENTURAS</span>
+
+    </div>
+
+</div>
+
+</section>
 
 
-            <div class="card">
+<!-- CARACTERÍSTICAS -->
 
-                <div class="card-icon">⚔️</div>
+<section>
 
-                <h3>Eventos</h3>
+<div class="section-title">
 
-                <p>
-                    Participa en eventos y dinámicas especiales
-                    organizadas dentro del servidor.
-                </p>
+    <span>¿QUÉ HACEMOS?</span>
 
-            </div>
+    <h2>ENTRA AL NETHER</h2>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-icon">💬</div>
+
+        <h3>Discord</h3>
+
+        <p>
+            Nuestro punto principal de encuentro.
+            Habla, conoce personas y disfruta de la comunidad.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">🎉</div>
+
+        <h3>Eventos</h3>
+
+        <p>
+            Participa en dinámicas, actividades y eventos
+            organizados para la comunidad.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">🔥</div>
+
+        <h3>Comunidad</h3>
+
+        <p>
+            Un espacio para compartir juegos, memes,
+            conversaciones y buenos momentos.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
 
 
-            <div class="card">
+<!-- MINECRAFT -->
 
-                <div class="card-icon">💀</div>
+<section id="minecraft">
 
-                <h3>El Nether</h3>
+<div class="section-title">
 
-                <p>
-                    Un ambiente oscuro, intenso y lleno de sorpresas.
-                    Aquí nada es completamente normal.
-                </p>
+    <span>GAMING</span>
 
-            </div>
+    <h2>⛏️ MINECRAFT</h2>
 
-        </div>
+    <p>
+        Algunos miembros de Netherrealm también disfrutan de Minecraft.
+    </p>
 
-    </section>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-icon">⛏️</div>
+
+        <h3>Supervivencia</h3>
+
+        <p>
+            Construye, explora y sobrevive junto a otros miembros
+            de la comunidad.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">🌎</div>
+
+        <h3>Exploración</h3>
+
+        <p>
+            Aventúrate por nuevos mundos y descubre lugares
+            junto a tus amigos.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-icon">⚔️</div>
+
+        <h3>Gaming</h3>
+
+        <p>
+            Minecraft es solo una parte de Netherrealm.
+            Comparte tus juegos favoritos con la comunidad.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
 
 
-    <!-- DISCORD -->
+<!-- DISCORD -->
 
-    <section class="discord-section">
+<section id="discord">
 
-        <div class="discord-box">
+<div class="discord">
 
-            <h2>¿TE ATREVES A ENTRAR?</h2>
+    <h2>🔥 ¿TE ATREVES A ENTRAR?</h2>
 
-            <p>
-                Las puertas del Netherrealm están abiertas.
-                Únete a nuestra comunidad de Discord.
-            </p>
+    <p>
+        Las puertas del Netherrealm están abiertas.
+        Únete al Discord y forma parte de nuestra comunidad.
+    </p>
 
-            <a
-                class="btn btn-discord"
-                href="https://discord.gg/eY5yMRek3b"
-                target="_blank"
-            >
-                💬 ENTRAR AL DISCORD
-            </a>
+    <a
+        class="btn primary"
+        href="https://discord.gg/eY5yMRek3b"
+        target="_blank"
+    >
+        💬 ENTRAR AL DISCORD
+    </a>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
 
-    <!-- FOOTER -->
+<!-- FOOTER -->
 
-    <footer>
+<footer>
 
-        © 2026
-        <strong>NETHERREALM</strong>
-        — Todos los derechos reservados.
+    © 2026 <strong>NETHERREALM</strong>
 
-    </footer>
+    <br><br>
 
+    Comunidad oficial de Discord.
+
+</footer>
 
 </body>
 </html>
+```
