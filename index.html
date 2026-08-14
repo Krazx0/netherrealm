@@ -1,76 +1,92 @@
+```html
 <!DOCTYPE html>
-
 <html lang="es">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦 | Comunidad Oficial</title>
-<meta name="description" content="Netherrealm — Comunidad de Discord, Minecraft y gaming.">
+
+<meta
+name="description"
+content="Netherrealm — Comunidad de Discord, Minecraft y gaming."
+>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     background:#030000;
-    color:#fff;
+    color:white;
     font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-a{color:inherit;text-decoration:none}
-
-body::selection{
-    background:#ff4d00;
-    color:#fff;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-/* BACKGROUND */
 .bg{
     position:fixed;
     inset:0;
     z-index:-20;
-    background:
-        radial-gradient(circle at 50% 100%,rgba(255,65,0,.27),transparent 40%),
-        radial-gradient(circle at 10% 15%,rgba(180,0,0,.16),transparent 30%),
-        linear-gradient(180deg,#010000,#090000 55%,#160200);
-}
 
-.bg::before{
-    content:"";
-    position:absolute;
-    inset:0;
     background:
-        radial-gradient(circle at 50% 110%,rgba(255,90,0,.16),transparent 25%),
-        linear-gradient(90deg,transparent 48%,rgba(255,70,0,.025) 50%,transparent 52%);
-    animation:hellPulse 5s ease-in-out infinite alternate;
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,65,0,.25),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(180,0,0,.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #010000,
+            #090000 55%,
+            #160200
+        );
 }
 
 .bg::after{
     content:"";
     position:absolute;
     inset:-20%;
-    background:repeating-linear-gradient(
-        120deg,
-        transparent 0 90px,
-        rgba(255,60,0,.025) 91px,
-        transparent 93px
-    );
+
+    background:
+        repeating-linear-gradient(
+            120deg,
+            transparent 0 90px,
+            rgba(255,60,0,.025) 91px,
+            transparent 93px
+        );
+
     animation:backgroundMove 20s linear infinite;
 }
 
 @keyframes backgroundMove{
-    from{transform:translateY(0)}
-    to{transform:translateY(180px)}
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(180px);
+    }
 }
 
-@keyframes hellPulse{
-    from{opacity:.45}
-    to{opacity:1}
-}
-
-/* PARTICLES */
 #particles{
     position:fixed;
     inset:0;
@@ -84,61 +100,95 @@ body::selection{
     height:3px;
     border-radius:50%;
     background:#ff6500;
-    box-shadow:0 0 8px #ff4500,0 0 15px #ff2200;
+
+    box-shadow:
+        0 0 8px #ff4500,
+        0 0 15px #ff2200;
+
     animation:rise linear infinite;
 }
 
 @keyframes rise{
+
     0%{
         transform:translateY(110vh);
         opacity:0;
     }
-    15%{opacity:.8}
-    80%{opacity:.6}
+
+    15%{
+        opacity:.8;
+    }
+
+    80%{
+        opacity:.6;
+    }
+
     100%{
-        transform:translateY(-10vh) translateX(80px);
+        transform:
+            translateY(-10vh)
+            translateX(80px);
         opacity:0;
     }
 }
 
-/* NAV */
 .nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:74px;
+
     padding:0 6%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     z-index:1000;
+
     background:rgba(3,0,0,.4);
-    border-bottom:1px solid rgba(255,70,0,.12);
+
+    border-bottom:
+        1px solid
+        rgba(255,70,0,.12);
+
     backdrop-filter:blur(18px);
+
     transition:.35s;
 }
 
 .nav.scrolled{
     background:rgba(3,0,0,.94);
-    box-shadow:0 10px 50px rgba(255,50,0,.15);
+
+    box-shadow:
+        0 10px 50px
+        rgba(255,50,0,.12);
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:12px;
+
     font-weight:1000;
     letter-spacing:3px;
+
     color:#ff6500;
 }
 
 .brand img{
     width:40px;
     height:40px;
+
     border-radius:11px;
-    border:2px solid #ff5500;
-    box-shadow:0 0 20px rgba(255,60,0,.5);
+
+    border:
+        2px solid
+        #ff5500;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,60,0,.5);
 }
 
 .links{
@@ -150,30 +200,44 @@ body::selection{
 .links a{
     font-size:10px;
     font-weight:bold;
+
     color:#888;
+
     letter-spacing:1px;
+
     transition:.3s;
 }
 
 .links a:hover{
     color:#ff6500;
-    text-shadow:0 0 15px #ff4500;
+
+    text-shadow:
+        0 0 15px
+        #ff4500;
 }
 
 .join{
     padding:10px 16px;
+
     border-radius:8px;
-    border:1px solid rgba(255,80,0,.5);
+
+    border:
+        1px solid
+        rgba(255,80,0,.5);
+
     color:#ff6500!important;
 }
 
-/* HERO */
 .hero{
     min-height:100vh;
-    padding:130px 20px 100px;
+
+    padding:
+        130px 20px 100px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-align:center;
 }
 
@@ -186,82 +250,139 @@ body::selection{
     display:inline-flex;
     align-items:center;
     gap:8px;
+
     padding:8px 15px;
+
     border-radius:50px;
-    border:1px solid rgba(255,80,0,.25);
-    background:rgba(255,50,0,.04);
+
+    border:
+        1px solid
+        rgba(255,80,0,.25);
+
+    background:
+        rgba(255,50,0,.04);
+
     color:#aaa;
+
     font-size:9px;
     letter-spacing:3px;
-    box-shadow:0 0 30px rgba(255,50,0,.06);
 }
 
 .dot{
     width:7px;
     height:7px;
-    border-radius:50%;
-    background:#42ff68;
-    box-shadow:0 0 12px #42ff68;
-    animation:dotPulse 1.8s infinite;
-}
 
-@keyframes dotPulse{
-    0%,100%{transform:scale(1);opacity:1}
-    50%{transform:scale(1.5);opacity:.65}
+    border-radius:50%;
+
+    background:#42ff68;
+
+    box-shadow:
+        0 0 12px
+        #42ff68;
 }
 
 .hero-icon{
     width:140px;
     height:140px;
+
     margin:30px auto;
+
     display:block;
+
     border-radius:30px;
-    border:3px solid #ff5500;
-    box-shadow:0 0 35px #ff4500,0 0 100px rgba(255,50,0,.3);
-    animation:float 4s ease-in-out infinite,iconGlow 2.5s ease-in-out infinite alternate;
+
+    border:
+        3px solid
+        #ff5500;
+
+    box-shadow:
+        0 0 35px #ff4500,
+        0 0 100px rgba(255,50,0,.3);
+
+    animation:
+        float
+        4s
+        ease-in-out
+        infinite;
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-13px)}
-}
 
-@keyframes iconGlow{
-    from{filter:brightness(1)}
-    to{filter:brightness(1.25)}
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-13px);
+    }
 }
 
 .hero h1{
-    font-size:clamp(55px,12vw,145px);
+    font-size:
+        clamp(
+            55px,
+            12vw,
+            145px
+        );
+
     line-height:.82;
+
     letter-spacing:8px;
+
     font-weight:1000;
-    color:#fff;
-    text-shadow:0 0 7px #fff,0 0 25px #ff9d00,0 0 55px #ff4500,0 0 110px #ff1800;
-    animation:titleGlow 2s infinite alternate;
+
+    color:white;
+
+    text-shadow:
+        0 0 7px #fff,
+        0 0 25px #ff9d00,
+        0 0 55px #ff4500,
+        0 0 110px #ff1800;
+
+    animation:
+        titleGlow
+        2s
+        infinite
+        alternate;
 }
 
 @keyframes titleGlow{
+
     from{
-        text-shadow:0 0 7px #fff,0 0 20px #ff9000,0 0 45px #ff4500;
+        text-shadow:
+            0 0 7px #fff,
+            0 0 20px #ff9000,
+            0 0 45px #ff4500;
     }
+
     to{
-        text-shadow:0 0 10px #fff,0 0 35px #ffb000,0 0 75px #ff4500,0 0 130px #ff1500;
+        text-shadow:
+            0 0 10px #fff,
+            0 0 35px #ffb000,
+            0 0 75px #ff4500,
+            0 0 130px #ff1500;
     }
 }
 
 .hero h2{
     margin-top:25px;
+
     color:#ff6500;
+
     font-size:13px;
+
     letter-spacing:6px;
 }
 
 .hero p{
     max-width:650px;
+
     margin:25px auto;
+
     color:#888;
+
     font-size:16px;
+
     line-height:1.7;
 }
 
@@ -269,7 +390,9 @@ body::selection{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
+
     gap:14px;
+
     margin-top:30px;
 }
 
@@ -277,124 +400,193 @@ body::selection{
     display:inline-flex;
     justify-content:center;
     align-items:center;
+
     padding:15px 26px;
+
     border-radius:9px;
+
     font-size:12px;
     font-weight:1000;
+
     transition:.3s;
 }
 
 .primary{
-    background:linear-gradient(135deg,#ff7800,#ff2100);
-    box-shadow:0 0 25px rgba(255,60,0,.4);
+    background:
+        linear-gradient(
+            135deg,
+            #ff7800,
+            #ff2100
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,60,0,.4);
 }
 
 .primary:hover{
-    transform:translateY(-5px) scale(1.04);
-    box-shadow:0 0 60px rgba(255,60,0,.7);
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 0 60px
+        rgba(255,60,0,.7);
 }
 
 .secondary{
     color:#ff6500;
-    border:1px solid #ff5500;
-    background:rgba(255,50,0,.04);
+
+    border:
+        1px solid
+        #ff5500;
+
+    background:
+        rgba(255,50,0,.04);
 }
 
 .secondary:hover{
-    transform:translateY(-5px);
-    background:rgba(255,50,0,.12);
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,50,0,.12);
 }
 
-/* SECTIONS */
-section{padding:110px 7%}
+section{
+    padding:110px 7%;
+}
 
 .head{
     max-width:800px;
-    margin:0 auto 55px;
+
+    margin:
+        0 auto 55px;
+
     text-align:center;
 }
 
 .label{
     color:#ff6500;
+
     font-size:9px;
+
     letter-spacing:5px;
+
     font-weight:bold;
 }
 
 .head h2{
     margin-top:12px;
-    font-size:clamp(32px,5vw,52px);
-    text-shadow:0 0 25px rgba(255,60,0,.35);
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            52px
+        );
+
+    text-shadow:
+        0 0 25px
+        rgba(255,60,0,.35);
 }
 
 .head p{
     margin-top:15px;
+
     color:#777;
+
     line-height:1.7;
 }
 
-/* SCROLL */
 .reveal{
     opacity:0;
-    transform:translateY(55px);
+
+    transform:
+        translateY(55px);
+
     transition:
         opacity .8s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1);
+        transform .8s
+        cubic-bezier(.2,.7,.2,1);
 }
 
-.reveal.left{transform:translateX(-60px)}
-.reveal.right{transform:translateX(60px)}
+.reveal.left{
+    transform:
+        translateX(-60px);
+}
+
+.reveal.right{
+    transform:
+        translateX(60px);
+}
 
 .reveal.show{
     opacity:1;
-    transform:translate(0);
+
+    transform:
+        translate(0);
 }
 
-/* DISCORD */
 .discord{
     max-width:1100px;
-    margin:auto;
-    padding:30px;
-    border-radius:25px;
-    background:linear-gradient(145deg,rgba(40,5,0,.95),rgba(7,1,0,.98));
-    border:1px solid rgba(255,70,0,.2);
-    box-shadow:0 30px 100px rgba(255,40,0,.08);
-    position:relative;
-    overflow:hidden;
-}
 
-.discord::before{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    right:-120px;
-    top:-120px;
-    background:#ff4500;
-    filter:blur(100px);
-    opacity:.08;
-    pointer-events:none;
+    margin:auto;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(40,5,0,.95),
+            rgba(7,1,0,.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,70,0,.2);
+
+    box-shadow:
+        0 30px 100px
+        rgba(255,40,0,.08);
 }
 
 .server{
     display:flex;
     align-items:center;
     gap:20px;
+
     padding-bottom:25px;
-    border-bottom:1px solid rgba(255,70,0,.12);
+
+    border-bottom:
+        1px solid
+        rgba(255,70,0,.12);
 }
 
 .server img{
     width:82px;
     height:82px;
+
     border-radius:20px;
-    border:2px solid #ff5500;
-    box-shadow:0 0 25px rgba(255,50,0,.4);
+
+    border:
+        2px solid
+        #ff5500;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,50,0,.4);
 }
 
-.server-info{flex:1}
+.server-info{
+    flex:1;
+}
 
-.server-info h3{font-size:27px}
+.server-info h3{
+    font-size:27px;
+}
 
 .server-info p{
     margin-top:5px;
@@ -403,416 +595,660 @@ section{padding:110px 7%}
 
 .connection{
     margin-top:10px;
+
     font-size:9px;
+
     color:#42ff68;
+
     font-weight:bold;
 }
 
 .live{
     padding:7px 12px;
+
     border-radius:50px;
+
     color:#42ff68;
-    border:1px solid rgba(40,255,80,.2);
-    background:rgba(40,255,80,.04);
+
+    border:
+        1px solid
+        rgba(40,255,80,.2);
+
+    background:
+        rgba(40,255,80,.04);
+
     font-size:8px;
+
     font-weight:bold;
 }
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:15px;
+
     margin-top:25px;
 }
 
 .stat{
     padding:28px 15px;
+
     text-align:center;
+
     border-radius:17px;
-    background:rgba(20,2,0,.8);
-    border:1px solid rgba(255,70,0,.13);
+
+    background:
+        rgba(20,2,0,.8);
+
+    border:
+        1px solid
+        rgba(255,70,0,.13);
+
     transition:.3s;
 }
 
 .stat:hover{
-    transform:translateY(-8px) scale(1.02);
-    border-color:rgba(255,90,0,.6);
-    box-shadow:0 15px 40px rgba(255,50,0,.1);
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,90,0,.6);
 }
 
-.stat-icon{font-size:28px}
+.stat-icon{
+    font-size:28px;
+}
 
 .number{
     display:block;
+
     margin-top:9px;
+
     color:#ff6500;
+
     font-size:32px;
+
     font-weight:1000;
 }
 
 .stat small{
     display:block;
+
     margin-top:5px;
+
     color:#666;
+
     font-size:8px;
+
     letter-spacing:2px;
 }
 
-/* CARDS */
 .cards{
     max-width:1100px;
+
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:20px;
 }
 
 .card{
     min-height:230px;
-    padding:32px;
-    border-radius:20px;
-    background:linear-gradient(145deg,rgba(38,5,0,.88),rgba(8,1,0,.95));
-    border:1px solid rgba(255,70,0,.15);
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
 
-.card::after{
-    content:"";
-    position:absolute;
-    width:100px;
-    height:100px;
-    right:-50px;
-    bottom:-50px;
-    background:#ff4500;
-    filter:blur(45px);
-    opacity:.1;
+    padding:32px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,5,0,.88),
+            rgba(8,1,0,.95)
+        );
+
+    border:
+        1px solid
+        rgba(255,70,0,.15);
+
+    transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-12px);
-    border-color:rgba(255,80,0,.6);
-    box-shadow:0 30px 70px rgba(255,40,0,.13);
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(255,80,0,.6);
+
+    box-shadow:
+        0 30px 70px
+        rgba(255,40,0,.13);
 }
 
 .card-icon{
     font-size:42px;
+
     margin-bottom:20px;
 }
 
 .card h3{
     color:#ff6500;
+
     margin-bottom:12px;
 }
 
 .card p{
     color:#888;
+
     line-height:1.65;
 }
 
-/* MINECRAFT */
 .minecraft{
     max-width:1100px;
+
     margin:auto;
+
     display:grid;
-    grid-template-columns:1.2fr .8fr;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
     gap:20px;
 }
 
 .mc-main{
     min-height:350px;
+
     padding:45px;
+
     display:flex;
+
     justify-content:center;
+
     flex-direction:column;
+
     border-radius:25px;
-    background:linear-gradient(135deg,rgba(75,9,0,.85),rgba(10,1,0,.98));
-    border:1px solid rgba(255,70,0,.2);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(75,9,0,.85),
+            rgba(10,1,0,.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,70,0,.2);
 }
 
 .mc-main h3{
-    font-size:clamp(35px,5vw,58px);
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            58px
+        );
+
     line-height:1;
 }
 
-.mc-main h3 span{color:#ff6500}
+.mc-main h3 span{
+    color:#ff6500;
+}
 
 .mc-main p{
     max-width:600px;
+
     margin-top:20px;
+
     color:#888;
+
     line-height:1.7;
 }
 
 .mc-main .btn{
     align-self:flex-start;
+
     margin-top:25px;
 }
 
 .mc-boxes{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:15px;
 }
 
 .mc-box{
     padding:28px;
+
     border-radius:18px;
-    background:rgba(25,2,0,.85);
-    border:1px solid rgba(255,70,0,.15);
+
+    background:
+        rgba(25,2,0,.85);
+
+    border:
+        1px solid
+        rgba(255,70,0,.15);
+
     transition:.3s;
 }
 
 .mc-box:hover{
-    transform:translateY(-7px);
-    border-color:rgba(255,80,0,.55);
-    box-shadow:0 15px 45px rgba(255,40,0,.1);
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255,80,0,.55);
 }
 
-.mc-box div{font-size:35px}
+.mc-box div{
+    font-size:35px;
+}
 
 .mc-box h4{
     margin-top:12px;
+
     color:#ff6500;
 }
 
 .mc-box p{
     margin-top:7px;
+
     color:#666;
+
     font-size:12px;
 }
 
 /* STAFF */
+
 .staff-grid{
     max-width:1100px;
+
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:20px;
 }
 
 .staff-card{
     padding:30px 20px;
-    text-align:center;
-    border-radius:22px;
-    background:linear-gradient(145deg,rgba(42,5,0,.95),rgba(8,1,0,.98));
-    border:1px solid rgba(255,70,0,.16);
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
 
-.staff-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:15%;
-    width:70%;
-    height:1px;
-    background:linear-gradient(90deg,transparent,#ff6500,transparent);
-    opacity:.6;
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(42,5,0,.95),
+            rgba(8,1,0,.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,70,0,.16);
+
+    transition:.4s;
 }
 
 .staff-card:hover{
-    transform:translateY(-12px) scale(1.025);
-    border-color:rgba(255,90,0,.65);
-    box-shadow:0 25px 70px rgba(255,50,0,.18);
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    border-color:
+        rgba(255,90,0,.65);
+
+    box-shadow:
+        0 25px 70px
+        rgba(255,50,0,.18);
 }
 
 .staff-avatar{
-    width:110px;
-    height:110px;
-    margin:0 auto 20px;
+    width:105px;
+    height:105px;
+
+    margin:
+        0 auto 20px;
+
     display:block;
+
     object-fit:cover;
+
     border-radius:50%;
-    border:3px solid #ff5500;
-    box-shadow:0 0 20px rgba(255,60,0,.5);
+
+    border:
+        3px solid
+        #ff5500;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,60,0,.5);
+
     transition:.4s;
 }
 
 .staff-card:hover .staff-avatar{
-    transform:scale(1.08);
-    box-shadow:0 0 35px rgba(255,80,0,.8);
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 35px
+        rgba(255,80,0,.8);
 }
 
 .staff-name{
-    font-size:19px;
+    font-size:20px;
     font-weight:1000;
-    min-height:23px;
+
+    min-height:24px;
 }
 
 .staff-role{
     display:inline-block;
-    margin-top:12px;
-    padding:9px 17px;
+
+    margin-top:10px;
+
+    padding:9px 16px;
+
     border-radius:50px;
+
     color:#ff6500;
-    background:rgba(255,60,0,.06);
-    border:1px solid rgba(255,70,0,.25);
+
+    background:
+        rgba(255,60,0,.06);
+
+    border:
+        1px solid
+        rgba(255,70,0,.25);
+
     font-size:12px;
+
     font-weight:bold;
-    letter-spacing:1.3px;
+
+    letter-spacing:1.4px;
+
     text-transform:uppercase;
 }
 
 .staff-user{
     margin-top:12px;
-    color:#555;
+
+    color:#777;
+
     font-size:10px;
 }
 
 .staff-status{
-    margin-top:15px;
-    font-size:10px;
+    margin-top:14px;
+
+    font-size:11px;
+
     font-weight:bold;
+
     letter-spacing:1px;
 }
 
 .staff-status.online{
     color:#43ff68;
-    text-shadow:0 0 10px rgba(67,255,104,.6);
+
+    text-shadow:
+        0 0 10px
+        rgba(67,255,104,.6);
 }
 
 .staff-status.idle{
     color:#ffd45c;
-    text-shadow:0 0 10px rgba(255,212,92,.4);
 }
 
 .staff-status.dnd{
     color:#ff4444;
-    text-shadow:0 0 10px rgba(255,68,68,.4);
 }
 
-.staff-status.offline{color:#777}
+.staff-status.offline{
+    color:#777;
+}
 
-/* EVENTS */
 .events{
     max-width:950px;
+
     margin:auto;
 }
 
 .event{
     display:grid;
-    grid-template-columns:75px 1fr auto;
+
+    grid-template-columns:
+        75px 1fr auto;
+
     align-items:center;
+
     gap:20px;
+
     padding:24px;
+
     margin-bottom:13px;
+
     border-radius:18px;
-    background:rgba(25,2,0,.82);
-    border:1px solid rgba(255,70,0,.13);
+
+    background:
+        rgba(25,2,0,.82);
+
+    border:
+        1px solid
+        rgba(255,70,0,.13);
+
     transition:.3s;
 }
 
 .event:hover{
-    transform:translateX(8px);
-    border-color:rgba(255,80,0,.55);
+    transform:
+        translateX(8px);
+
+    border-color:
+        rgba(255,80,0,.55);
 }
 
 .event-number{
     text-align:center;
+
     color:#ff6500;
+
     font-size:9px;
+
     font-weight:bold;
 }
 
 .event-number strong{
     display:block;
+
     font-size:28px;
 }
 
-.event-info h3{margin-bottom:6px}
+.event-info h3{
+    margin-bottom:6px;
+}
 
 .event-info p{
     color:#666;
+
     font-size:12px;
 }
 
 .event-status{
     padding:7px 11px;
+
     border-radius:50px;
+
     color:#ff6500;
-    border:1px solid rgba(255,70,0,.2);
+
+    border:
+        1px solid
+        rgba(255,70,0,.2);
+
     font-size:8px;
+
     font-weight:bold;
 }
 
-/* CTA */
 .cta{
     max-width:1000px;
+
     margin:auto;
-    padding:90px 30px;
+
+    padding:
+        90px 30px;
+
     text-align:center;
+
     border-radius:30px;
+
     background:
-        radial-gradient(circle,rgba(255,70,0,.22),transparent 65%),
+        radial-gradient(
+            circle,
+            rgba(255,70,0,.22),
+            transparent 65%
+        ),
         rgba(20,2,0,.9);
-    border:1px solid rgba(255,70,0,.25);
-    box-shadow:0 0 80px rgba(255,40,0,.07);
+
+    border:
+        1px solid
+        rgba(255,70,0,.25);
 }
 
 .cta h2{
-    font-size:clamp(35px,6vw,60px);
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            60px
+        );
 }
 
 .cta p{
     max-width:600px;
-    margin:18px auto 30px;
+
+    margin:
+        18px auto 30px;
+
     color:#777;
+
     line-height:1.7;
 }
 
-/* FOOTER */
 footer{
-    padding:45px 20px;
+    padding:
+        45px 20px;
+
     text-align:center;
+
     color:#444;
-    border-top:1px solid rgba(255,70,0,.12);
+
+    border-top:
+        1px solid
+        rgba(255,70,0,.12);
+
     font-size:12px;
 }
 
-footer strong{color:#ff6500}
+footer strong{
+    color:#ff6500;
+}
 
-/* TOP */
 #top{
     position:fixed;
+
     right:22px;
     bottom:22px;
+
     width:48px;
     height:48px;
+
     border:0;
+
     border-radius:50%;
-    color:#fff;
-    background:linear-gradient(135deg,#ff7800,#ff2100);
-    box-shadow:0 0 25px rgba(255,60,0,.5);
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff7800,
+            #ff2100
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,60,0,.5);
+
     cursor:pointer;
+
     opacity:0;
     visibility:hidden;
-    transform:translateY(15px);
+
+    transform:
+        translateY(15px);
+
     transition:.3s;
+
     z-index:900;
 }
 
 #top.show{
     opacity:1;
     visibility:visible;
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
 }
 
-/* RESPONSIVE */
 @media(max-width:950px){
-    .staff-grid{grid-template-columns:repeat(2,1fr)}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .cards{grid-template-columns:1fr}
-    .minecraft{grid-template-columns:1fr}
+
+    .staff-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:
+            1fr;
+    }
+
+    .minecraft{
+        grid-template-columns:
+            1fr;
+    }
 }
 
 @media(max-width:600px){
-    section{padding:80px 5%}
 
-    .hero h1{letter-spacing:3px}
+    section{
+        padding:
+            80px 5%;
+    }
+
+    .hero h1{
+        letter-spacing:3px;
+    }
 
     .hero-icon{
         width:110px;
@@ -824,25 +1260,36 @@ footer strong{color:#ff6500}
         text-align:center;
     }
 
-    .stats{grid-template-columns:1fr}
+    .stats{
+        grid-template-columns:
+            1fr;
+    }
 
-    .staff-grid{grid-template-columns:1fr}
+    .staff-grid{
+        grid-template-columns:
+            1fr;
+    }
 
-    .mc-boxes{grid-template-columns:1fr}
+    .mc-boxes{
+        grid-template-columns:
+            1fr;
+    }
 
-    .event{grid-template-columns:60px 1fr}
+    .event{
+        grid-template-columns:
+            60px 1fr;
+    }
 
-    .event-status{display:none}
+    .event-status{
+        display:none;
+    }
 
-    .links a:not(.join){display:none}
-
-    .brand{
-        font-size:12px;
-        letter-spacing:2px;
+    .links a:not(.join){
+        display:none;
     }
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -853,16 +1300,30 @@ footer strong{color:#ff6500}
 <nav class="nav" id="nav">
 
 <a href="#" class="brand">
-<img src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
+
+<img
+src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+>
+
 NETHERREALM
+
 </a>
 
 <div class="links">
+
 <a href="#discord">DISCORD</a>
 <a href="#minecraft">MINECRAFT</a>
 <a href="#staff">STAFF</a>
 <a href="#events">EVENTOS</a>
-<a class="join" href="https://discord.gg/eY5yMRek3b" target="_blank">ENTRAR</a>
+
+<a
+class="join"
+href="https://discord.gg/eY5yMRek3b"
+target="_blank"
+>
+ENTRAR
+</a>
+
 </div>
 
 </nav>
@@ -872,13 +1333,17 @@ NETHERREALM
 <div class="hero-inner">
 
 <div class="status">
+
 <span class="dot"></span>
+
 NETHERREALM ONLINE
+
 </div>
 
 <img
 class="hero-icon"
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512">
+src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+>
 
 <h1>NETHERREALM</h1>
 
@@ -892,18 +1357,25 @@ parte del reino.
 
 <div class="buttons">
 
-<a class="btn primary"
+<a
+class="btn primary"
 href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-🔥 ENTRAR AL DISCORD </a>
+target="_blank"
+>
+🔥 ENTRAR AL DISCORD
+</a>
 
-<a class="btn secondary" href="#discord">
+<a
+class="btn secondary"
+href="#discord"
+>
 VER SERVIDOR
 </a>
 
 </div>
 
 </div>
+
 </header>
 
 <section id="discord">
@@ -915,7 +1387,8 @@ VER SERVIDOR
 <h2>DISCORD EN TIEMPO REAL</h2>
 
 <p>
-Datos obtenidos directamente desde Netherrealm.
+Datos obtenidos directamente
+desde Netherrealm.
 </p>
 
 </div>
@@ -925,57 +1398,96 @@ Datos obtenidos directamente desde Netherrealm.
 <div class="server">
 
 <img
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512">
+src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+>
 
 <div class="server-info">
 
-<h3 id="serverName">𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦</h3>
+<h3 id="serverName">
+𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦
+</h3>
 
 <p>Comunidad oficial</p>
 
-<div class="connection" id="connection">
+<div
+class="connection"
+id="connection"
+>
 ● CONECTANDO...
 </div>
 
 </div>
 
-<div class="live">● LIVE</div>
+<div class="live">
+● LIVE
+</div>
 
-<a class="btn primary"
+<a
+class="btn primary"
 href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-UNIRSE </a>
+target="_blank"
+>
+UNIRSE
+</a>
 
 </div>
 
 <div class="stats">
 
 <div class="stat reveal">
+
 <div class="stat-icon">👥</div>
-<span class="number" id="members">—</span>
+
+<span
+class="number"
+id="members"
+>
+—
+</span>
+
 <small>MIEMBROS</small>
+
 </div>
 
 <div class="stat reveal">
+
 <div class="stat-icon">🟢</div>
-<span class="number" id="online">—</span>
+
+<span
+class="number"
+id="online"
+>
+—
+</span>
+
 <small>ONLINE</small>
+
 </div>
 
 <div class="stat reveal">
+
 <div class="stat-icon">⛏️</div>
+
 <span class="number">MC</span>
+
 <small>MINECRAFT</small>
+
 </div>
 
 <div class="stat reveal">
+
 <div class="stat-icon">🔥</div>
+
 <span class="number">24/7</span>
+
 <small>COMUNIDAD</small>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <section>
@@ -996,33 +1508,46 @@ de una comunidad activa.
 <div class="cards">
 
 <article class="card reveal left">
+
 <div class="card-icon">💬</div>
+
 <h3>Comunidad</h3>
+
 <p>
 Habla, conoce personas nuevas
 y encuentra compañeros para jugar.
 </p>
+
 </article>
 
 <article class="card reveal">
+
 <div class="card-icon">🎮</div>
+
 <h3>Gaming</h3>
+
 <p>
 Comparte tus juegos favoritos
 y juega con otros miembros.
 </p>
+
 </article>
 
 <article class="card reveal right">
+
 <div class="card-icon">🏆</div>
+
 <h3>Eventos</h3>
+
 <p>
 Participa en eventos y dinámicas
 organizadas por la comunidad.
 </p>
+
 </article>
 
 </div>
+
 </section>
 
 <section id="minecraft">
@@ -1055,41 +1580,62 @@ y encuentra gente de Netherrealm
 para jugar Minecraft.
 </p>
 
-<a class="btn secondary"
+<a
+class="btn secondary"
 href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-⛏️ BUSCAR JUGADORES </a>
+target="_blank"
+>
+⛏️ BUSCAR JUGADORES
+</a>
 
 </div>
 
 <div class="mc-boxes">
 
 <div class="mc-box reveal right">
+
 <div>⛏️</div>
+
 <h4>SUPERVIVENCIA</h4>
+
 <p>Construye y sobrevive.</p>
+
 </div>
 
 <div class="mc-box reveal right">
+
 <div>🌋</div>
+
 <h4>NETHER</h4>
+
 <p>Explora el inframundo.</p>
+
 </div>
 
 <div class="mc-box reveal right">
+
 <div>⚔️</div>
+
 <h4>AVENTURAS</h4>
+
 <p>Nuevos retos.</p>
+
 </div>
 
 <div class="mc-box reveal right">
+
 <div>🌎</div>
+
 <h4>EXPLORACIÓN</h4>
+
 <p>Descubre nuevos mundos.</p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <section id="staff">
@@ -1107,41 +1653,89 @@ Netherrealm activo y en orden.
 
 </div>
 
-<div class="staff-grid" id="staffGrid">
+<div
+class="staff-grid"
+id="staffGrid"
+>
 
 <article class="staff-card reveal">
-<img class="staff-avatar"
-src="https://cdn.discordapp.com/embed/avatars/0.png">
+
+<img
+class="staff-avatar"
+src="https://cdn.discordapp.com/embed/avatars/0.png"
+>
+
 <div class="staff-name">Cargando...</div>
+
 <div class="staff-role">OWNER</div>
-<div class="staff-status online">● ONLINE</div>
+
+<div class="staff-user"></div>
+
+<div class="staff-status online">
+● ONLINE
+</div>
+
 </article>
 
 <article class="staff-card reveal">
-<img class="staff-avatar"
-src="https://cdn.discordapp.com/embed/avatars/1.png">
+
+<img
+class="staff-avatar"
+src="https://cdn.discordapp.com/embed/avatars/1.png"
+>
+
 <div class="staff-name">Cargando...</div>
+
 <div class="staff-role">CO-OWNER</div>
-<div class="staff-status dnd">● NO MOLESTAR</div>
+
+<div class="staff-user"></div>
+
+<div class="staff-status online">
+● ONLINE
+</div>
+
 </article>
 
 <article class="staff-card reveal">
-<img class="staff-avatar"
-src="https://cdn.discordapp.com/embed/avatars/2.png">
+
+<img
+class="staff-avatar"
+src="https://cdn.discordapp.com/embed/avatars/2.png"
+>
+
 <div class="staff-name">Cargando...</div>
+
 <div class="staff-role">CO-OWNER ALT</div>
-<div class="staff-status dnd">● NO MOLESTAR</div>
+
+<div class="staff-user"></div>
+
+<div class="staff-status online">
+● ONLINE
+</div>
+
 </article>
 
 <article class="staff-card reveal">
-<img class="staff-avatar"
-src="https://cdn.discordapp.com/embed/avatars/3.png">
+
+<img
+class="staff-avatar"
+src="https://cdn.discordapp.com/embed/avatars/3.png"
+>
+
 <div class="staff-name">Cargando...</div>
+
 <div class="staff-role">MANAGER</div>
-<div class="staff-status online">● ONLINE</div>
+
+<div class="staff-user"></div>
+
+<div class="staff-status online">
+● ONLINE
+</div>
+
 </article>
 
 </div>
+
 </section>
 
 <section id="events">
@@ -1164,36 +1758,57 @@ nuestros eventos oficiales.
 <div class="event reveal left">
 
 <div class="event-number">
+
 <strong>01</strong>
+
 EVENTO
+
 </div>
 
 <div class="event-info">
+
 <h3>Evento Netherrealm</h3>
-<p>Próximamente en Discord.</p>
+
+<p>
+Próximamente en Discord.
+</p>
+
 </div>
 
-<div class="event-status">PRÓXIMAMENTE</div>
+<div class="event-status">
+PRÓXIMAMENTE
+</div>
 
 </div>
 
 <div class="event reveal right">
 
 <div class="event-number">
+
 <strong>02</strong>
+
 EVENTO
+
 </div>
 
 <div class="event-info">
+
 <h3>Dinámica comunitaria</h3>
-<p>Mantente atento a los anuncios.</p>
-</div>
 
-<div class="event-status">PRÓXIMAMENTE</div>
-
-</div>
+<p>
+Mantente atento a los anuncios.
+</p>
 
 </div>
+
+<div class="event-status">
+PRÓXIMAMENTE
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section>
@@ -1207,16 +1822,26 @@ Las puertas de Netherrealm están abiertas.
 Entra al Discord y forma parte del reino.
 </p>
 
-<a class="btn primary"
+<a
+class="btn primary"
 href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-🔥 ENTRAR AL NETHERREALM </a>
+target="_blank"
+>
+🔥 ENTRAR AL NETHERREALM
+</a>
 
 </div>
+
 </section>
 
 <footer>
-© 2026 <strong>NETHERREALM</strong> — Comunidad oficial.
+
+© 2026
+
+<strong>NETHERREALM</strong>
+
+— Comunidad oficial.
+
 </footer>
 
 <button id="top">↑</button>
@@ -1229,29 +1854,28 @@ const API =
 const particles =
 document.getElementById("particles");
 
-for(let i=0;i<80;i++){
+for(let i = 0; i < 70; i++){
 
     const particle =
         document.createElement("span");
 
-    particle.className="particle";
+    particle.className =
+        "particle";
 
     particle.style.left =
-        Math.random()*100+"%";
+        Math.random() * 100 + "%";
 
     particle.style.animationDuration =
-        (5+Math.random()*10)+"s";
+        (5 + Math.random() * 10) + "s";
 
     particle.style.animationDelay =
-        (-Math.random()*15)+"s";
+        (-Math.random() * 15) + "s";
 
-    particle.style.opacity =
-        .3+Math.random()*.7;
-
-    particles.appendChild(particle);
+    particles.appendChild(
+        particle
+    );
 }
 
-/* DISCORD */
 
 async function loadDiscord(){
 
@@ -1259,16 +1883,18 @@ async function loadDiscord(){
 
         const response =
             await fetch(
-                API+"?t="+Date.now(),
+                API + "?t=" + Date.now(),
                 {
                     cache:"no-store"
                 }
             );
 
-        if(!response.ok)
+        if(!response.ok){
             throw new Error(
-                "HTTP "+response.status
+                "HTTP " +
+                response.status
             );
+        }
 
         const data =
             await response.json();
@@ -1276,7 +1902,8 @@ async function loadDiscord(){
         document.getElementById(
             "serverName"
         ).textContent =
-            data.name || "Netherrealm";
+            data.name ||
+            "Netherrealm";
 
         document.getElementById(
             "members"
@@ -1299,17 +1926,18 @@ async function loadDiscord(){
 
     }catch(error){
 
-        console.error("Discord:",error);
+        console.error(
+            "Discord:",
+            error
+        );
 
         document.getElementById(
             "connection"
         ).textContent =
             "● SIN CONEXIÓN";
-
     }
 }
 
-/* STAFF */
 
 async function loadStaff(){
 
@@ -1318,48 +1946,50 @@ async function loadStaff(){
             "staffGrid"
         );
 
+    const cards =
+        Array.from(
+            grid.querySelectorAll(
+                ".staff-card"
+            )
+        );
+
     try{
 
         const response =
             await fetch(
-                API+
-                "?staff=1&t="+
-                Date.now(),
+                API + "?t=" + Date.now(),
                 {
                     cache:"no-store"
                 }
             );
 
-        if(!response.ok)
+        if(!response.ok){
             throw new Error(
-                "HTTP "+response.status
+                "HTTP " +
+                response.status
             );
+        }
 
         const data =
             await response.json();
 
         if(
-            !data.staff ||
             !Array.isArray(data.staff)
-        )
+        ){
             throw new Error(
                 "Staff no disponible"
             );
-
-        const cards =
-            Array.from(
-                grid.querySelectorAll(
-                    ".staff-card"
-                )
-            );
+        }
 
         data.staff.forEach(
-            (member,index)=>{
-
-                if(!cards[index]) return;
+            (member,index) => {
 
                 const card =
                     cards[index];
+
+                if(!card){
+                    return;
+                }
 
                 const avatar =
                     card.querySelector(
@@ -1376,81 +2006,86 @@ async function loadStaff(){
                         ".staff-role"
                     );
 
+                const username =
+                    card.querySelector(
+                        ".staff-user"
+                    );
+
                 const status =
                     card.querySelector(
                         ".staff-status"
                     );
 
-                if(member.avatar)
+
+                if(member.avatar){
                     avatar.src =
                         member.avatar;
+                }
 
-                name.textContent =
-                    member.global_name ||
-                    member.username ||
-                    "Usuario";
-
-                role.textContent =
-                    member.role;
 
                 /*
-                 * V12:
-                 * Estado visual fijo.
+                 * Solo cambiamos el nombre
+                 * si Discord realmente
+                 * devolvió uno.
+                 *
+                 * Así evitamos que aparezca
+                 * "Usuario" por un error.
                  */
 
-                status.classList.remove(
-                    "online",
-                    "idle",
-                    "dnd",
-                    "offline"
-                );
-
                 if(
-                    member.role === "Co-Owner" ||
-                    member.role === "Co-Owner alt"
+                    member.global_name &&
+                    member.global_name !== "Usuario"
                 ){
 
-                    status.classList.add("dnd");
-                    status.textContent =
-                        "● NO MOLESTAR";
+                    name.textContent =
+                        member.global_name;
 
-                }else{
+                }
+                else if(
+                    member.username &&
+                    member.username !== "Usuario"
+                ){
 
-                    status.classList.add("online");
-                    status.textContent =
-                        "● ONLINE";
+                    name.textContent =
+                        member.username;
 
                 }
 
-                let username =
-                    card.querySelector(
-                        ".staff-user"
-                    );
 
-                if(!username){
+                if(member.role){
+                    role.textContent =
+                        member.role;
+                }
 
-                    username =
-                        document.createElement(
-                            "div"
-                        );
 
-                    username.className =
-                        "staff-user";
+                if(
+                    member.username &&
+                    member.username !== "Usuario"
+                ){
 
-                    card.appendChild(username);
+                    username.textContent =
+                        "@" +
+                        member.username;
 
                 }
 
-                username.textContent =
-                    member.username
-                        ? "@"+member.username
-                        : "";
+
+                status.className =
+                    "staff-status online";
+
+                status.textContent =
+                    "● ONLINE";
+
 
                 setTimeout(
-                    ()=>{
-                        card.classList.add("show");
+                    () => {
+
+                        card.classList.add(
+                            "show"
+                        );
+
                     },
-                    index*150
+                    index * 150
                 );
 
             }
@@ -1458,56 +2093,42 @@ async function loadStaff(){
 
     }catch(error){
 
-        console.error("Staff:",error);
+        console.error(
+            "Staff:",
+            error
+        );
 
-        const cards =
-            grid.querySelectorAll(
-                ".staff-card"
-            );
+        /*
+         * No borramos nombres,
+         * avatares ni tarjetas.
+         *
+         * Conservamos los últimos
+         * datos mostrados.
+         */
 
         cards.forEach(
-            (card,index)=>{
+            (card,index) => {
 
                 const status =
                     card.querySelector(
                         ".staff-status"
                     );
 
-                if(status){
+                status.className =
+                    "staff-status online";
 
-                    const role =
-                        card.querySelector(
-                            ".staff-role"
-                        )?.textContent
-                        ?.toLowerCase();
-
-                    status.className =
-                        "staff-status";
-
-                    if(
-                        role === "co-owner" ||
-                        role === "co-owner alt"
-                    ){
-
-                        status.classList.add("dnd");
-                        status.textContent =
-                            "● NO MOLESTAR";
-
-                    }else{
-
-                        status.classList.add("online");
-                        status.textContent =
-                            "● ONLINE";
-
-                    }
-
-                }
+                status.textContent =
+                    "● ONLINE";
 
                 setTimeout(
-                    ()=>{
-                        card.classList.add("show");
+                    () => {
+
+                        card.classList.add(
+                            "show"
+                        );
+
                     },
-                    index*150
+                    index * 150
                 );
 
             }
@@ -1515,12 +2136,10 @@ async function loadStaff(){
     }
 }
 
-/* INITIAL */
 
 loadDiscord();
 loadStaff();
 
-/* AUTO UPDATE */
 
 setInterval(
     loadDiscord,
@@ -1532,22 +2151,21 @@ setInterval(
     60000
 );
 
-/* SCROLL REVEAL */
 
 const observer =
     new IntersectionObserver(
-        entries=>{
+        entries => {
 
             entries.forEach(
-                entry=>{
+                entry => {
 
                     if(
                         entry.isIntersecting
                     ){
 
-                        entry.target
-                            .classList
-                            .add("show");
+                        entry.target.classList.add(
+                            "show"
+                        );
 
                         observer.unobserve(
                             entry.target
@@ -1564,46 +2182,66 @@ const observer =
         }
     );
 
+
 document
-    .querySelectorAll(".reveal")
+    .querySelectorAll(
+        ".reveal"
+    )
     .forEach(
         element =>
-            observer.observe(element)
+            observer.observe(
+                element
+            )
     );
 
-/* NAV */
 
 const nav =
-    document.getElementById("nav");
+    document.getElementById(
+        "nav"
+    );
 
 const topButton =
-    document.getElementById("top");
+    document.getElementById(
+        "top"
+    );
+
 
 window.addEventListener(
     "scroll",
-    ()=>{
+    () => {
 
-        if(window.scrollY>70){
+        if(
+            window.scrollY > 70
+        ){
 
-            nav.classList.add("scrolled");
-            topButton.classList.add("show");
+            nav.classList.add(
+                "scrolled"
+            );
 
-        }else{
+            topButton.classList.add(
+                "show"
+            );
 
-            nav.classList.remove("scrolled");
-            topButton.classList.remove("show");
+        }
+        else{
+
+            nav.classList.remove(
+                "scrolled"
+            );
+
+            topButton.classList.remove(
+                "show"
+            );
 
         }
 
-    },
-    {passive:true}
+    }
 );
 
-/* TOP */
 
 topButton.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         window.scrollTo({
             top:0,
@@ -1617,3 +2255,4 @@ topButton.addEventListener(
 
 </body>
 </html>
+```
