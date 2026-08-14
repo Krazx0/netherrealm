@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NETHERREALM — Comunidad Oficial</title>
+<title>NETHERREALM | Enter the Realm</title>
 
 <meta name="description"
 content="Netherrealm — comunidad de Discord, Minecraft y gaming.">
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -21,78 +26,124 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#020000;
+    background:#030101;
     color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-/* =========================================
-   FONDO NETHER
-========================================= */
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-body::before{
-    content:"";
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background{
     position:fixed;
     inset:0;
-    z-index:-10;
-
+    z-index:-20;
+    overflow:hidden;
     background:
         radial-gradient(
             ellipse at 50% 100%,
-            rgba(255,80,0,.30),
-            transparent 45%
-        ),
-        radial-gradient(
-            ellipse at 10% 40%,
-            rgba(170,0,0,.18),
-            transparent 35%
+            rgba(255,70,0,.25),
+            transparent 40%
         ),
         linear-gradient(
             180deg,
-            #010000 0%,
-            #100000 40%,
-            #220500 75%,
-            #030000 100%
+            #020000 0%,
+            #090000 45%,
+            #180300 100%
         );
 }
 
-/* Lava glow */
-
-body::after{
+.background::before{
     content:"";
+    position:absolute;
+    inset:-20%;
+
+    background:
+        repeating-linear-gradient(
+            115deg,
+            transparent 0,
+            transparent 80px,
+            rgba(255,50,0,.025) 81px,
+            transparent 82px
+        );
+
+    animation:
+        backgroundMove 18s linear infinite;
+}
+
+@keyframes backgroundMove{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(120px);
+    }
+}
+
+
+/* =========================================================
+   LAVA GLOW
+========================================================= */
+
+.lava-glow{
     position:fixed;
-    inset:-50%;
-    z-index:-9;
+    left:50%;
+    bottom:-250px;
+
+    width:900px;
+    height:500px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
 
     background:
         radial-gradient(
             ellipse,
-            rgba(255,70,0,.10),
-            transparent 55%
+            rgba(255,70,0,.25),
+            transparent 70%
         );
 
+    filter:blur(35px);
+
+    pointer-events:none;
+
+    z-index:-10;
+
     animation:
-        lavaMove 12s ease-in-out infinite alternate;
+        lavaPulse 4s ease-in-out infinite alternate;
 }
 
-@keyframes lavaMove{
+@keyframes lavaPulse{
+
     from{
+        opacity:.5;
         transform:
-            translate(-4%,0)
-            scale(1);
+            translateX(-50%)
+            scale(.9);
     }
 
     to{
+        opacity:1;
         transform:
-            translate(4%,-3%)
-            scale(1.08);
+            translateX(-50%)
+            scale(1.1);
     }
 }
 
-/* =========================================
-   PARTÍCULAS
-========================================= */
+
+/* =========================================================
+   PARTICLES
+========================================================= */
 
 .particles{
     position:fixed;
@@ -101,8 +152,6 @@ body::after{
     pointer-events:none;
 
     z-index:-5;
-
-    overflow:hidden;
 }
 
 .particle{
@@ -117,15 +166,13 @@ body::after{
 
     box-shadow:
         0 0 8px #ff4500,
-        0 0 15px #ff2200;
+        0 0 18px #ff2200;
 
     animation:
-        rise linear infinite;
-
-    opacity:.7;
+        particleRise linear infinite;
 }
 
-@keyframes rise{
+@keyframes particleRise{
 
     0%{
         transform:
@@ -139,51 +186,143 @@ body::after{
         opacity:.8;
     }
 
-    85%{
+    80%{
         opacity:.7;
     }
 
     100%{
         transform:
-            translateY(-20vh)
-            translateX(80px);
+            translateY(-15vh)
+            translateX(100px);
 
         opacity:0;
     }
 }
 
-/* =========================================
-   CURSOR
-========================================= */
 
-.cursor-glow{
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+#loader{
     position:fixed;
+    inset:0;
 
-    width:300px;
-    height:300px;
+    z-index:9999;
 
-    border-radius:50%;
+    display:flex;
+    flex-direction:column;
 
-    pointer-events:none;
+    justify-content:center;
+    align-items:center;
 
-    z-index:-2;
+    background:#020000;
 
-    transform:
-        translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,70,0,.12),
-            transparent 70%
-        );
+    transition:
+        opacity .8s,
+        visibility .8s;
 }
 
-/* =========================================
-   NAVBAR
-========================================= */
+#loader.hidden{
+    opacity:0;
+    visibility:hidden;
+}
 
-nav{
+.loader-logo{
+    width:100px;
+    height:100px;
+
+    border-radius:25px;
+
+    border:2px solid #ff5500;
+
+    box-shadow:
+        0 0 30px #ff4500,
+        0 0 90px rgba(255,50,0,.35);
+
+    animation:
+        loaderPulse 1.5s infinite alternate;
+}
+
+@keyframes loaderPulse{
+
+    from{
+        transform:scale(.94);
+    }
+
+    to{
+        transform:scale(1.05);
+    }
+}
+
+.loader-title{
+    margin-top:25px;
+
+    font-size:28px;
+
+    letter-spacing:7px;
+
+    font-weight:1000;
+
+    color:#ff6500;
+
+    text-shadow:
+        0 0 20px #ff4500;
+}
+
+.loader-text{
+    margin-top:12px;
+
+    color:#666;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+}
+
+.loader-bar{
+    width:220px;
+    height:3px;
+
+    margin-top:25px;
+
+    background:#180400;
+
+    overflow:hidden;
+}
+
+.loader-bar span{
+    display:block;
+
+    width:40%;
+    height:100%;
+
+    background:#ff5500;
+
+    box-shadow:
+        0 0 15px #ff4500;
+
+    animation:
+        loaderBar 1.3s infinite;
+}
+
+@keyframes loaderBar{
+
+    from{
+        transform:translateX(-120%);
+    }
+
+    to{
+        transform:translateX(350%);
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
     position:fixed;
 
     top:0;
@@ -191,184 +330,215 @@ nav{
 
     width:100%;
 
-    padding:15px 7%;
+    padding:17px 6%;
 
     display:flex;
 
     justify-content:space-between;
     align-items:center;
 
-    z-index:100;
-
-    background:
-        rgba(2,0,0,.55);
-
-    backdrop-filter:
-        blur(16px);
+    z-index:500;
 
     border-bottom:
-        1px solid
-        rgba(255,70,0,.15);
+        1px solid rgba(255,70,0,.12);
+
+    background:
+        rgba(2,0,0,.35);
+
+    backdrop-filter:blur(18px);
 
     transition:.35s;
 }
 
-nav.scrolled{
+.navbar.scrolled{
     background:
-        rgba(5,0,0,.94);
+        rgba(3,0,0,.92);
 
     box-shadow:
         0 10px 50px
-        rgba(255,40,0,.14);
+        rgba(255,40,0,.12);
 }
 
-.logo{
+.brand{
     display:flex;
 
     align-items:center;
 
     gap:12px;
 
-    color:#ff6500;
-
     font-weight:1000;
 
     letter-spacing:3px;
 
-    text-shadow:
-        0 0 10px #ff4500;
+    color:#ff6500;
 }
 
-.logo img{
-    width:42px;
-    height:42px;
+.brand img{
+    width:40px;
+    height:40px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     border:
-        2px solid
-        #ff5a00;
+        2px solid #ff5500;
 
     box-shadow:
         0 0 20px
         rgba(255,60,0,.5);
 }
 
-.navlinks{
+.nav-menu{
     display:flex;
 
-    gap:25px;
+    align-items:center;
+
+    gap:28px;
 }
 
-.navlinks a{
-    color:#999;
+.nav-menu a{
+    color:#888;
 
-    text-decoration:none;
-
-    font-size:12px;
+    font-size:11px;
 
     font-weight:bold;
+
+    letter-spacing:1px;
 
     transition:.3s;
 }
 
-.navlinks a:hover{
+.nav-menu a:hover{
     color:#ff6500;
 
     text-shadow:
-        0 0 12px #ff4500;
+        0 0 15px #ff4500;
 }
 
-/* =========================================
+.nav-discord{
+    padding:
+        10px 16px;
+
+    border-radius:8px;
+
+    background:
+        rgba(255,60,0,.08);
+
+    border:
+        1px solid
+        rgba(255,70,0,.4);
+
+    color:#ff6500 !important;
+}
+
+
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
 
     display:flex;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     text-align:center;
 
-    padding:
-        140px 20px 100px;
-
     position:relative;
+
+    padding:
+        130px 20px 90px;
 }
 
 .hero-content{
     max-width:1100px;
-
-    transition:
-        transform .2s;
 }
 
-.hero-icon{
-    width:125px;
-    height:125px;
+.hero-status{
+    display:inline-flex;
 
-    border-radius:25px;
+    align-items:center;
 
-    border:
-        3px solid
-        #ff5a00;
-
-    box-shadow:
-        0 0 30px #ff4500,
-        0 0 100px
-        rgba(255,60,0,.4);
-
-    animation:
-        floating 4s ease-in-out infinite;
-}
-
-@keyframes floating{
-
-    0%,100%{
-        transform:
-            translateY(0);
-    }
-
-    50%{
-        transform:
-            translateY(-13px);
-    }
-}
-
-.tag{
-    display:inline-block;
-
-    margin-top:28px;
+    gap:8px;
 
     padding:
-        9px 18px;
+        8px 15px;
 
     border-radius:50px;
 
+    background:
+        rgba(255,50,0,.06);
+
     border:
         1px solid
-        rgba(255,90,0,.5);
+        rgba(255,70,0,.25);
 
-    color:#ff7200;
+    color:#aaa;
 
-    background:
-        rgba(255,60,0,.05);
+    font-size:10px;
 
-    font-size:11px;
+    letter-spacing:2px;
+}
 
-    font-weight:bold;
+.status-dot{
+    width:7px;
+    height:7px;
 
-    letter-spacing:4px;
+    border-radius:50%;
+
+    background:#42ff68;
+
+    box-shadow:
+        0 0 12px #42ff68;
+
+    animation:
+        statusPulse 1.5s infinite;
+}
+
+@keyframes statusPulse{
+
+    50%{
+        opacity:.35;
+    }
+}
+
+.hero-logo{
+    width:145px;
+    height:145px;
+
+    margin:
+        30px auto;
+
+    display:block;
+
+    border-radius:30px;
+
+    border:
+        3px solid #ff5500;
+
+    box-shadow:
+        0 0 35px #ff4500,
+        0 0 110px rgba(255,50,0,.35);
+
+    animation:
+        heroFloat 4s ease-in-out infinite;
+}
+
+@keyframes heroFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-14px);
+    }
 }
 
 .hero h1{
-    margin-top:22px;
-
     font-size:
-        clamp(55px,12vw,150px);
+        clamp(55px,12vw,145px);
 
     line-height:.82;
 
@@ -376,60 +546,62 @@ nav.scrolled{
 
     font-weight:1000;
 
-    color:white;
+    color:#fff;
 
     text-shadow:
-        0 0 5px #fff,
-        0 0 20px #ff9a00,
-        0 0 45px #ff4500,
-        0 0 100px #ff1500;
+        0 0 7px #fff,
+        0 0 22px #ffb000,
+        0 0 50px #ff4500,
+        0 0 110px #ff1500;
 
     animation:
-        titleGlow 2s ease-in-out infinite alternate;
+        titleGlow 2s infinite alternate;
 }
 
 @keyframes titleGlow{
 
     from{
         text-shadow:
-            0 0 5px #fff,
-            0 0 18px #ff8500,
-            0 0 40px #ff4500;
+            0 0 7px #fff,
+            0 0 20px #ff9000,
+            0 0 45px #ff4500;
     }
 
     to{
         text-shadow:
-            0 0 8px #fff,
-            0 0 30px #ffb000,
-            0 0 65px #ff4500,
-            0 0 120px #ff1500;
+            0 0 10px #fff,
+            0 0 35px #ffb000,
+            0 0 70px #ff4500,
+            0 0 130px #ff1500;
     }
 }
 
-.hero h2{
+.hero-subtitle{
     margin-top:25px;
 
     color:#ff6500;
 
-    font-size:19px;
+    font-weight:1000;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
+
+    font-size:14px;
 }
 
-.hero p{
-    max-width:700px;
+.hero-description{
+    max-width:650px;
 
     margin:
         25px auto;
 
-    color:#aaa;
+    color:#999;
 
-    font-size:18px;
+    font-size:17px;
 
     line-height:1.7;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
 
     justify-content:center;
@@ -438,118 +610,126 @@ nav.scrolled{
 
     gap:15px;
 
-    margin-top:35px;
+    margin-top:32px;
 }
 
 .btn{
-    display:inline-block;
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
 
     padding:
-        15px 30px;
+        15px 27px;
 
     border-radius:9px;
 
-    text-decoration:none;
+    font-size:13px;
 
-    font-weight:900;
+    font-weight:1000;
 
     transition:.3s;
 }
 
-.primary{
-    color:white;
-
+.btn-main{
     background:
         linear-gradient(
             135deg,
             #ff7800,
-            #ff1e00
+            #ff2100
         );
 
     box-shadow:
         0 0 25px
-        rgba(255,60,0,.45);
+        rgba(255,60,0,.4);
 }
 
-.primary:hover{
+.btn-main:hover{
     transform:
         translateY(-6px)
         scale(1.04);
 
     box-shadow:
-        0 0 50px
-        rgba(255,70,0,.8);
+        0 0 55px
+        rgba(255,60,0,.75);
 }
 
-.secondary{
+.btn-outline{
     color:#ff6500;
 
     border:
-        1px solid
-        #ff5000;
+        1px solid #ff5500;
 
     background:
-        rgba(255,50,0,.05);
+        rgba(255,50,0,.04);
 }
 
-.secondary:hover{
+.btn-outline:hover{
     transform:
         translateY(-6px);
 
     background:
-        rgba(255,50,0,.14);
+        rgba(255,50,0,.12);
 }
 
-/* =========================================
-   SECCIONES
-========================================= */
+
+/* =========================================================
+   SECTION
+========================================================= */
 
 section{
     padding:
         115px 7%;
 }
 
-.section-title{
+.section-head{
     text-align:center;
 
-    margin-bottom:55px;
+    max-width:800px;
+
+    margin:
+        0 auto 55px;
 }
 
-.section-title span{
+.section-label{
     color:#ff6500;
 
-    font-size:11px;
-
-    font-weight:bold;
+    font-size:10px;
 
     letter-spacing:5px;
+
+    font-weight:bold;
 }
 
-.section-title h2{
-    margin-top:10px;
+.section-head h2{
+    margin-top:12px;
 
-    font-size:43px;
+    font-size:
+        clamp(32px,5vw,50px);
 
     text-shadow:
         0 0 25px
-        rgba(255,70,0,.45);
+        rgba(255,60,0,.35);
 }
 
-.section-title p{
-    margin-top:12px;
+.section-head p{
+    margin-top:14px;
 
-    color:#888;
+    color:#777;
+
+    line-height:1.7;
 }
 
-/* =========================================
-   SCROLL ANIMATION
-========================================= */
+
+/* =========================================================
+   REVEAL
+========================================================= */
 
 .reveal{
     opacity:0;
 
     transform:
-        translateY(65px);
+        translateY(60px);
 
     transition:
         opacity .8s ease,
@@ -558,17 +738,17 @@ section{
 
 .reveal.left{
     transform:
-        translateX(-80px);
+        translateX(-70px);
 }
 
 .reveal.right{
     transform:
-        translateX(80px);
+        translateX(70px);
 }
 
 .reveal.zoom{
     transform:
-        scale(.78);
+        scale(.8);
 }
 
 .reveal.show{
@@ -579,127 +759,155 @@ section{
         scale(1);
 }
 
-/* =========================================
-   DISCORD
-========================================= */
 
-.discord-box{
+/* =========================================================
+   DISCORD DASHBOARD
+========================================================= */
+
+.discord-dashboard{
     max-width:1100px;
 
     margin:auto;
 
-    padding:32px;
+    border-radius:25px;
 
-    border-radius:24px;
+    padding:30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(45,5,0,.88),
-            rgba(8,1,0,.94)
+            rgba(35,4,0,.95),
+            rgba(7,1,0,.98)
         );
 
     border:
         1px solid
-        rgba(255,70,0,.25);
+        rgba(255,70,0,.2);
 
     box-shadow:
-        0 30px 80px
-        rgba(255,40,0,.1);
+        0 30px 100px
+        rgba(255,40,0,.08);
 }
 
-.server-header{
+.server-top{
     display:flex;
 
     align-items:center;
 
     gap:20px;
 
-    margin-bottom:28px;
+    padding-bottom:25px;
+
+    border-bottom:
+        1px solid
+        rgba(255,70,0,.12);
 }
 
 .server-icon{
-    width:88px;
-    height:88px;
+    width:80px;
+    height:80px;
 
-    border-radius:20px;
+    border-radius:19px;
 
     border:
-        2px solid
-        #ff5a00;
+        2px solid #ff5500;
 
     box-shadow:
         0 0 25px
-        rgba(255,60,0,.45);
+        rgba(255,50,0,.45);
 }
 
-.server-info{
+.server-details{
     flex:1;
 }
 
-.server-info h3{
-    font-size:28px;
+.server-details h3{
+    font-size:27px;
 }
 
-.server-info p{
+.server-details p{
     margin-top:6px;
 
-    color:#777;
+    color:#666;
 }
 
 .connection{
     margin-top:10px;
 
-    color:#49ff70;
+    color:#42ff68;
 
-    font-size:12px;
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+.live-badge{
+    padding:
+        8px 13px;
+
+    border-radius:50px;
+
+    color:#42ff68;
+
+    background:
+        rgba(40,255,80,.05);
+
+    border:
+        1px solid
+        rgba(40,255,80,.2);
+
+    font-size:9px;
 
     font-weight:bold;
 }
 
-.stats{
+.stats-grid{
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
     gap:15px;
+
+    margin-top:25px;
 }
 
 .stat{
     padding:27px 15px;
 
+    border-radius:17px;
+
     text-align:center;
 
-    border-radius:16px;
-
     background:
-        rgba(20,2,0,.82);
+        rgba(20,2,0,.8);
 
     border:
         1px solid
-        rgba(255,70,0,.17);
+        rgba(255,70,0,.13);
 
-    transition:.35s;
+    transition:.3s;
 }
 
 .stat:hover{
     transform:
-        translateY(-9px);
+        translateY(-8px);
 
     border-color:
-        rgba(255,90,0,.7);
+        rgba(255,80,0,.6);
 
     box-shadow:
-        0 20px 50px
-        rgba(255,50,0,.15);
+        0 20px 45px
+        rgba(255,40,0,.13);
 }
 
 .stat-icon{
-    font-size:30px;
+    font-size:27px;
 }
 
-.number{
+.stat-number{
     display:block;
 
     margin-top:10px;
@@ -711,19 +919,22 @@ section{
     font-weight:1000;
 }
 
-.label{
+.stat-label{
     margin-top:5px;
 
-    color:#777;
+    color:#666;
 
-    font-size:11px;
+    font-size:9px;
+
+    letter-spacing:2px;
 }
 
-/* =========================================
-   CARDS
-========================================= */
 
-.cards{
+/* =========================================================
+   FEATURE CARDS
+========================================================= */
+
+.features{
     max-width:1100px;
 
     margin:auto;
@@ -736,75 +947,77 @@ section{
     gap:20px;
 }
 
-.card{
+.feature{
     position:relative;
 
     overflow:hidden;
 
-    padding:
-        35px 27px;
+    min-height:240px;
 
-    border-radius:18px;
+    padding:32px;
+
+    border-radius:20px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(40,5,0,.86),
-            rgba(10,1,0,.94)
+            rgba(38,5,0,.88),
+            rgba(8,1,0,.95)
         );
 
     border:
         1px solid
-        rgba(255,70,0,.18);
+        rgba(255,70,0,.15);
 
-    transition:.35s;
+    transition:.4s;
 }
 
-.card::before{
+.feature::after{
     content:"";
 
     position:absolute;
 
-    top:0;
-    left:-100%;
+    width:180px;
+    height:180px;
 
-    width:100%;
-    height:2px;
+    right:-80px;
+    bottom:-80px;
+
+    border-radius:50%;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff6500,
-            transparent
+        radial-gradient(
+            circle,
+            rgba(255,60,0,.18),
+            transparent 70%
         );
 
-    transition:.5s;
+    transition:.4s;
 }
 
-.card:hover::before{
-    left:100%;
-}
-
-.card:hover{
+.feature:hover{
     transform:
-        translateY(-10px);
+        translateY(-12px);
 
     border-color:
-        rgba(255,90,0,.65);
+        rgba(255,80,0,.6);
 
     box-shadow:
-        0 25px 60px
-        rgba(255,40,0,.14);
+        0 30px 70px
+        rgba(255,40,0,.13);
 }
 
-.icon{
-    font-size:43px;
-
-    margin-bottom:18px;
+.feature:hover::after{
+    transform:scale(1.5);
 }
 
-.card h3{
+.feature-icon{
+    font-size:42px;
+
+    margin-bottom:22px;
+}
+
+.feature h3{
     color:#ff6500;
 
     font-size:21px;
@@ -812,17 +1025,18 @@ section{
     margin-bottom:12px;
 }
 
-.card p{
-    color:#999;
+.feature p{
+    color:#888;
 
     line-height:1.65;
 }
 
-/* =========================================
-   MINECRAFT FEATURE
-========================================= */
 
-.minecraft{
+/* =========================================================
+   MINECRAFT
+========================================================= */
+
+.minecraft-wrap{
     max-width:1100px;
 
     margin:auto;
@@ -830,17 +1044,17 @@ section{
     display:grid;
 
     grid-template-columns:
-        1.1fr .9fr;
+        1.15fr .85fr;
 
     gap:20px;
 }
 
 .minecraft-main{
-    min-height:330px;
+    min-height:360px;
 
-    padding:40px;
+    padding:45px;
 
-    border-radius:22px;
+    border-radius:24px;
 
     display:flex;
 
@@ -848,26 +1062,42 @@ section{
 
     justify-content:center;
 
+    overflow:hidden;
+
+    position:relative;
+
     background:
         linear-gradient(
             135deg,
-            rgba(80,10,0,.75),
-            rgba(20,2,0,.95)
+            rgba(75,9,0,.8),
+            rgba(12,1,0,.97)
         );
 
     border:
         1px solid
-        rgba(255,70,0,.25);
+        rgba(255,70,0,.2);
+}
 
-    box-shadow:
-        inset 0 0 80px
-        rgba(255,50,0,.08);
+.minecraft-main::before{
+    content:"⛏️";
+
+    position:absolute;
+
+    right:35px;
+    top:25px;
+
+    font-size:100px;
+
+    opacity:.08;
+
+    transform:rotate(-15deg);
 }
 
 .minecraft-main h3{
-    font-size:38px;
+    font-size:
+        clamp(35px,5vw,55px);
 
-    margin-bottom:15px;
+    line-height:1;
 }
 
 .minecraft-main h3 span{
@@ -875,14 +1105,22 @@ section{
 }
 
 .minecraft-main p{
-    color:#999;
+    max-width:600px;
+
+    margin-top:20px;
+
+    color:#888;
 
     line-height:1.7;
-
-    max-width:600px;
 }
 
-.minecraft-side{
+.minecraft-main .btn{
+    align-self:flex-start;
+
+    margin-top:25px;
+}
+
+.mc-grid{
     display:grid;
 
     grid-template-columns:
@@ -891,88 +1129,95 @@ section{
     gap:15px;
 }
 
-.mc-card{
-    padding:25px;
+.mc-box{
+    padding:28px;
 
-    border-radius:16px;
+    border-radius:17px;
 
     background:
         rgba(25,2,0,.85);
 
     border:
         1px solid
-        rgba(255,70,0,.17);
+        rgba(255,70,0,.15);
 
     transition:.3s;
 }
 
-.mc-card:hover{
+.mc-box:hover{
     transform:
         translateY(-7px);
 
     border-color:
-        rgba(255,90,0,.6);
+        rgba(255,80,0,.55);
 }
 
-.mc-card strong{
-    display:block;
+.mc-box-icon{
+    font-size:35px;
+}
+
+.mc-box h4{
+    margin-top:13px;
 
     color:#ff6500;
-
-    margin-top:10px;
 }
 
-.mc-card p{
+.mc-box p{
     margin-top:7px;
 
-    color:#777;
+    color:#666;
 
-    font-size:13px;
+    font-size:12px;
+
+    line-height:1.5;
 }
 
-/* =========================================
-   EVENTOS
-========================================= */
 
-.event{
-    max-width:1000px;
+/* =========================================================
+   EVENTS
+========================================================= */
+
+.events{
+    max-width:950px;
 
     margin:auto;
+}
 
+.event{
     display:grid;
 
     grid-template-columns:
-        90px 1fr auto;
+        80px 1fr auto;
 
     align-items:center;
 
-    gap:22px;
+    gap:20px;
 
-    padding:25px;
+    padding:24px;
 
-    margin-bottom:14px;
+    margin-bottom:13px;
 
-    border-radius:16px;
+    border-radius:17px;
 
     background:
         rgba(25,2,0,.82);
 
     border:
         1px solid
-        rgba(255,70,0,.16);
+        rgba(255,70,0,.13);
 
     transition:.3s;
 }
 
 .event:hover{
     transform:
-        translateX(7px);
+        translateX(8px);
 
     border-color:
-        rgba(255,90,0,.6);
+        rgba(255,80,0,.55);
 }
 
-.event-date{
+.event-number{
     text-align:center;
 
     color:#ff6500;
@@ -980,79 +1225,150 @@ section{
     font-weight:1000;
 }
 
-.event-date big{
+.event-number strong{
     display:block;
 
-    font-size:27px;
+    font-size:28px;
 }
 
-.event h3{
-    margin-bottom:6px;
+.event-info h3{
+    margin-bottom:7px;
 }
 
-.event p{
-    color:#777;
+.event-info p{
+    color:#666;
+
+    font-size:13px;
 }
 
-.event-tag{
+.event-status{
     padding:
-        7px 12px;
+        7px 11px;
 
     border-radius:50px;
 
     color:#ff6500;
 
     background:
-        rgba(255,50,0,.08);
+        rgba(255,50,0,.06);
 
     border:
         1px solid
-        rgba(255,70,0,.25);
+        rgba(255,70,0,.2);
 
-    font-size:10px;
+    font-size:8px;
 
     font-weight:bold;
 }
 
-/* =========================================
-   ANUNCIO
-========================================= */
 
-.announcement{
-    max-width:950px;
+/* =========================================================
+   NEWS
+========================================================= */
+
+.news-grid{
+    max-width:1100px;
 
     margin:auto;
 
-    padding:32px;
+    display:grid;
 
-    border-left:
-        3px solid
-        #ff6500;
+    grid-template-columns:
+        repeat(3,1fr);
 
-    border-radius:14px;
+    gap:18px;
+}
+
+.news{
+    padding:30px;
+
+    border-radius:18px;
 
     background:
-        rgba(30,3,0,.82);
+        rgba(25,2,0,.85);
+
+    border:
+        1px solid
+        rgba(255,70,0,.14);
+
+    transition:.3s;
 }
 
-.announcement h3{
+.news:hover{
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,80,0,.55);
+}
+
+.news-date{
     color:#ff6500;
 
-    margin-bottom:10px;
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
 }
 
-.announcement p{
-    color:#aaa;
+.news h3{
+    margin-top:14px;
 
-    line-height:1.7;
+    font-size:20px;
 }
 
-/* =========================================
+.news p{
+    margin-top:10px;
+
+    color:#777;
+
+    line-height:1.6;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
    STAFF
-========================================= */
+========================================================= */
+
+.staff{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
 
 .staff-card{
     text-align:center;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:
+        rgba(25,2,0,.85);
+
+    border:
+        1px solid
+        rgba(255,70,0,.14);
+
+    transition:.3s;
+}
+
+.staff-card:hover{
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,80,0,.55);
 }
 
 .staff-avatar{
@@ -1066,8 +1382,8 @@ section{
 
     display:flex;
 
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     font-size:35px;
 
@@ -1076,28 +1392,43 @@ section{
 
     border:
         2px solid
-        rgba(255,80,0,.45);
+        rgba(255,70,0,.4);
 
     box-shadow:
         0 0 25px
         rgba(255,50,0,.15);
 }
 
-/* =========================================
+.staff-card h3{
+    color:#ff6500;
+
+    font-size:17px;
+}
+
+.staff-card p{
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
    CTA
-========================================= */
+========================================================= */
 
 .cta{
-    max-width:950px;
+    max-width:1000px;
 
     margin:auto;
 
     padding:
-        85px 30px;
+        90px 30px;
 
     text-align:center;
 
-    border-radius:28px;
+    border-radius:30px;
 
     background:
         radial-gradient(
@@ -1105,46 +1436,76 @@ section{
             rgba(255,70,0,.22),
             transparent 65%
         ),
-        rgba(20,2,0,.88);
+        rgba(20,2,0,.9);
 
     border:
         1px solid
-        rgba(255,70,0,.3);
+        rgba(255,70,0,.25);
 
     box-shadow:
-        0 0 90px
-        rgba(255,40,0,.1);
+        0 0 100px
+        rgba(255,40,0,.08);
 }
 
 .cta h2{
-    font-size:45px;
+    font-size:
+        clamp(34px,6vw,60px);
+
+    text-shadow:
+        0 0 30px
+        rgba(255,60,0,.5);
 }
 
 .cta p{
-    max-width:650px;
+    max-width:600px;
 
     margin:
-        16px auto 30px;
+        18px auto 30px;
 
-    color:#999;
+    color:#777;
 
     line-height:1.7;
 }
 
-/* =========================================
-   TOP
-========================================= */
 
-#topBtn{
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:
+        45px 20px;
+
+    text-align:center;
+
+    color:#444;
+
+    border-top:
+        1px solid
+        rgba(255,70,0,.12);
+
+    font-size:12px;
+}
+
+footer strong{
+    color:#ff6500;
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+#top{
     position:fixed;
 
-    right:25px;
-    bottom:25px;
+    right:22px;
+    bottom:22px;
 
     width:48px;
     height:48px;
 
-    border:none;
+    border:0;
 
     border-radius:50%;
 
@@ -1153,7 +1514,7 @@ section{
     background:
         linear-gradient(
             135deg,
-            #ff7600,
+            #ff7800,
             #ff2100
         );
 
@@ -1171,10 +1532,10 @@ section{
 
     transition:.3s;
 
-    z-index:90;
+    z-index:400;
 }
 
-#topBtn.show{
+#top.show{
     opacity:1;
 
     visibility:visible;
@@ -1183,765 +1544,1155 @@ section{
         translateY(0);
 }
 
-/* =========================================
-   FOOTER
-========================================= */
 
-footer{
-    text-align:center;
-
-    padding:
-        45px 20px;
-
-    color:#555;
-
-    border-top:
-        1px solid
-        rgba(255,70,0,.15);
-}
-
-footer strong{
-    color:#ff6500;
-}
-
-/* =========================================
+/* =========================================================
    RESPONSIVE
-========================================= */
+========================================================= */
 
 @media(max-width:850px){
 
-    .navlinks{
+    .nav-menu a:not(.nav-discord){
         display:none;
     }
 
-    .stats{
+    .stats-grid{
         grid-template-columns:
             repeat(2,1fr);
     }
 
-    .cards{
+    .features{
         grid-template-columns:
             1fr;
     }
 
-    .minecraft{
+    .minecraft-wrap{
         grid-template-columns:
             1fr;
     }
 
-    .event{
+    .news-grid{
         grid-template-columns:
-            65px 1fr;
+            1fr;
     }
 
-    .event-tag{
-        display:none;
+    .staff{
+        grid-template-columns:
+            1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .navbar{
+        padding:
+            14px 5%;
     }
 
     section{
         padding:
             80px 5%;
     }
-}
-
-@media(max-width:500px){
-
-    .stats{
-        grid-template-columns:
-            1fr;
-    }
-
-    .minecraft-side{
-        grid-template-columns:
-            1fr;
-    }
-
-    .server-header{
-        flex-direction:column;
-
-        text-align:center;
-    }
 
     .hero h1{
         letter-spacing:3px;
     }
 
-    .hero h2{
-        font-size:14px;
-
-        letter-spacing:2px;
+    .hero-subtitle{
+        letter-spacing:3px;
     }
 
-    .hero p{
-        font-size:16px;
+    .hero-logo{
+        width:110px;
+        height:110px;
     }
 
-    .cta h2{
-        font-size:32px;
+    .server-top{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .stats-grid{
+        grid-template-columns:
+            1fr;
+    }
+
+    .mc-grid{
+        grid-template-columns:
+            1fr;
+    }
+
+    .event{
+        grid-template-columns:
+            60px 1fr;
+    }
+
+    .event-status{
+        display:none;
+    }
+
+    .discord-dashboard{
+        padding:20px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- PARTÍCULAS -->
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background"></div>
+
+<div class="lava-glow"></div>
+
 <div class="particles" id="particles"></div>
 
-<!-- CURSOR -->
-<div class="cursor-glow" id="cursorGlow"></div>
 
+<!-- =====================================================
+     LOADER
+===================================================== -->
 
-<!-- NAV -->
-<nav id="navbar">
+<div id="loader">
 
-<div class="logo">
+    <img
+        class="loader-logo"
+        src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+        alt="Netherrealm">
 
-<img
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
-alt="Netherrealm">
+    <div class="loader-title">
+        NETHERREALM
+    </div>
 
-NETHERREALM
+    <div class="loader-text">
+        ENTER THE REALM
+    </div>
+
+    <div class="loader-bar">
+        <span></span>
+    </div>
 
 </div>
 
-<div class="navlinks">
 
-<a href="#discord">DISCORD</a>
-<a href="#minecraft">MINECRAFT</a>
-<a href="#eventos">EVENTOS</a>
-<a href="#staff">STAFF</a>
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-</div>
+<nav class="navbar" id="navbar">
+
+    <a
+        href="#"
+        class="brand">
+
+        <img
+            src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+            alt="Netherrealm">
+
+        NETHERREALM
+
+    </a>
+
+
+    <div class="nav-menu">
+
+        <a href="#discord">
+            DISCORD
+        </a>
+
+        <a href="#minecraft">
+            MINECRAFT
+        </a>
+
+        <a href="#eventos">
+            EVENTOS
+        </a>
+
+        <a href="#staff">
+            STAFF
+        </a>
+
+        <a
+            class="nav-discord"
+            href="https://discord.gg/eY5yMRek3b"
+            target="_blank">
+
+            ENTRAR
+
+        </a>
+
+    </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <header class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<img
-class="hero-icon"
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
-alt="Netherrealm">
 
-<div class="tag">
-🔥 COMUNIDAD OFICIAL
-</div>
+        <div class="hero-status">
 
-<h1>
-NETHERREALM
-</h1>
+            <span class="status-dot"></span>
 
-<h2>
-DONDE COMIENZA EL CAOS
-</h2>
+            COMUNIDAD ACTIVA
 
-<p>
-Una comunidad para jugar, conocer gente,
-participar en eventos y disfrutar de tus juegos favoritos.
-</p>
+        </div>
 
-<div class="buttons">
 
-<a
-class="btn primary"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-💬 UNIRSE AL DISCORD
-</a>
+        <img
+            class="hero-logo"
+            src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+            alt="Netherrealm">
 
-<a
-class="btn secondary"
-href="#discord">
-EXPLORAR
-</a>
 
-</div>
+        <h1>
+            NETHERREALM
+        </h1>
 
-</div>
+
+        <div class="hero-subtitle">
+            DONDE COMIENZA EL CAOS
+        </div>
+
+
+        <p class="hero-description">
+
+            Una comunidad creada para jugar,
+            conocer gente, participar en eventos
+            y disfrutar juntos de nuestros juegos favoritos.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                class="btn btn-main"
+                href="https://discord.gg/eY5yMRek3b"
+                target="_blank">
+
+                🔥 ENTRAR AL DISCORD
+
+            </a>
+
+
+            <a
+                class="btn btn-outline"
+                href="#discord">
+
+                EXPLORAR NETHERREALM
+
+            </a>
+
+        </div>
+
+    </div>
 
 </header>
 
 
-<!-- DISCORD -->
+<!-- =====================================================
+     DISCORD
+===================================================== -->
+
 <section id="discord">
 
-<div class="section-title reveal">
 
-<span>COMUNIDAD</span>
+    <div class="section-head reveal">
 
-<h2>DISCORD EN TIEMPO REAL</h2>
+        <div class="section-label">
+            LIVE COMMUNITY
+        </div>
 
-<p>
-Las estadísticas se obtienen automáticamente desde nuestro servidor.
-</p>
+        <h2>
+            DISCORD EN TIEMPO REAL
+        </h2>
 
-</div>
+        <p>
+            Estadísticas obtenidas directamente
+            desde nuestra conexión con Discord.
+        </p>
 
-<div class="discord-box reveal zoom">
+    </div>
 
-<div class="server-header">
 
-<img
-class="server-icon"
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
-alt="Netherrealm">
+    <div class="discord-dashboard reveal zoom">
 
-<div class="server-info">
 
-<h3>Netherrealm</h3>
+        <div class="server-top">
 
-<p>
-Servidor oficial de la comunidad
-</p>
 
-<div
-class="connection"
-id="connection">
-● CONECTANDO...
-</div>
+            <img
+                class="server-icon"
+                src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+                alt="Netherrealm">
 
-</div>
 
-<a
-class="btn primary"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-ENTRAR
-</a>
+            <div class="server-details">
 
-</div>
+                <h3>
+                    Netherrealm
+                </h3>
 
-<div class="stats">
+                <p>
+                    Servidor oficial de la comunidad
+                </p>
 
-<div class="stat reveal">
-<div class="stat-icon">👥</div>
+                <div
+                    class="connection"
+                    id="connection">
 
-<span
-class="number"
-id="members">
-...
-</span>
+                    ● CONECTANDO CON DISCORD...
 
-<div class="label">
-MIEMBROS
-</div>
-</div>
+                </div>
 
-<div class="stat reveal">
-<div class="stat-icon">🟢</div>
+            </div>
 
-<span
-class="number"
-id="online">
-...
-</span>
 
-<div class="label">
-ONLINE
-</div>
-</div>
+            <div class="live-badge">
+                ● LIVE
+            </div>
 
-<div class="stat reveal">
-<div class="stat-icon">🎮</div>
 
-<span class="number">∞</span>
+            <a
+                class="btn btn-main"
+                href="https://discord.gg/eY5yMRek3b"
+                target="_blank">
 
-<div class="label">
-JUEGOS
-</div>
-</div>
+                UNIRSE
 
-<div class="stat reveal">
-<div class="stat-icon">🔥</div>
+            </a>
 
-<span class="number">∞</span>
+        </div>
 
-<div class="label">
-AVENTURAS
-</div>
-</div>
 
-</div>
+        <div class="stats-grid">
 
-</div>
+
+            <div class="stat reveal">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+                <span
+                    class="stat-number"
+                    id="members">
+
+                    ...
+
+                </span>
+
+                <div class="stat-label">
+                    MIEMBROS
+                </div>
+
+            </div>
+
+
+            <div class="stat reveal">
+
+                <div class="stat-icon">
+                    🟢
+                </div>
+
+                <span
+                    class="stat-number"
+                    id="online">
+
+                    ...
+
+                </span>
+
+                <div class="stat-label">
+                    ONLINE
+                </div>
+
+            </div>
+
+
+            <div class="stat reveal">
+
+                <div class="stat-icon">
+                    ⛏️
+                </div>
+
+                <span class="stat-number">
+                    MC
+                </span>
+
+                <div class="stat-label">
+                    MINECRAFT
+                </div>
+
+            </div>
+
+
+            <div class="stat reveal">
+
+                <div class="stat-icon">
+                    🔥
+                </div>
+
+                <span class="stat-number">
+                    24/7
+                </span>
+
+                <div class="stat-label">
+                    COMUNIDAD
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- COMUNIDAD -->
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
 <section>
 
-<div class="section-title reveal">
 
-<span>NETHERREALM</span>
+    <div class="section-head reveal">
 
-<h2>UNA COMUNIDAD PARA TODOS</h2>
+        <div class="section-label">
+            THE REALM
+        </div>
 
-<p>
-Encuentra personas, juega y forma parte del reino.
-</p>
+        <h2>
+            ¿QUÉ HAY EN NETHERREALM?
+        </h2>
 
-</div>
+        <p>
+            Todo lo necesario para disfrutar
+            de una comunidad gaming.
+        </p>
 
-<div class="cards">
+    </div>
 
-<div class="card reveal left">
 
-<div class="icon">💬</div>
+    <div class="features">
 
-<h3>Discord</h3>
 
-<p>
-Nuestro punto de encuentro principal.
-Habla, comparte y conoce nuevos miembros.
-</p>
+        <article class="feature reveal left">
 
-</div>
+            <div class="feature-icon">
+                💬
+            </div>
 
-<div class="card reveal">
+            <h3>
+                Comunidad
+            </h3>
 
-<div class="icon">🎮</div>
+            <p>
+                Habla, conoce personas nuevas
+                y encuentra compañeros para jugar.
+            </p>
 
-<h3>Gaming</h3>
+        </article>
 
-<p>
-Juega con miembros de Netherrealm
-y encuentra nuevos compañeros.
-</p>
 
-</div>
+        <article class="feature reveal">
 
-<div class="card reveal right">
+            <div class="feature-icon">
+                🎮
+            </div>
 
-<div class="icon">🔥</div>
+            <h3>
+                Gaming
+            </h3>
 
-<h3>Comunidad</h3>
+            <p>
+                Comparte tus juegos favoritos
+                y juega junto a otros miembros.
+            </p>
 
-<p>
-Un espacio para pasarla bien,
-participar y crear recuerdos.
-</p>
+        </article>
 
-</div>
 
-</div>
+        <article class="feature reveal right">
+
+            <div class="feature-icon">
+                🏆
+            </div>
+
+            <h3>
+                Eventos
+            </h3>
+
+            <p>
+                Participa en dinámicas,
+                eventos y actividades de la comunidad.
+            </p>
+
+        </article>
+
+
+    </div>
 
 </section>
 
 
-<!-- MINECRAFT -->
+<!-- =====================================================
+     MINECRAFT
+===================================================== -->
+
 <section id="minecraft">
 
-<div class="section-title reveal">
 
-<span>GAMING</span>
+    <div class="section-head reveal">
 
-<h2>⛏️ MINECRAFT</h2>
+        <div class="section-label">
+            GAMING ZONE
+        </div>
 
-<p>
-Parte de la comunidad también disfruta el mundo de Minecraft.
-</p>
+        <h2>
+            ⛏️ MINECRAFT
+        </h2>
 
-</div>
+        <p>
+            El Nether también vive dentro de Minecraft.
+        </p>
 
-<div class="minecraft">
+    </div>
 
-<div class="minecraft-main reveal left">
 
-<h3>
-EXPLORA EL <span>NETHER</span>
-</h3>
+    <div class="minecraft-wrap">
 
-<p>
-Construye, explora, sobrevive y juega
-con otros miembros de la comunidad.
-Minecraft es uno de los juegos
-presentes dentro de Netherrealm.
-</p>
 
-<br>
+        <div class="minecraft-main reveal left">
 
-<a
-class="btn secondary"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-BUSCAR JUGADORES
-</a>
+            <h3>
+                ENTER THE
+                <span>NETHER</span>
+            </h3>
 
-</div>
+            <p>
 
-<div class="minecraft-side">
+                Construye, explora, sobrevive
+                y juega junto a otros miembros
+                de Netherrealm.
 
-<div class="mc-card reveal right">
+                <br><br>
 
-<div style="font-size:35px">⛏️</div>
+                Si buscas gente para Minecraft,
+                nuestro Discord es el punto de encuentro.
 
-<strong>SUPERVIVENCIA</strong>
+            </p>
 
-<p>
-Construcción y supervivencia.
-</p>
 
-</div>
+            <a
+                class="btn btn-outline"
+                href="https://discord.gg/eY5yMRek3b"
+                target="_blank">
 
-<div class="mc-card reveal right">
+                ⛏️ BUSCAR JUGADORES
 
-<div style="font-size:35px">🌋</div>
+            </a>
 
-<strong>NETHER</strong>
+        </div>
 
-<p>
-Explora el inframundo.
-</p>
 
-</div>
+        <div class="mc-grid">
 
-<div class="mc-card reveal right">
 
-<div style="font-size:35px">⚔️</div>
+            <div class="mc-box reveal right">
 
-<strong>AVENTURAS</strong>
+                <div class="mc-box-icon">
+                    ⛏️
+                </div>
 
-<p>
-Juega acompañado.
-</p>
+                <h4>
+                    SUPERVIVENCIA
+                </h4>
 
-</div>
+                <p>
+                    Construye y sobrevive
+                    acompañado.
+                </p>
 
-<div class="mc-card reveal right">
+            </div>
 
-<div style="font-size:35px">🌎</div>
 
-<strong>EXPLORACIÓN</strong>
+            <div class="mc-box reveal right">
 
-<p>
-Descubre nuevos lugares.
-</p>
+                <div class="mc-box-icon">
+                    🌋
+                </div>
 
-</div>
+                <h4>
+                    NETHER
+                </h4>
 
-</div>
+                <p>
+                    Explora el inframundo.
+                </p>
 
-</div>
+            </div>
+
+
+            <div class="mc-box reveal right">
+
+                <div class="mc-box-icon">
+                    ⚔️
+                </div>
+
+                <h4>
+                    AVENTURAS
+                </h4>
+
+                <p>
+                    Enfréntate a nuevos retos.
+                </p>
+
+            </div>
+
+
+            <div class="mc-box reveal right">
+
+                <div class="mc-box-icon">
+                    🌎
+                </div>
+
+                <h4>
+                    EXPLORACIÓN
+                </h4>
+
+                <p>
+                    Descubre nuevos mundos.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- EVENTOS -->
+<!-- =====================================================
+     EVENTOS
+===================================================== -->
+
 <section id="eventos">
 
-<div class="section-title reveal">
 
-<span>ACTIVIDADES</span>
+    <div class="section-head reveal">
 
-<h2>🔥 EVENTOS</h2>
+        <div class="section-label">
+            ACTIVIDADES
+        </div>
 
-<p>
-Próximamente podrás encontrar aquí las actividades de Netherrealm.
-</p>
+        <h2>
+            🔥 EVENTOS
+        </h2>
 
-</div>
+        <p>
+            Próximamente aparecerán aquí
+            los eventos oficiales.
+        </p>
 
-<div class="event reveal left">
+    </div>
 
-<div class="event-date">
-<big>01</big>
-PRÓX.
-</div>
 
-<div>
-<h3>Evento de la comunidad</h3>
+    <div class="events">
 
-<p>
-Mantente atento al Discord para conocer los próximos eventos.
-</p>
-</div>
 
-<div class="event-tag">
-PRÓXIMAMENTE
-</div>
+        <div class="event reveal left">
 
-</div>
+            <div class="event-number">
 
-<div class="event reveal right">
+                <strong>
+                    01
+                </strong>
 
-<div class="event-date">
-<big>02</big>
-PRÓX.
-</div>
+                EVENTO
 
-<div>
-<h3>Dinámicas</h3>
+            </div>
 
-<p>
-Actividades organizadas para los miembros.
-</p>
-</div>
 
-<div class="event-tag">
-PRÓXIMAMENTE
-</div>
+            <div class="event-info">
 
-</div>
+                <h3>
+                    Evento de comunidad
+                </h3>
+
+                <p>
+                    Mantente atento al Discord
+                    para conocer la fecha.
+                </p>
+
+            </div>
+
+
+            <div class="event-status">
+                PRÓXIMAMENTE
+            </div>
+
+        </div>
+
+
+        <div class="event reveal right">
+
+            <div class="event-number">
+
+                <strong>
+                    02
+                </strong>
+
+                EVENTO
+
+            </div>
+
+
+            <div class="event-info">
+
+                <h3>
+                    Dinámicas Netherrealm
+                </h3>
+
+                <p>
+                    Actividades especiales
+                    para los miembros.
+                </p>
+
+            </div>
+
+
+            <div class="event-status">
+                PRÓXIMAMENTE
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<!-- ANUNCIO -->
+<!-- =====================================================
+     NEWS
+===================================================== -->
+
 <section>
 
-<div class="section-title reveal">
 
-<span>NEWS</span>
+    <div class="section-head reveal">
 
-<h2>📢 ÚLTIMAS NOVEDADES</h2>
+        <div class="section-label">
+            NETHERREALM NEWS
+        </div>
 
-</div>
+        <h2>
+            📢 NOVEDADES
+        </h2>
 
-<div class="announcement reveal zoom">
+    </div>
 
-<h3>
-🔥 Bienvenido a Netherrealm
-</h3>
 
-<p>
-Las puertas están abiertas. Entra al Discord
-para conocer las novedades, eventos y actividades
-de la comunidad.
-</p>
+    <div class="news-grid">
 
-</div>
+
+        <article class="news reveal left">
+
+            <div class="news-date">
+                NETHERREALM
+            </div>
+
+            <h3>
+                🔥 El reino está abierto
+            </h3>
+
+            <p>
+                Las puertas de Netherrealm
+                están abiertas para nuevos miembros.
+            </p>
+
+        </article>
+
+
+        <article class="news reveal">
+
+            <div class="news-date">
+                COMMUNITY
+            </div>
+
+            <h3>
+                💬 Únete a Discord
+            </h3>
+
+            <p>
+                Nuestro Discord es el centro
+                de toda la comunidad.
+            </p>
+
+        </article>
+
+
+        <article class="news reveal right">
+
+            <div class="news-date">
+                GAMING
+            </div>
+
+            <h3>
+                ⛏️ Minecraft
+            </h3>
+
+            <p>
+                Encuentra jugadores y comparte
+                tus aventuras.
+            </p>
+
+        </article>
+
+
+    </div>
 
 </section>
 
 
-<!-- STAFF -->
+<!-- =====================================================
+     STAFF
+===================================================== -->
+
 <section id="staff">
 
-<div class="section-title reveal">
 
-<span>EQUIPO</span>
+    <div class="section-head reveal">
 
-<h2>🛡️ STAFF</h2>
+        <div class="section-label">
+            THE TEAM
+        </div>
 
-<p>
-El equipo encargado de mantener la comunidad.
-</p>
+        <h2>
+            🛡️ STAFF
+        </h2>
 
-</div>
+        <p>
+            Equipo encargado de la comunidad.
+        </p>
 
-<div class="cards">
+    </div>
 
-<div class="card staff-card reveal left">
 
-<div class="staff-avatar">
-👑
-</div>
+    <div class="staff">
 
-<h3>OWNER</h3>
 
-<p>
-Propietario de Netherrealm.
-</p>
+        <div class="staff-card reveal left">
 
-</div>
+            <div class="staff-avatar">
+                👑
+            </div>
 
-<div class="card staff-card reveal">
+            <h3>
+                OWNER
+            </h3>
 
-<div class="staff-avatar">
-🛡️
-</div>
+            <p>
+                Propietario de Netherrealm.
+            </p>
 
-<h3>ADMIN</h3>
+        </div>
 
-<p>
-Administración de la comunidad.
-</p>
 
-</div>
+        <div class="staff-card reveal">
 
-<div class="card staff-card reveal right">
+            <div class="staff-avatar">
+                🛡️
+            </div>
 
-<div class="staff-avatar">
-🔨
-</div>
+            <h3>
+                ADMIN
+            </h3>
 
-<h3>MODERACIÓN</h3>
+            <p>
+                Administración del servidor.
+            </p>
 
-<p>
-Moderación y apoyo a los miembros.
-</p>
+        </div>
 
-</div>
 
-</div>
+        <div class="staff-card reveal right">
+
+            <div class="staff-avatar">
+                🔨
+            </div>
+
+            <h3>
+                MODERACIÓN
+            </h3>
+
+            <p>
+                Moderación y soporte.
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<!-- CTA -->
+<!-- =====================================================
+     CTA
+===================================================== -->
+
 <section>
 
-<div class="cta reveal zoom">
+    <div class="cta reveal zoom">
 
-<h2>
-🔥 ¿TE ATREVES A ENTRAR?
-</h2>
+        <h2>
+            ¿TE ATREVES A ENTRAR?
+        </h2>
 
-<p>
-El Netherrealm te está esperando.
-Únete a la comunidad y forma parte del reino.
-</p>
+        <p>
 
-<a
-class="btn primary"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank">
-💬 ENTRAR AL DISCORD
-</a>
+            El Netherrealm te está esperando.
 
-</div>
+            <br>
+
+            Entra al Discord y forma parte
+            de nuestra comunidad.
+
+        </p>
+
+
+        <a
+            class="btn btn-main"
+            href="https://discord.gg/eY5yMRek3b"
+            target="_blank">
+
+            🔥 ENTRAR AL NETHERREALM
+
+        </a>
+
+    </div>
 
 </section>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-© 2026
-<strong>NETHERREALM</strong>
+    © 2026
 
-<br><br>
+    <strong>
+        NETHERREALM
+    </strong>
 
-Comunidad oficial de Discord.
+    — Comunidad oficial.
 
 </footer>
 
 
-<button id="topBtn">
-↑
+<!-- TOP BUTTON -->
+
+<button id="top">
+    ↑
 </button>
 
 
 <script>
 
-/* =========================================
-   PARTÍCULAS
-========================================= */
+/* =========================================================
+   PARTICLES
+========================================================= */
 
 const particles =
 document.getElementById("particles");
 
-for(let i=0;i<55;i++){
+for(let i=0;i<70;i++){
 
-    const p =
-    document.createElement("div");
+    const particle =
+    document.createElement("span");
 
-    p.className="particle";
+    particle.className="particle";
 
-    p.style.left =
-    Math.random()*100+"%";
+    particle.style.left =
+        Math.random()*100+"%";
 
-    p.style.animationDuration =
-    (5+Math.random()*10)+"s";
+    particle.style.animationDuration =
+        (5+Math.random()*10)+"s";
 
-    p.style.animationDelay =
-    (-Math.random()*12)+"s";
+    particle.style.animationDelay =
+        (-Math.random()*15)+"s";
 
-    p.style.opacity =
-    .3+Math.random()*.7;
+    particle.style.opacity =
+        .25+Math.random()*.7;
 
-    particles.appendChild(p);
+    particles.appendChild(particle);
 }
 
 
-/* =========================================
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+"load",
+()=>{
+
+    setTimeout(
+        ()=>{
+
+            document
+                .getElementById("loader")
+                .classList
+                .add("hidden");
+
+        },
+        900
+    );
+
+});
+
+
+/* =========================================================
    DISCORD API
-========================================= */
+========================================================= */
 
 const API =
 "https://autumn-breeze-3304.dhilandominguez530.workers.dev/members";
 
 
-async function updateStats(){
+async function updateDiscord(){
 
     const members =
-    document.getElementById("members");
+        document.getElementById("members");
 
     const online =
-    document.getElementById("online");
+        document.getElementById("online");
 
     const connection =
-    document.getElementById("connection");
+        document.getElementById("connection");
+
 
     try{
 
         const response =
-        await fetch(
-            API+"?t="+Date.now(),
-            {
-                cache:"no-store"
-            }
-        );
+            await fetch(
+                API+"?t="+Date.now(),
+                {
+                    cache:"no-store"
+                }
+            );
+
 
         if(!response.ok){
-            throw new Error("API error");
+
+            throw new Error(
+                "API returned "+response.status
+            );
+
         }
 
+
         const data =
-        await response.json();
+            await response.json();
 
-        members.textContent =
-        typeof data.members==="number"
-        ? data.members.toLocaleString("es-ES")
-        : "—";
 
-        online.textContent =
-        typeof data.online==="number"
-        ? data.online.toLocaleString("es-ES")
-        : "—";
+        if(typeof data.members==="number"){
+
+            members.textContent =
+                data.members.toLocaleString("es-ES");
+
+        }else{
+
+            members.textContent="—";
+
+        }
+
+
+        if(typeof data.online==="number"){
+
+            online.textContent =
+                data.online.toLocaleString("es-ES");
+
+        }else{
+
+            online.textContent="—";
+
+        }
+
 
         connection.textContent =
-        "● DISCORD CONECTADO";
+            "● DISCORD CONECTADO";
 
         connection.style.color =
-        "#49ff70";
+            "#42ff68";
+
 
     }catch(error){
+
+        console.error(
+            "Discord:",
+            error
+        );
+
 
         members.textContent="—";
 
         online.textContent="—";
 
+
         connection.textContent =
-        "● DISCORD DESCONECTADO";
+            "● ERROR DE CONEXIÓN";
+
 
         connection.style.color =
-        "#ff4444";
+            "#ff4444";
 
-        console.error(error);
     }
+
 }
 
-updateStats();
+
+/* Primera carga */
+
+updateDiscord();
+
+
+/* Actualizar cada minuto */
 
 setInterval(
-    updateStats,
+    updateDiscord,
     60000
 );
 
 
-/* =========================================
-   REVEAL
-========================================= */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-const reveal =
+const revealElements =
 document.querySelectorAll(".reveal");
 
-const observer =
+
+const revealObserver =
 new IntersectionObserver(
 (entries)=>{
 
@@ -1950,11 +2701,15 @@ new IntersectionObserver(
 
         if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+            entry.target
+                .classList
+                .add("show");
 
-            observer.unobserve(
-                entry.target
-            );
+            revealObserver
+                .unobserve(
+                    entry.target
+                );
+
         }
 
     });
@@ -1964,44 +2719,58 @@ new IntersectionObserver(
     threshold:.12
 });
 
-reveal.forEach(
+
+revealElements.forEach(
 element=>
-observer.observe(element)
+revealObserver.observe(element)
 );
 
 
-/* =========================================
-   NAVBAR + TOP
-========================================= */
+/* =========================================================
+   NAVBAR
+========================================================= */
 
 const navbar =
 document.getElementById("navbar");
 
-const topBtn =
-document.getElementById("topBtn");
+const topButton =
+document.getElementById("top");
+
 
 window.addEventListener(
 "scroll",
 ()=>{
 
-    if(window.scrollY>60){
+    if(window.scrollY>70){
 
-        navbar.classList.add("scrolled");
+        navbar
+            .classList
+            .add("scrolled");
 
-        topBtn.classList.add("show");
+        topButton
+            .classList
+            .add("show");
 
     }else{
 
-        navbar.classList.remove("scrolled");
+        navbar
+            .classList
+            .remove("scrolled");
 
-        topBtn.classList.remove("show");
+        topButton
+            .classList
+            .remove("show");
 
     }
 
 });
 
 
-topBtn.addEventListener(
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+topButton.addEventListener(
 "click",
 ()=>{
 
@@ -2013,44 +2782,45 @@ topBtn.addEventListener(
 });
 
 
-/* =========================================
-   CURSOR
-========================================= */
-
-const glow =
-document.getElementById("cursorGlow");
-
-document.addEventListener(
-"mousemove",
-e=>{
-
-    glow.style.left =
-    e.clientX+"px";
-
-    glow.style.top =
-    e.clientY+"px";
-
-});
-
-
-/* =========================================
+/* =========================================================
    HERO PARALLAX
-========================================= */
+========================================================= */
 
-const hero =
+const heroContent =
 document.querySelector(".hero-content");
+
 
 window.addEventListener(
 "scroll",
 ()=>{
 
-    if(window.scrollY<
-    window.innerHeight){
+    if(
+        window.scrollY <
+        window.innerHeight
+    ){
 
-        hero.style.transform =
-        `translateY(${window.scrollY*.12}px)`;
+        heroContent.style.transform =
+            `translateY(${window.scrollY*.10}px)`;
 
     }
+
+});
+
+
+/* =========================================================
+   PREVENT HERO BUTTON HASH JUMP
+========================================================= */
+
+document
+.querySelectorAll('a[href="#"]')
+.forEach(link=>{
+
+    link.addEventListener(
+        "click",
+        event=>{
+            event.preventDefault();
+        }
+    );
 
 });
 
