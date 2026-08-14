@@ -7,7 +7,7 @@
 
 <title>NETHERREALM | Comunidad Oficial</title>
 
-<meta name="description" content="Netherrealm — comunidad de Discord, eventos y Minecraft.">
+<meta name="description" content="Netherrealm — comunidad oficial de Discord y gaming.">
 
 <style>
 *{
@@ -27,9 +27,7 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   FONDO
-========================= */
+/* ===== FONDO ===== */
 
 body::before{
     content:"";
@@ -37,8 +35,8 @@ body::before{
     inset:0;
     z-index:-5;
     background:
-        radial-gradient(circle at 50% 100%,rgba(255,70,0,.22),transparent 35%),
-        radial-gradient(circle at 10% 30%,rgba(180,0,0,.15),transparent 35%),
+        radial-gradient(circle at 50% 100%,rgba(255,70,0,.23),transparent 35%),
+        radial-gradient(circle at 10% 30%,rgba(180,0,0,.16),transparent 35%),
         linear-gradient(180deg,#020000,#130000 50%,#050000);
 }
 
@@ -58,8 +56,6 @@ body::after{
     from{transform:translateY(0);}
     to{transform:translateY(-180px);}
 }
-
-/* humo */
 
 .smoke{
     position:fixed;
@@ -88,9 +84,7 @@ body::after{
     to{transform:translate(60px,-40px) scale(1.2);}
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ===== NAV ===== */
 
 nav{
     position:fixed;
@@ -133,9 +127,7 @@ nav{
     text-shadow:0 0 12px #ff4500;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ===== HERO ===== */
 
 .hero{
     min-height:100vh;
@@ -247,9 +239,7 @@ nav{
     background:rgba(255,60,0,.13);
 }
 
-/* =========================
-   SECCIONES
-========================= */
+/* ===== SECCIONES ===== */
 
 section{
     padding:100px 7%;
@@ -278,9 +268,7 @@ section{
     margin-top:12px;
 }
 
-/* =========================
-   STATS
-========================= */
+/* ===== STATS ===== */
 
 .stats{
     max-width:1050px;
@@ -296,6 +284,13 @@ section{
     border-radius:15px;
     background:rgba(25,3,0,.7);
     border:1px solid rgba(255,70,0,.18);
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,90,0,.6);
+    box-shadow:0 15px 35px rgba(255,50,0,.12);
 }
 
 .stat-icon{
@@ -316,9 +311,17 @@ section{
     margin-top:5px;
 }
 
-/* =========================
-   CARDS
-========================= */
+.status{
+    margin-top:8px;
+    font-size:11px;
+    color:#666;
+}
+
+.status.online{
+    color:#48ff70;
+}
+
+/* ===== CARDS ===== */
 
 .cards{
     max-width:1100px;
@@ -335,8 +338,6 @@ section{
         linear-gradient(145deg,rgba(40,5,0,.82),rgba(10,1,0,.9));
     border:1px solid rgba(255,70,0,.18);
     transition:.35s;
-    position:relative;
-    overflow:hidden;
 }
 
 .card:hover{
@@ -361,9 +362,7 @@ section{
     line-height:1.6;
 }
 
-/* =========================
-   DISCORD
-========================= */
+/* ===== DISCORD ===== */
 
 .discord{
     max-width:900px;
@@ -389,9 +388,7 @@ section{
     line-height:1.6;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ===== FOOTER ===== */
 
 footer{
     text-align:center;
@@ -404,9 +401,7 @@ footer strong{
     color:#ff6500;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ===== RESPONSIVE ===== */
 
 @media(max-width:850px){
 
@@ -454,8 +449,6 @@ footer strong{
 <div class="smoke one"></div>
 <div class="smoke two"></div>
 
-<!-- NAVBAR -->
-
 <nav>
 
     <div class="logo">
@@ -463,17 +456,13 @@ footer strong{
     </div>
 
     <div class="nav-links">
-
         <a href="#comunidad">COMUNIDAD</a>
         <a href="#minecraft">MINECRAFT</a>
         <a href="#discord">DISCORD</a>
-
     </div>
 
 </nav>
 
-
-<!-- HERO -->
 
 <header class="hero">
 
@@ -517,8 +506,6 @@ footer strong{
 </header>
 
 
-<!-- STATS -->
-
 <section id="comunidad">
 
 <div class="section-title">
@@ -528,7 +515,7 @@ footer strong{
     <h2>NUESTRA COMUNIDAD</h2>
 
     <p>
-        Una comunidad que sigue creciendo.
+        Estadísticas actualizadas automáticamente desde Discord.
     </p>
 
 </div>
@@ -539,39 +526,77 @@ footer strong{
 
         <div class="stat-icon">👥</div>
 
-        <span class="stat-number">600+</span>
+        <span
+            class="stat-number"
+            id="members"
+        >
+            ...
+        </span>
 
-        <span class="stat-name">MIEMBROS</span>
+        <span class="stat-name">
+            MIEMBROS
+        </span>
+
+        <div
+            class="status"
+            id="membersStatus"
+        >
+            Conectando con Discord...
+        </div>
 
     </div>
+
 
     <div class="stat">
 
-        <div class="stat-icon">💬</div>
+        <div class="stat-icon">🟢</div>
 
-        <span class="stat-number">24/7</span>
+        <span
+            class="stat-number"
+            id="online"
+        >
+            ...
+        </span>
 
-        <span class="stat-name">COMUNIDAD</span>
+        <span class="stat-name">
+            ONLINE
+        </span>
+
+        <div
+            class="status online"
+        >
+            En tiempo real
+        </div>
 
     </div>
+
 
     <div class="stat">
 
         <div class="stat-icon">🔥</div>
 
-        <span class="stat-number">EVENTOS</span>
+        <span class="stat-number">
+            EVENTOS
+        </span>
 
-        <span class="stat-name">DINÁMICAS</span>
+        <span class="stat-name">
+            DINÁMICAS
+        </span>
 
     </div>
+
 
     <div class="stat">
 
         <div class="stat-icon">⚔️</div>
 
-        <span class="stat-number">∞</span>
+        <span class="stat-number">
+            ∞
+        </span>
 
-        <span class="stat-name">AVENTURAS</span>
+        <span class="stat-name">
+            AVENTURAS
+        </span>
 
     </div>
 
@@ -579,8 +604,6 @@ footer strong{
 
 </section>
 
-
-<!-- CARACTERÍSTICAS -->
 
 <section>
 
@@ -607,6 +630,7 @@ footer strong{
 
     </div>
 
+
     <div class="card">
 
         <div class="card-icon">🎉</div>
@@ -619,6 +643,7 @@ footer strong{
         </p>
 
     </div>
+
 
     <div class="card">
 
@@ -637,8 +662,6 @@ footer strong{
 
 </section>
 
-
-<!-- MINECRAFT -->
 
 <section id="minecraft">
 
@@ -669,6 +692,7 @@ footer strong{
 
     </div>
 
+
     <div class="card">
 
         <div class="card-icon">🌎</div>
@@ -681,6 +705,7 @@ footer strong{
         </p>
 
     </div>
+
 
     <div class="card">
 
@@ -699,8 +724,6 @@ footer strong{
 
 </section>
 
-
-<!-- DISCORD -->
 
 <section id="discord">
 
@@ -726,8 +749,6 @@ footer strong{
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
     © 2026 <strong>NETHERREALM</strong>
@@ -737,6 +758,85 @@ footer strong{
     Comunidad oficial de Discord.
 
 </footer>
+
+
+<script>
+
+const API =
+"https://autumn-breeze-3304.dhilandominguez530.workers.dev/members";
+
+async function updateDiscordStats(){
+
+    const members =
+        document.getElementById("members");
+
+    const online =
+        document.getElementById("online");
+
+    const status =
+        document.getElementById("membersStatus");
+
+    try{
+
+        const response =
+            await fetch(API + "?t=" + Date.now(), {
+                cache:"no-store"
+            });
+
+        if(!response.ok){
+            throw new Error("API error");
+        }
+
+        const data =
+            await response.json();
+
+        if(typeof data.members === "number"){
+            members.textContent =
+                data.members.toLocaleString("es-ES");
+        }else{
+            members.textContent = "—";
+        }
+
+        if(typeof data.online === "number"){
+            online.textContent =
+                data.online.toLocaleString("es-ES");
+        }else{
+            online.textContent = "—";
+        }
+
+        status.textContent =
+            "● Conectado a Discord";
+
+        status.classList.add("online");
+
+    }catch(error){
+
+        members.textContent = "—";
+        online.textContent = "—";
+
+        status.textContent =
+            "No se pudo conectar con Discord";
+
+        status.classList.remove("online");
+
+        console.error(
+            "Netherrealm Discord API:",
+            error
+        );
+    }
+
+}
+
+/* Primera actualización */
+updateDiscordStats();
+
+/* Actualizar cada 60 segundos */
+setInterval(
+    updateDiscordStats,
+    60000
+);
+
+</script>
 
 </body>
 </html>
