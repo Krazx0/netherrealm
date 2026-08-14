@@ -1,20 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦 | Comunidad Oficial</title>
 
-<meta
-name="description"
-content="Netherrealm — Comunidad de Discord, Minecraft y gaming."
->
+<meta name="description" content="Netherrealm — Comunidad de Discord, Minecraft y gaming.">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -43,22 +37,9 @@ a{
     z-index:-20;
 
     background:
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,65,0,.25),
-            transparent 40%
-        ),
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(180,0,0,.14),
-            transparent 30%
-        ),
-        linear-gradient(
-            180deg,
-            #010000,
-            #090000 55%,
-            #160200
-        );
+        radial-gradient(circle at 50% 100%,rgba(255,65,0,.25),transparent 40%),
+        radial-gradient(circle at 10% 15%,rgba(180,0,0,.14),transparent 30%),
+        linear-gradient(180deg,#010000,#090000 55%,#160200);
 }
 
 .bg::after{
@@ -78,13 +59,8 @@ a{
 }
 
 @keyframes backgroundMove{
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(180px);
-    }
+    from{transform:translateY(0);}
+    to{transform:translateY(180px);}
 }
 
 #particles{
@@ -109,24 +85,17 @@ a{
 }
 
 @keyframes rise{
-
     0%{
         transform:translateY(110vh);
         opacity:0;
     }
 
-    15%{
-        opacity:.8;
-    }
+    15%{opacity:.8;}
 
-    80%{
-        opacity:.6;
-    }
+    80%{opacity:.6;}
 
     100%{
-        transform:
-            translateY(-10vh)
-            translateX(80px);
+        transform:translateY(-10vh) translateX(80px);
         opacity:0;
     }
 }
@@ -148,9 +117,7 @@ a{
 
     background:rgba(3,0,0,.4);
 
-    border-bottom:
-        1px solid
-        rgba(255,70,0,.12);
+    border-bottom:1px solid rgba(255,70,0,.12);
 
     backdrop-filter:blur(18px);
 
@@ -161,8 +128,7 @@ a{
     background:rgba(3,0,0,.94);
 
     box-shadow:
-        0 10px 50px
-        rgba(255,50,0,.12);
+        0 10px 50px rgba(255,50,0,.12);
 }
 
 .brand{
@@ -182,13 +148,10 @@ a{
 
     border-radius:11px;
 
-    border:
-        2px solid
-        #ff5500;
+    border:2px solid #ff5500;
 
     box-shadow:
-        0 0 20px
-        rgba(255,60,0,.5);
+        0 0 20px rgba(255,60,0,.5);
 }
 
 .links{
@@ -211,9 +174,7 @@ a{
 .links a:hover{
     color:#ff6500;
 
-    text-shadow:
-        0 0 15px
-        #ff4500;
+    text-shadow:0 0 15px #ff4500;
 }
 
 .join{
@@ -221,9 +182,7 @@ a{
 
     border-radius:8px;
 
-    border:
-        1px solid
-        rgba(255,80,0,.5);
+    border:1px solid rgba(255,80,0,.5);
 
     color:#ff6500!important;
 }
@@ -231,8 +190,7 @@ a{
 .hero{
     min-height:100vh;
 
-    padding:
-        130px 20px 100px;
+    padding:130px 20px 100px;
 
     display:flex;
     align-items:center;
@@ -255,12 +213,9 @@ a{
 
     border-radius:50px;
 
-    border:
-        1px solid
-        rgba(255,80,0,.25);
+    border:1px solid rgba(255,80,0,.25);
 
-    background:
-        rgba(255,50,0,.04);
+    background:rgba(255,50,0,.04);
 
     color:#aaa;
 
@@ -276,9 +231,7 @@ a{
 
     background:#42ff68;
 
-    box-shadow:
-        0 0 12px
-        #42ff68;
+    box-shadow:0 0 12px #42ff68;
 }
 
 .hero-icon{
@@ -291,39 +244,22 @@ a{
 
     border-radius:30px;
 
-    border:
-        3px solid
-        #ff5500;
+    border:3px solid #ff5500;
 
     box-shadow:
         0 0 35px #ff4500,
         0 0 100px rgba(255,50,0,.3);
 
-    animation:
-        float
-        4s
-        ease-in-out
-        infinite;
+    animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-13px);
-    }
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-13px);}
 }
 
 .hero h1{
-    font-size:
-        clamp(
-            55px,
-            12vw,
-            145px
-        );
+    font-size:clamp(55px,12vw,145px);
 
     line-height:.82;
 
@@ -339,15 +275,10 @@ a{
         0 0 55px #ff4500,
         0 0 110px #ff1800;
 
-    animation:
-        titleGlow
-        2s
-        infinite
-        alternate;
+    animation:titleGlow 2s infinite alternate;
 }
 
 @keyframes titleGlow{
-
     from{
         text-shadow:
             0 0 7px #fff,
@@ -412,45 +343,31 @@ a{
 }
 
 .primary{
-    background:
-        linear-gradient(
-            135deg,
-            #ff7800,
-            #ff2100
-        );
+    background:linear-gradient(135deg,#ff7800,#ff2100);
 
     box-shadow:
-        0 0 25px
-        rgba(255,60,0,.4);
+        0 0 25px rgba(255,60,0,.4);
 }
 
 .primary:hover{
-    transform:
-        translateY(-5px)
-        scale(1.04);
+    transform:translateY(-5px) scale(1.04);
 
     box-shadow:
-        0 0 60px
-        rgba(255,60,0,.7);
+        0 0 60px rgba(255,60,0,.7);
 }
 
 .secondary{
     color:#ff6500;
 
-    border:
-        1px solid
-        #ff5500;
+    border:1px solid #ff5500;
 
-    background:
-        rgba(255,50,0,.04);
+    background:rgba(255,50,0,.04);
 }
 
 .secondary:hover{
-    transform:
-        translateY(-5px);
+    transform:translateY(-5px);
 
-    background:
-        rgba(255,50,0,.12);
+    background:rgba(255,50,0,.12);
 }
 
 section{
@@ -460,8 +377,7 @@ section{
 .head{
     max-width:800px;
 
-    margin:
-        0 auto 55px;
+    margin:0 auto 55px;
 
     text-align:center;
 }
@@ -479,16 +395,10 @@ section{
 .head h2{
     margin-top:12px;
 
-    font-size:
-        clamp(
-            32px,
-            5vw,
-            52px
-        );
+    font-size:clamp(32px,5vw,52px);
 
     text-shadow:
-        0 0 25px
-        rgba(255,60,0,.35);
+        0 0 25px rgba(255,60,0,.35);
 }
 
 .head p{
@@ -502,30 +412,24 @@ section{
 .reveal{
     opacity:0;
 
-    transform:
-        translateY(55px);
+    transform:translateY(55px);
 
     transition:
         opacity .8s ease,
-        transform .8s
-        cubic-bezier(.2,.7,.2,1);
+        transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.left{
-    transform:
-        translateX(-60px);
+    transform:translateX(-60px);
 }
 
 .reveal.right{
-    transform:
-        translateX(60px);
+    transform:translateX(60px);
 }
 
 .reveal.show{
     opacity:1;
-
-    transform:
-        translate(0);
+    transform:translate(0);
 }
 
 .discord{
@@ -544,13 +448,10 @@ section{
             rgba(7,1,0,.98)
         );
 
-    border:
-        1px solid
-        rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 
     box-shadow:
-        0 30px 100px
-        rgba(255,40,0,.08);
+        0 30px 100px rgba(255,40,0,.08);
 }
 
 .server{
@@ -560,9 +461,7 @@ section{
 
     padding-bottom:25px;
 
-    border-bottom:
-        1px solid
-        rgba(255,70,0,.12);
+    border-bottom:1px solid rgba(255,70,0,.12);
 }
 
 .server img{
@@ -571,13 +470,10 @@ section{
 
     border-radius:20px;
 
-    border:
-        2px solid
-        #ff5500;
+    border:2px solid #ff5500;
 
     box-shadow:
-        0 0 25px
-        rgba(255,50,0,.4);
+        0 0 25px rgba(255,50,0,.4);
 }
 
 .server-info{
@@ -610,12 +506,9 @@ section{
 
     color:#42ff68;
 
-    border:
-        1px solid
-        rgba(40,255,80,.2);
+    border:1px solid rgba(40,255,80,.2);
 
-    background:
-        rgba(40,255,80,.04);
+    background:rgba(40,255,80,.04);
 
     font-size:8px;
 
@@ -625,8 +518,7 @@ section{
 .stats{
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:15px;
 
@@ -640,22 +532,17 @@ section{
 
     border-radius:17px;
 
-    background:
-        rgba(20,2,0,.8);
+    background:rgba(20,2,0,.8);
 
-    border:
-        1px solid
-        rgba(255,70,0,.13);
+    border:1px solid rgba(255,70,0,.13);
 
     transition:.3s;
 }
 
 .stat:hover{
-    transform:
-        translateY(-8px);
+    transform:translateY(-8px);
 
-    border-color:
-        rgba(255,90,0,.6);
+    border-color:rgba(255,90,0,.6);
 }
 
 .stat-icon{
@@ -693,8 +580,7 @@ section{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:20px;
 }
@@ -713,40 +599,32 @@ section{
             rgba(8,1,0,.95)
         );
 
-    border:
-        1px solid
-        rgba(255,70,0,.15);
+    border:1px solid rgba(255,70,0,.15);
 
     transition:.4s;
 }
 
 .card:hover{
-    transform:
-        translateY(-12px);
+    transform:translateY(-12px);
 
-    border-color:
-        rgba(255,80,0,.6);
+    border-color:rgba(255,80,0,.6);
 
     box-shadow:
-        0 30px 70px
-        rgba(255,40,0,.13);
+        0 30px 70px rgba(255,40,0,.13);
 }
 
 .card-icon{
     font-size:42px;
-
     margin-bottom:20px;
 }
 
 .card h3{
     color:#ff6500;
-
     margin-bottom:12px;
 }
 
 .card p{
     color:#888;
-
     line-height:1.65;
 }
 
@@ -757,8 +635,7 @@ section{
 
     display:grid;
 
-    grid-template-columns:
-        1.2fr .8fr;
+    grid-template-columns:1.2fr .8fr;
 
     gap:20px;
 }
@@ -783,18 +660,11 @@ section{
             rgba(10,1,0,.98)
         );
 
-    border:
-        1px solid
-        rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 }
 
 .mc-main h3{
-    font-size:
-        clamp(
-            35px,
-            5vw,
-            58px
-        );
+    font-size:clamp(35px,5vw,58px);
 
     line-height:1;
 }
@@ -815,15 +685,13 @@ section{
 
 .mc-main .btn{
     align-self:flex-start;
-
     margin-top:25px;
 }
 
 .mc-boxes{
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:15px;
 }
@@ -833,22 +701,17 @@ section{
 
     border-radius:18px;
 
-    background:
-        rgba(25,2,0,.85);
+    background:rgba(25,2,0,.85);
 
-    border:
-        1px solid
-        rgba(255,70,0,.15);
+    border:1px solid rgba(255,70,0,.15);
 
     transition:.3s;
 }
 
 .mc-box:hover{
-    transform:
-        translateY(-7px);
+    transform:translateY(-7px);
 
-    border-color:
-        rgba(255,80,0,.55);
+    border-color:rgba(255,80,0,.55);
 }
 
 .mc-box div{
@@ -869,8 +732,6 @@ section{
     font-size:12px;
 }
 
-/* STAFF */
-
 .staff-grid{
     max-width:1100px;
 
@@ -878,8 +739,7 @@ section{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:20px;
 }
@@ -898,32 +758,25 @@ section{
             rgba(8,1,0,.98)
         );
 
-    border:
-        1px solid
-        rgba(255,70,0,.16);
+    border:1px solid rgba(255,70,0,.16);
 
     transition:.4s;
 }
 
 .staff-card:hover{
-    transform:
-        translateY(-12px)
-        scale(1.02);
+    transform:translateY(-12px) scale(1.02);
 
-    border-color:
-        rgba(255,90,0,.65);
+    border-color:rgba(255,90,0,.65);
 
     box-shadow:
-        0 25px 70px
-        rgba(255,50,0,.18);
+        0 25px 70px rgba(255,50,0,.18);
 }
 
 .staff-avatar{
     width:105px;
     height:105px;
 
-    margin:
-        0 auto 20px;
+    margin:0 auto 20px;
 
     display:block;
 
@@ -931,24 +784,19 @@ section{
 
     border-radius:50%;
 
-    border:
-        3px solid
-        #ff5500;
+    border:3px solid #ff5500;
 
     box-shadow:
-        0 0 20px
-        rgba(255,60,0,.5);
+        0 0 20px rgba(255,60,0,.5);
 
     transition:.4s;
 }
 
 .staff-card:hover .staff-avatar{
-    transform:
-        scale(1.08);
+    transform:scale(1.08);
 
     box-shadow:
-        0 0 35px
-        rgba(255,80,0,.8);
+        0 0 35px rgba(255,80,0,.8);
 }
 
 .staff-name{
@@ -969,12 +817,9 @@ section{
 
     color:#ff6500;
 
-    background:
-        rgba(255,60,0,.06);
+    background:rgba(255,60,0,.06);
 
-    border:
-        1px solid
-        rgba(255,70,0,.25);
+    border:1px solid rgba(255,70,0,.25);
 
     font-size:12px;
 
@@ -1007,33 +852,18 @@ section{
     color:#43ff68;
 
     text-shadow:
-        0 0 10px
-        rgba(67,255,104,.6);
-}
-
-.staff-status.idle{
-    color:#ffd45c;
-}
-
-.staff-status.dnd{
-    color:#ff4444;
-}
-
-.staff-status.offline{
-    color:#777;
+        0 0 10px rgba(67,255,104,.6);
 }
 
 .events{
     max-width:950px;
-
     margin:auto;
 }
 
 .event{
     display:grid;
 
-    grid-template-columns:
-        75px 1fr auto;
+    grid-template-columns:75px 1fr auto;
 
     align-items:center;
 
@@ -1045,22 +875,17 @@ section{
 
     border-radius:18px;
 
-    background:
-        rgba(25,2,0,.82);
+    background:rgba(25,2,0,.82);
 
-    border:
-        1px solid
-        rgba(255,70,0,.13);
+    border:1px solid rgba(255,70,0,.13);
 
     transition:.3s;
 }
 
 .event:hover{
-    transform:
-        translateX(8px);
+    transform:translateX(8px);
 
-    border-color:
-        rgba(255,80,0,.55);
+    border-color:rgba(255,80,0,.55);
 }
 
 .event-number{
@@ -1075,7 +900,6 @@ section{
 
 .event-number strong{
     display:block;
-
     font-size:28px;
 }
 
@@ -1085,7 +909,6 @@ section{
 
 .event-info p{
     color:#666;
-
     font-size:12px;
 }
 
@@ -1096,9 +919,7 @@ section{
 
     color:#ff6500;
 
-    border:
-        1px solid
-        rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 
     font-size:8px;
 
@@ -1110,8 +931,7 @@ section{
 
     margin:auto;
 
-    padding:
-        90px 30px;
+    padding:90px 30px;
 
     text-align:center;
 
@@ -1125,25 +945,17 @@ section{
         ),
         rgba(20,2,0,.9);
 
-    border:
-        1px solid
-        rgba(255,70,0,.25);
+    border:1px solid rgba(255,70,0,.25);
 }
 
 .cta h2{
-    font-size:
-        clamp(
-            35px,
-            6vw,
-            60px
-        );
+    font-size:clamp(35px,6vw,60px);
 }
 
 .cta p{
     max-width:600px;
 
-    margin:
-        18px auto 30px;
+    margin:18px auto 30px;
 
     color:#777;
 
@@ -1151,16 +963,13 @@ section{
 }
 
 footer{
-    padding:
-        45px 20px;
+    padding:45px 20px;
 
     text-align:center;
 
     color:#444;
 
-    border-top:
-        1px solid
-        rgba(255,70,0,.12);
+    border-top:1px solid rgba(255,70,0,.12);
 
     font-size:12px;
 }
@@ -1184,24 +993,17 @@ footer strong{
 
     color:white;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff7800,
-            #ff2100
-        );
+    background:linear-gradient(135deg,#ff7800,#ff2100);
 
     box-shadow:
-        0 0 25px
-        rgba(255,60,0,.5);
+        0 0 25px rgba(255,60,0,.5);
 
     cursor:pointer;
 
     opacity:0;
     visibility:hidden;
 
-    transform:
-        translateY(15px);
+    transform:translateY(15px);
 
     transition:.3s;
 
@@ -1212,38 +1014,30 @@ footer strong{
     opacity:1;
     visibility:visible;
 
-    transform:
-        translateY(0);
+    transform:translateY(0);
 }
 
 @media(max-width:950px){
-
     .staff-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .stats{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .cards{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .minecraft{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 }
 
 @media(max-width:600px){
-
     section{
-        padding:
-            80px 5%;
+        padding:80px 5%;
     }
 
     .hero h1{
@@ -1261,23 +1055,19 @@ footer strong{
     }
 
     .stats{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .staff-grid{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .mc-boxes{
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .event{
-        grid-template-columns:
-            60px 1fr;
+        grid-template-columns:60px 1fr;
     }
 
     .event-status{
@@ -1288,7 +1078,6 @@ footer strong{
         display:none;
     }
 }
-
 </style>
 </head>
 
@@ -1300,30 +1089,19 @@ footer strong{
 <nav class="nav" id="nav">
 
 <a href="#" class="brand">
-
-<img
-src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
->
-
+<img src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
 NETHERREALM
-
 </a>
 
 <div class="links">
-
 <a href="#discord">DISCORD</a>
 <a href="#minecraft">MINECRAFT</a>
 <a href="#staff">STAFF</a>
 <a href="#events">EVENTOS</a>
 
-<a
-class="join"
-href="https://discord.gg/eY5yMRek3b"
-target="_blank"
->
+<a class="join" href="https://discord.gg/eY5yMRek3b" target="_blank">
 ENTRAR
 </a>
-
 </div>
 
 </nav>
@@ -1333,11 +1111,8 @@ ENTRAR
 <div class="hero-inner">
 
 <div class="status">
-
 <span class="dot"></span>
-
 NETHERREALM ONLINE
-
 </div>
 
 <img
@@ -1365,10 +1140,7 @@ target="_blank"
 🔥 ENTRAR AL DISCORD
 </a>
 
-<a
-class="btn secondary"
-href="#discord"
->
+<a class="btn secondary" href="#discord">
 VER SERVIDOR
 </a>
 
@@ -1387,8 +1159,7 @@ VER SERVIDOR
 <h2>DISCORD EN TIEMPO REAL</h2>
 
 <p>
-Datos obtenidos directamente
-desde Netherrealm.
+Datos obtenidos directamente desde Netherrealm.
 </p>
 
 </div>
@@ -1409,10 +1180,7 @@ src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa14759
 
 <p>Comunidad oficial</p>
 
-<div
-class="connection"
-id="connection"
->
+<div class="connection" id="connection">
 ● CONECTANDO...
 </div>
 
@@ -1435,53 +1203,27 @@ UNIRSE
 <div class="stats">
 
 <div class="stat reveal">
-
 <div class="stat-icon">👥</div>
-
-<span
-class="number"
-id="members"
->
-—
-</span>
-
+<span class="number" id="members">—</span>
 <small>MIEMBROS</small>
-
 </div>
 
 <div class="stat reveal">
-
 <div class="stat-icon">🟢</div>
-
-<span
-class="number"
-id="online"
->
-—
-</span>
-
+<span class="number" id="online">—</span>
 <small>ONLINE</small>
-
 </div>
 
 <div class="stat reveal">
-
 <div class="stat-icon">⛏️</div>
-
 <span class="number">MC</span>
-
 <small>MINECRAFT</small>
-
 </div>
 
 <div class="stat reveal">
-
 <div class="stat-icon">🔥</div>
-
 <span class="number">24/7</span>
-
 <small>COMUNIDAD</small>
-
 </div>
 
 </div>
@@ -1508,42 +1250,30 @@ de una comunidad activa.
 <div class="cards">
 
 <article class="card reveal left">
-
 <div class="card-icon">💬</div>
-
 <h3>Comunidad</h3>
-
 <p>
 Habla, conoce personas nuevas
 y encuentra compañeros para jugar.
 </p>
-
 </article>
 
 <article class="card reveal">
-
 <div class="card-icon">🎮</div>
-
 <h3>Gaming</h3>
-
 <p>
 Comparte tus juegos favoritos
 y juega con otros miembros.
 </p>
-
 </article>
 
 <article class="card reveal right">
-
 <div class="card-icon">🏆</div>
-
 <h3>Eventos</h3>
-
 <p>
 Participa en eventos y dinámicas
 organizadas por la comunidad.
 </p>
-
 </article>
 
 </div>
@@ -1593,43 +1323,27 @@ target="_blank"
 <div class="mc-boxes">
 
 <div class="mc-box reveal right">
-
 <div>⛏️</div>
-
 <h4>SUPERVIVENCIA</h4>
-
 <p>Construye y sobrevive.</p>
-
 </div>
 
 <div class="mc-box reveal right">
-
 <div>🌋</div>
-
 <h4>NETHER</h4>
-
 <p>Explora el inframundo.</p>
-
 </div>
 
 <div class="mc-box reveal right">
-
 <div>⚔️</div>
-
 <h4>AVENTURAS</h4>
-
 <p>Nuevos retos.</p>
-
 </div>
 
 <div class="mc-box reveal right">
-
 <div>🌎</div>
-
 <h4>EXPLORACIÓN</h4>
-
 <p>Descubre nuevos mundos.</p>
-
 </div>
 
 </div>
@@ -1653,10 +1367,9 @@ Netherrealm activo y en orden.
 
 </div>
 
-<div
-class="staff-grid"
-id="staffGrid"
->
+<div class="staff-grid" id="staffGrid">
+
+<!-- Las tarjetas se rellenan automáticamente desde el Worker -->
 
 <article class="staff-card reveal">
 
@@ -1758,21 +1471,13 @@ nuestros eventos oficiales.
 <div class="event reveal left">
 
 <div class="event-number">
-
 <strong>01</strong>
-
 EVENTO
-
 </div>
 
 <div class="event-info">
-
 <h3>Evento Netherrealm</h3>
-
-<p>
-Próximamente en Discord.
-</p>
-
+<p>Próximamente en Discord.</p>
 </div>
 
 <div class="event-status">
@@ -1784,21 +1489,13 @@ PRÓXIMAMENTE
 <div class="event reveal right">
 
 <div class="event-number">
-
 <strong>02</strong>
-
 EVENTO
-
 </div>
 
 <div class="event-info">
-
 <h3>Dinámica comunitaria</h3>
-
-<p>
-Mantente atento a los anuncios.
-</p>
-
+<p>Mantente atento a los anuncios.</p>
 </div>
 
 <div class="event-status">
@@ -1835,21 +1532,24 @@ target="_blank"
 </section>
 
 <footer>
-
-© 2026
-
-<strong>NETHERREALM</strong>
-
-— Comunidad oficial.
-
+© 2026 <strong>NETHERREALM</strong> — Comunidad oficial.
 </footer>
 
 <button id="top">↑</button>
 
 <script>
 
+/* =========================
+   NETHERREALM V12
+   ========================= */
+
 const API =
 "https://autumn-breeze-3304.dhilandominguez530.workers.dev";
+
+
+/* =========================
+   PARTICULAS
+   ========================= */
 
 const particles =
 document.getElementById("particles");
@@ -1871,58 +1571,72 @@ for(let i = 0; i < 70; i++){
     particle.style.animationDelay =
         (-Math.random() * 15) + "s";
 
-    particles.appendChild(
-        particle
-    );
+    particles.appendChild(particle);
+}
+
+
+/* =========================
+   DISCORD
+   ========================= */
+
+async function getDiscordData(){
+
+    const response =
+        await fetch(
+            API + "?t=" + Date.now(),
+            {
+                method:"GET",
+                cache:"no-store"
+            }
+        );
+
+    if(!response.ok){
+        throw new Error(
+            "HTTP " + response.status
+        );
+    }
+
+    return await response.json();
 }
 
 
 async function loadDiscord(){
 
+    const connection =
+        document.getElementById("connection");
+
     try{
 
-        const response =
-            await fetch(
-                API + "?t=" + Date.now(),
-                {
-                    cache:"no-store"
-                }
-            );
-
-        if(!response.ok){
-            throw new Error(
-                "HTTP " +
-                response.status
-            );
-        }
-
         const data =
-            await response.json();
+            await getDiscordData();
+
 
         document.getElementById(
             "serverName"
         ).textContent =
-            data.name ||
-            "Netherrealm";
+            cleanText(
+                data.name,
+                "𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦"
+            );
+
 
         document.getElementById(
             "members"
         ).textContent =
-            typeof data.members === "number"
-                ? data.members.toLocaleString("es-ES")
-                : "—";
+            formatNumber(data.members);
+
 
         document.getElementById(
             "online"
         ).textContent =
-            typeof data.online === "number"
-                ? data.online.toLocaleString("es-ES")
-                : "—";
+            formatNumber(data.online);
 
-        document.getElementById(
-            "connection"
-        ).textContent =
+
+        connection.textContent =
             "● DISCORD CONECTADO";
+
+        connection.style.color =
+            "#42ff68";
 
     }catch(error){
 
@@ -1931,13 +1645,18 @@ async function loadDiscord(){
             error
         );
 
-        document.getElementById(
-            "connection"
-        ).textContent =
+        connection.textContent =
             "● SIN CONEXIÓN";
+
+        connection.style.color =
+            "#ff4444";
     }
 }
 
+
+/* =========================
+   STAFF
+   ========================= */
 
 async function loadStaff(){
 
@@ -1955,31 +1674,18 @@ async function loadStaff(){
 
     try{
 
-        const response =
-            await fetch(
-                API + "?t=" + Date.now(),
-                {
-                    cache:"no-store"
-                }
-            );
-
-        if(!response.ok){
-            throw new Error(
-                "HTTP " +
-                response.status
-            );
-        }
-
         const data =
-            await response.json();
+            await getDiscordData();
+
 
         if(
             !Array.isArray(data.staff)
         ){
             throw new Error(
-                "Staff no disponible"
+                "El Worker no devolvió staff"
             );
         }
+
 
         data.staff.forEach(
             (member,index) => {
@@ -1990,6 +1696,7 @@ async function loadStaff(){
                 if(!card){
                     return;
                 }
+
 
                 const avatar =
                     card.querySelector(
@@ -2017,58 +1724,88 @@ async function loadStaff(){
                     );
 
 
-                if(member.avatar){
+                /* AVATAR */
+
+                if(
+                    member.avatar &&
+                    typeof member.avatar === "string"
+                ){
+
                     avatar.src =
                         member.avatar;
+
                 }
 
 
                 /*
-                 * Solo cambiamos el nombre
-                 * si Discord realmente
-                 * devolvió uno.
+                 * NOMBRE
                  *
-                 * Así evitamos que aparezca
-                 * "Usuario" por un error.
+                 * Prioridad:
+                 * 1. global_name
+                 * 2. username
+                 * 3. nombre anterior
+                 *
+                 * Nunca mostramos "Usuario".
                  */
 
+                const globalName =
+                    validName(
+                        member.global_name
+                    );
+
+                const userName =
+                    validName(
+                        member.username
+                    );
+
+
+                if(globalName){
+
+                    name.textContent =
+                        globalName;
+
+                }
+                else if(userName){
+
+                    name.textContent =
+                        userName;
+
+                }
+
+
+                /* ROL */
+
                 if(
-                    member.global_name &&
-                    member.global_name !== "Usuario"
+                    member.role &&
+                    typeof member.role === "string"
                 ){
 
-                    name.textContent =
-                        member.global_name;
-
-                }
-                else if(
-                    member.username &&
-                    member.username !== "Usuario"
-                ){
-
-                    name.textContent =
-                        member.username;
-
-                }
-
-
-                if(member.role){
                     role.textContent =
                         member.role;
+
                 }
 
 
-                if(
-                    member.username &&
-                    member.username !== "Usuario"
-                ){
+                /* USERNAME */
+
+                if(userName){
 
                     username.textContent =
-                        "@" +
-                        member.username;
+                        "@" + userName;
+
+                }
+                else{
+
+                    username.textContent =
+                        "";
 
                 }
 
+
+                /*
+                 * V12:
+                 * TODOS LOS STAFF SE MUESTRAN ONLINE.
+                 */
 
                 status.className =
                     "staff-status online";
@@ -2091,6 +1828,7 @@ async function loadStaff(){
             }
         );
 
+
     }catch(error){
 
         console.error(
@@ -2098,12 +1836,14 @@ async function loadStaff(){
             error
         );
 
+
         /*
-         * No borramos nombres,
-         * avatares ni tarjetas.
+         * Si el Worker falla,
+         * NO reemplazamos los nombres
+         * por "Usuario".
          *
-         * Conservamos los últimos
-         * datos mostrados.
+         * Las tarjetas conservan
+         * lo que ya tenían.
          */
 
         cards.forEach(
@@ -2114,11 +1854,13 @@ async function loadStaff(){
                         ".staff-status"
                     );
 
+
                 status.className =
                     "staff-status online";
 
                 status.textContent =
                     "● ONLINE";
+
 
                 setTimeout(
                     () => {
@@ -2133,13 +1875,86 @@ async function loadStaff(){
 
             }
         );
+
     }
 }
 
 
+/* =========================
+   UTILIDADES
+   ========================= */
+
+function validName(value){
+
+    if(
+        typeof value !== "string"
+    ){
+        return null;
+    }
+
+    const clean =
+        value.trim();
+
+    if(!clean){
+        return null;
+    }
+
+    if(
+        clean.toLowerCase() === "usuario"
+    ){
+        return null;
+    }
+
+    return clean;
+}
+
+
+function cleanText(
+    value,
+    fallback
+){
+
+    if(
+        typeof value !== "string" ||
+        !value.trim()
+    ){
+
+        return fallback;
+
+    }
+
+    return value.trim();
+}
+
+
+function formatNumber(value){
+
+    if(
+        typeof value !== "number"
+    ){
+
+        return "—";
+
+    }
+
+    return value.toLocaleString(
+        "es-ES"
+    );
+}
+
+
+/* =========================
+   CARGA INICIAL
+   ========================= */
+
 loadDiscord();
+
 loadStaff();
 
+
+/* =========================
+   ACTUALIZACIÓN
+   ========================= */
 
 setInterval(
     loadDiscord,
@@ -2151,6 +1966,10 @@ setInterval(
     60000
 );
 
+
+/* =========================
+   ANIMACIONES
+   ========================= */
 
 const observer =
     new IntersectionObserver(
@@ -2184,26 +2003,22 @@ const observer =
 
 
 document
-    .querySelectorAll(
-        ".reveal"
-    )
+    .querySelectorAll(".reveal")
     .forEach(
         element =>
-            observer.observe(
-                element
-            )
+            observer.observe(element)
     );
 
+
+/* =========================
+   NAVBAR
+   ========================= */
 
 const nav =
-    document.getElementById(
-        "nav"
-    );
+    document.getElementById("nav");
 
 const topButton =
-    document.getElementById(
-        "top"
-    );
+    document.getElementById("top");
 
 
 window.addEventListener(
@@ -2239,6 +2054,10 @@ window.addEventListener(
 );
 
 
+/* =========================
+   BOTÓN ARRIBA
+   ========================= */
+
 topButton.addEventListener(
     "click",
     () => {
@@ -2255,4 +2074,3 @@ topButton.addEventListener(
 
 </body>
 </html>
-```
