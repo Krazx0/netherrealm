@@ -7,7 +7,7 @@
 
 <title>NETHERREALM | Comunidad Oficial</title>
 
-<meta name="description" content="Netherrealm — comunidad oficial de Discord y gaming.">
+<meta name="description" content="Netherrealm — comunidad oficial de Discord, gaming y Minecraft.">
 
 <style>
 *{
@@ -27,7 +27,9 @@ body{
     overflow-x:hidden;
 }
 
-/* ===== FONDO ===== */
+/* =========================
+   FONDO INFERNAL
+========================= */
 
 body::before{
     content:"";
@@ -35,9 +37,9 @@ body::before{
     inset:0;
     z-index:-5;
     background:
-        radial-gradient(circle at 50% 100%,rgba(255,70,0,.23),transparent 35%),
-        radial-gradient(circle at 10% 30%,rgba(180,0,0,.16),transparent 35%),
-        linear-gradient(180deg,#020000,#130000 50%,#050000);
+        radial-gradient(circle at 50% 100%,rgba(255,70,0,.25),transparent 35%),
+        radial-gradient(circle at 10% 30%,rgba(180,0,0,.18),transparent 35%),
+        linear-gradient(180deg,#020000,#140000 50%,#050000);
 }
 
 body::after{
@@ -46,10 +48,10 @@ body::after{
     inset:0;
     z-index:-4;
     background-image:
-        radial-gradient(circle,rgba(255,90,0,.8) 1px,transparent 2px);
+        radial-gradient(circle,rgba(255,100,0,.9) 1px,transparent 2px);
     background-size:55px 55px;
     opacity:.18;
-    animation:embers 15s linear infinite;
+    animation:embers 14s linear infinite;
 }
 
 @keyframes embers{
@@ -62,49 +64,65 @@ body::after{
     width:600px;
     height:600px;
     border-radius:50%;
-    background:rgba(255,40,0,.05);
-    filter:blur(90px);
+    background:rgba(255,40,0,.06);
+    filter:blur(100px);
     z-index:-3;
     animation:smoke 8s ease-in-out infinite alternate;
 }
 
 .smoke.one{
-    left:-200px;
-    bottom:-200px;
+    left:-250px;
+    bottom:-250px;
 }
 
 .smoke.two{
     right:-250px;
-    top:20%;
+    top:15%;
     animation-delay:2s;
 }
 
 @keyframes smoke{
     from{transform:translate(0,0) scale(1);}
-    to{transform:translate(60px,-40px) scale(1.2);}
+    to{transform:translate(70px,-40px) scale(1.2);}
 }
 
-/* ===== NAV ===== */
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    padding:18px 7%;
+    padding:16px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     z-index:100;
-    background:rgba(3,0,0,.72);
+    background:rgba(3,0,0,.78);
     backdrop-filter:blur(15px);
     border-bottom:1px solid rgba(255,70,0,.2);
 }
 
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-img{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:2px solid #ff5a00;
+    box-shadow:0 0 15px rgba(255,70,0,.7);
+}
+
 .logo{
-    font-size:22px;
+    font-size:20px;
     font-weight:1000;
-    letter-spacing:4px;
+    letter-spacing:3px;
     color:#ff6200;
     text-shadow:0 0 12px #ff4500,0 0 30px #ff2200;
 }
@@ -118,7 +136,7 @@ nav{
     color:#ccc;
     text-decoration:none;
     font-weight:bold;
-    font-size:14px;
+    font-size:13px;
     transition:.3s;
 }
 
@@ -127,7 +145,9 @@ nav{
     text-shadow:0 0 12px #ff4500;
 }
 
-/* ===== HERO ===== */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
@@ -140,6 +160,31 @@ nav{
 
 .hero-content{
     max-width:1000px;
+}
+
+.hero-icon{
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    border:3px solid #ff5a00;
+    box-shadow:
+        0 0 20px #ff4500,
+        0 0 55px rgba(255,50,0,.5);
+    margin-bottom:25px;
+    animation:iconPulse 2s infinite alternate;
+}
+
+@keyframes iconPulse{
+    from{
+        box-shadow:
+        0 0 15px #ff4500,
+        0 0 35px rgba(255,50,0,.35);
+    }
+    to{
+        box-shadow:
+        0 0 30px #ff6500,
+        0 0 70px rgba(255,50,0,.65);
+    }
 }
 
 .badge{
@@ -239,7 +284,9 @@ nav{
     background:rgba(255,60,0,.13);
 }
 
-/* ===== SECCIONES ===== */
+/* =========================
+   SECCIONES
+========================= */
 
 section{
     padding:100px 7%;
@@ -268,7 +315,9 @@ section{
     margin-top:12px;
 }
 
-/* ===== STATS ===== */
+/* =========================
+   STATS
+========================= */
 
 .stats{
     max-width:1050px;
@@ -321,7 +370,56 @@ section{
     color:#48ff70;
 }
 
-/* ===== CARDS ===== */
+/* =========================
+   DISCORD PANEL
+========================= */
+
+.discord-panel{
+    max-width:950px;
+    margin:auto;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    border-radius:20px;
+    background:
+        linear-gradient(145deg,rgba(35,4,0,.9),rgba(12,1,0,.9));
+    border:1px solid rgba(255,70,0,.25);
+    box-shadow:0 20px 60px rgba(255,40,0,.08);
+}
+
+.discord-icon{
+    width:90px;
+    height:90px;
+    border-radius:20px;
+    border:2px solid #ff5a00;
+    box-shadow:0 0 25px rgba(255,70,0,.45);
+}
+
+.discord-info{
+    flex:1;
+}
+
+.discord-info h3{
+    font-size:25px;
+}
+
+.discord-info p{
+    color:#888;
+    margin-top:7px;
+}
+
+.discord-status{
+    display:inline-block;
+    margin-top:10px;
+    color:#48ff70;
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* =========================
+   CARDS
+========================= */
 
 .cards{
     max-width:1100px;
@@ -362,7 +460,9 @@ section{
     line-height:1.6;
 }
 
-/* ===== DISCORD ===== */
+/* =========================
+   DISCORD CTA
+========================= */
 
 .discord{
     max-width:900px;
@@ -388,7 +488,9 @@ section{
     line-height:1.6;
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
@@ -401,7 +503,9 @@ footer strong{
     color:#ff6500;
 }
 
-/* ===== RESPONSIVE ===== */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:850px){
 
@@ -415,6 +519,11 @@ footer strong{
 
     .cards{
         grid-template-columns:1fr;
+    }
+
+    .discord-panel{
+        flex-direction:column;
+        text-align:center;
     }
 
     section{
@@ -440,6 +549,10 @@ footer strong{
     .hero p{
         font-size:16px;
     }
+
+    .discord-panel{
+        padding:25px;
+    }
 }
 </style>
 </head>
@@ -449,24 +562,46 @@ footer strong{
 <div class="smoke one"></div>
 <div class="smoke two"></div>
 
+<!-- NAV -->
+
 <nav>
 
-    <div class="logo">
-        NETHERREALM
+    <div class="logo-area">
+
+        <img
+            class="logo-img"
+            src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
+            alt="Netherrealm"
+        >
+
+        <div class="logo">
+            NETHERREALM
+        </div>
+
     </div>
 
     <div class="nav-links">
+
         <a href="#comunidad">COMUNIDAD</a>
         <a href="#minecraft">MINECRAFT</a>
         <a href="#discord">DISCORD</a>
+
     </div>
 
 </nav>
 
 
+<!-- HERO -->
+
 <header class="hero">
 
 <div class="hero-content">
+
+    <img
+        class="hero-icon"
+        src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+        alt="Logo Netherrealm"
+    >
 
     <div class="badge">
         🔥 COMUNIDAD OFICIAL
@@ -506,6 +641,8 @@ footer strong{
 </header>
 
 
+<!-- COMUNIDAD -->
+
 <section id="comunidad">
 
 <div class="section-title">
@@ -519,6 +656,47 @@ footer strong{
     </p>
 
 </div>
+
+
+<!-- PANEL DISCORD -->
+
+<div class="discord-panel">
+
+    <img
+        class="discord-icon"
+        src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=512"
+        alt="Netherrealm Discord"
+    >
+
+    <div class="discord-info">
+
+        <h3>Netherrealm</h3>
+
+        <p>
+            Comunidad oficial de Discord
+        </p>
+
+        <span class="discord-status">
+            ● Discord conectado
+        </span>
+
+    </div>
+
+    <a
+        class="btn primary"
+        href="https://discord.gg/eY5yMRek3b"
+        target="_blank"
+    >
+        UNIRSE
+    </a>
+
+</div>
+
+
+<br><br>
+
+
+<!-- ESTADÍSTICAS -->
 
 <div class="stats">
 
@@ -541,7 +719,7 @@ footer strong{
             class="status"
             id="membersStatus"
         >
-            Conectando con Discord...
+            Conectando...
         </div>
 
     </div>
@@ -562,9 +740,7 @@ footer strong{
             ONLINE
         </span>
 
-        <div
-            class="status online"
-        >
+        <div class="status online">
             En tiempo real
         </div>
 
@@ -604,6 +780,8 @@ footer strong{
 
 </section>
 
+
+<!-- CARACTERÍSTICAS -->
 
 <section>
 
@@ -662,6 +840,8 @@ footer strong{
 
 </section>
 
+
+<!-- MINECRAFT -->
 
 <section id="minecraft">
 
@@ -725,6 +905,130 @@ footer strong{
 </section>
 
 
+<!-- STAFF -->
+
+<section>
+
+<div class="section-title">
+
+    <span>EQUIPO</span>
+
+    <h2>🛡️ STAFF</h2>
+
+    <p>
+        El equipo que mantiene Netherrealm activo.
+    </p>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-icon">👑</div>
+
+        <h3>OWNER</h3>
+
+        <p>
+            Administración principal de Netherrealm.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">🛡️</div>
+
+        <h3>ADMIN</h3>
+
+        <p>
+            Gestión y organización de la comunidad.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">🔨</div>
+
+        <h3>MODERACIÓN</h3>
+
+        <p>
+            Ayuda a mantener una comunidad segura y agradable.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- REGLAS -->
+
+<section>
+
+<div class="section-title">
+
+    <span>COMUNIDAD</span>
+
+    <h2>📜 REGLAS</h2>
+
+    <p>
+        Respeta a los demás y disfruta del servidor.
+    </p>
+
+</div>
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="card-icon">1️⃣</div>
+
+        <h3>RESPETO</h3>
+
+        <p>
+            Trata a todos los miembros con respeto.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">2️⃣</div>
+
+        <h3>NO SPAM</h3>
+
+        <p>
+            Evita el spam, flood y contenido molesto.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-icon">3️⃣</div>
+
+        <h3>DIVIÉRTETE</h3>
+
+        <p>
+            Participa, conoce gente y disfruta Netherrealm.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- DISCORD CTA -->
+
 <section id="discord">
 
 <div class="discord">
@@ -748,6 +1052,8 @@ footer strong{
 
 </section>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -793,15 +1099,11 @@ async function updateDiscordStats(){
         if(typeof data.members === "number"){
             members.textContent =
                 data.members.toLocaleString("es-ES");
-        }else{
-            members.textContent = "—";
         }
 
         if(typeof data.online === "number"){
             online.textContent =
                 data.online.toLocaleString("es-ES");
-        }else{
-            online.textContent = "—";
         }
 
         status.textContent =
@@ -823,14 +1125,19 @@ async function updateDiscordStats(){
             "Netherrealm Discord API:",
             error
         );
+
     }
 
 }
 
+
 /* Primera actualización */
+
 updateDiscordStats();
 
-/* Actualizar cada 60 segundos */
+
+/* Actualización automática cada 60 segundos */
+
 setInterval(
     updateDiscordStats,
     60000
