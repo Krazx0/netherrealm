@@ -2,58 +2,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff4500">
+<meta name="description" content="Netherrealm — Comunidad oficial de Discord, Minecraft, Roblox y gaming.">
+<meta name="author" content="Netherrealm">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="theme-color"
-    content="#ff4500"
->
-
-<meta
-    name="description"
-    content="Netherrealm — Comunidad oficial de Discord, Minecraft, Roblox y gaming."
->
-
-<meta
-    name="author"
-    content="Netherrealm"
->
-
-<!-- =====================================================
-     NETHERREALM V17
-     FAVICON / ICONO DE LA PESTAÑA
-===================================================== -->
-
-<link
-    rel="icon"
-    type="image/webp"
-    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
->
-
-<link
-    rel="shortcut icon"
-    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
->
-
-<link
-    rel="apple-touch-icon"
-    href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
->
+<link rel="icon" type="image/webp"
+href="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256">
 
 <title>𝐍𝐞𝐭𝐡𝐞𝐫𝐫𝐞𝐚𝐥𝐦 | Comunidad Oficial</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
     margin:0;
     padding:0;
@@ -80,8 +40,7 @@ a{
     text-decoration:none;
 }
 
-button,
-input{
+button,input{
     font:inherit;
 }
 
@@ -89,9 +48,7 @@ button{
     cursor:pointer;
 }
 
-/* =====================================================
-   FONDO
-===================================================== */
+/* ================= FONDO ================= */
 
 .bg{
     position:fixed;
@@ -100,27 +57,10 @@ button{
     overflow:hidden;
 
     background:
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,65,0,.30),
-            transparent 38%
-        ),
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(180,0,0,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 50%,
-            rgba(255,80,0,.08),
-            transparent 28%
-        ),
-        linear-gradient(
-            180deg,
-            #010000,
-            #090000 55%,
-            #160200
-        );
+        radial-gradient(circle at 50% 100%,rgba(255,65,0,.30),transparent 38%),
+        radial-gradient(circle at 10% 15%,rgba(180,0,0,.16),transparent 30%),
+        radial-gradient(circle at 90% 50%,rgba(255,80,0,.08),transparent 28%),
+        linear-gradient(180deg,#010000,#090000 55%,#160200);
 }
 
 .bg::before{
@@ -140,24 +80,14 @@ button{
 }
 
 @keyframes bgMove{
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(180px);
-    }
+    from{transform:translateY(0)}
+    to{transform:translateY(180px)}
 }
-
-/* =====================================================
-   LAVA
-===================================================== */
 
 .lava{
     position:absolute;
     left:-10%;
     bottom:-12%;
-
     width:120%;
     height:30%;
 
@@ -170,34 +100,20 @@ button{
         );
 
     filter:blur(25px);
-
-    animation:
-        lavaPulse 3s ease-in-out infinite alternate;
+    animation:lavaPulse 3s ease-in-out infinite alternate;
 }
 
 @keyframes lavaPulse{
-
-    from{
-        transform:scaleX(1);
-        opacity:.65;
-    }
-
-    to{
-        transform:scaleX(1.08);
-        opacity:1;
-    }
+    from{transform:scaleX(1);opacity:.65}
+    to{transform:scaleX(1.08);opacity:1}
 }
 
-/* =====================================================
-   BRASAS
-===================================================== */
+/* ================= PARTICULAS ================= */
 
 #particles{
     position:fixed;
     inset:0;
-
     z-index:-5;
-
     pointer-events:none;
     overflow:hidden;
 }
@@ -205,12 +121,9 @@ button{
 .particle{
     position:absolute;
     bottom:-20px;
-
     width:3px;
     height:3px;
-
     border-radius:50%;
-
     background:#ff6500;
 
     box-shadow:
@@ -221,46 +134,28 @@ button{
 }
 
 @keyframes rise{
-
     0%{
-        transform:
-            translateY(0)
-            translateX(0)
-            scale(.6);
-
+        transform:translateY(0) translateX(0) scale(.6);
         opacity:0;
     }
 
-    15%{
-        opacity:.9;
-    }
+    15%{opacity:.9}
 
-    75%{
-        opacity:.7;
-    }
+    75%{opacity:.7}
 
     100%{
-        transform:
-            translateY(-115vh)
-            translateX(80px)
-            scale(1.3);
-
+        transform:translateY(-115vh) translateX(80px) scale(1.3);
         opacity:0;
     }
 }
 
-/* =====================================================
-   HUMO
-===================================================== */
+/* ================= HUMO ================= */
 
 .smoke{
     position:fixed;
-
     bottom:-120px;
-
     width:280px;
     height:280px;
-
     border-radius:50%;
 
     background:
@@ -271,71 +166,40 @@ button{
         );
 
     filter:blur(35px);
-
     pointer-events:none;
-
     z-index:-4;
 
-    animation:
-        smokeMove 12s ease-in-out infinite;
+    animation:smokeMove 12s ease-in-out infinite;
 }
 
-.smoke.one{
-    left:5%;
-}
-
-.smoke.two{
-    left:45%;
-    animation-delay:-5s;
-}
-
-.smoke.three{
-    right:5%;
-    animation-delay:-8s;
-}
+.smoke.one{left:5%}
+.smoke.two{left:45%;animation-delay:-5s}
+.smoke.three{right:5%;animation-delay:-8s}
 
 @keyframes smokeMove{
-
     0%{
-        transform:
-            translateY(0)
-            translateX(0)
-            scale(.8);
-
+        transform:translateY(0) translateX(0) scale(.8);
         opacity:0;
     }
 
-    25%{
-        opacity:.45;
-    }
+    25%{opacity:.45}
 
-    70%{
-        opacity:.25;
-    }
+    70%{opacity:.25}
 
     100%{
-        transform:
-            translateY(-75vh)
-            translateX(100px)
-            scale(1.8);
-
+        transform:translateY(-75vh) translateX(100px) scale(1.8);
         opacity:0;
     }
 }
 
-/* =====================================================
-   NAV
-===================================================== */
+/* ================= NAV ================= */
 
 .nav{
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
     height:74px;
-
     padding:0 6%;
 
     display:flex;
@@ -345,9 +209,7 @@ button{
     z-index:1000;
 
     background:rgba(3,0,0,.42);
-
-    border-bottom:
-        1px solid rgba(255,70,0,.12);
+    border-bottom:1px solid rgba(255,70,0,.12);
 
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
@@ -365,22 +227,17 @@ button{
 .brand{
     display:flex;
     align-items:center;
-
     gap:12px;
 
     font-weight:1000;
-
     letter-spacing:3px;
-
     color:#ff6500;
 }
 
 .brand img{
     width:40px;
     height:40px;
-
     border-radius:11px;
-
     border:2px solid #ff5500;
 
     box-shadow:
@@ -390,22 +247,20 @@ button{
 .links{
     display:flex;
     align-items:center;
-
     gap:22px;
 }
 
-.links a{
+.links a,
+.links button{
     font-size:10px;
     font-weight:bold;
-
     color:#888;
-
     letter-spacing:1px;
-
     transition:.3s;
 }
 
-.links a:hover{
+.links a:hover,
+.links button:hover{
     color:#ff6500;
 
     text-shadow:
@@ -414,27 +269,20 @@ button{
 
 .join{
     padding:10px 16px;
-
     border-radius:8px;
 
-    border:
-        1px solid rgba(255,80,0,.5);
+    border:1px solid rgba(255,80,0,.5);
 
     color:#ff6500 !important;
-
     background:transparent;
 }
 
-/* =====================================================
-   BUSCADOR
-===================================================== */
+/* ================= BUSCADOR ================= */
 
 .search-wrap{
     position:fixed;
-
     top:82px;
     right:6%;
-
     z-index:950;
 
     width:min(320px,88vw);
@@ -443,31 +291,26 @@ button{
     visibility:hidden;
 
     transform:translateY(-10px);
-
     transition:.3s;
 }
 
 .search-wrap.open{
     opacity:1;
     visibility:visible;
-
     transform:translateY(0);
 }
 
 .search-box{
     display:flex;
     align-items:center;
-
     gap:10px;
 
     padding:11px 14px;
-
     border-radius:12px;
 
     background:rgba(10,1,0,.96);
 
-    border:
-        1px solid rgba(255,80,0,.35);
+    border:1px solid rgba(255,80,0,.35);
 
     box-shadow:
         0 15px 50px rgba(0,0,0,.5),
@@ -480,14 +323,10 @@ button{
 
 .search-box input{
     width:100%;
-
     border:0;
     outline:0;
-
     background:transparent;
-
     color:white;
-
     font-size:13px;
 }
 
@@ -497,68 +336,49 @@ button{
 
 .search-results{
     margin-top:8px;
-
     max-height:260px;
-
     overflow:auto;
 
     border-radius:12px;
-
     background:rgba(10,1,0,.97);
-
-    border:
-        1px solid rgba(255,70,0,.18);
+    border:1px solid rgba(255,70,0,.18);
 }
 
 .search-result{
     display:block;
-
     padding:13px 15px;
 
-    border-bottom:
-        1px solid rgba(255,70,0,.08);
+    border-bottom:1px solid rgba(255,70,0,.08);
 
     color:#aaa;
-
     font-size:12px;
-
     transition:.2s;
 }
 
 .search-result:hover{
     color:#ff6500;
-
-    background:
-        rgba(255,50,0,.07);
+    background:rgba(255,50,0,.07);
 }
 
 .search-result small{
     display:block;
-
     margin-top:3px;
-
     color:#555;
 }
 
 .no-result{
     padding:15px;
-
     color:#666;
-
     font-size:12px;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
-
     padding:130px 20px 100px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -572,32 +392,23 @@ button{
 
 .status{
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
 
     padding:8px 15px;
-
     border-radius:50px;
 
-    border:
-        1px solid rgba(255,80,0,.25);
-
-    background:
-        rgba(255,50,0,.04);
+    border:1px solid rgba(255,80,0,.25);
+    background:rgba(255,50,0,.04);
 
     color:#aaa;
-
     font-size:9px;
-
     letter-spacing:3px;
 }
 
 .dot{
     width:7px;
     height:7px;
-
     border-radius:50%;
 
     background:#42ff68;
@@ -611,11 +422,9 @@ button{
     height:140px;
 
     margin:30px auto;
-
     display:block;
 
     object-fit:cover;
-
     border-radius:30px;
 
     border:3px solid #ff5500;
@@ -624,31 +433,19 @@ button{
         0 0 35px #ff4500,
         0 0 100px rgba(255,50,0,.3);
 
-    animation:
-        float 4s ease-in-out infinite;
+    animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-13px);
-    }
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-13px)}
 }
 
 .hero h1{
-    font-size:
-        clamp(55px,12vw,145px);
-
+    font-size:clamp(55px,12vw,145px);
     line-height:.82;
-
     letter-spacing:8px;
-
     font-weight:1000;
-
     color:white;
 
     text-shadow:
@@ -657,12 +454,10 @@ button{
         0 0 55px #ff4500,
         0 0 110px #ff1800;
 
-    animation:
-        titleGlow 2s infinite alternate;
+    animation:titleGlow 2s infinite alternate;
 }
 
 @keyframes titleGlow{
-
     from{
         text-shadow:
             0 0 7px #fff,
@@ -681,67 +476,46 @@ button{
 
 .hero h2{
     margin-top:25px;
-
     color:#ff6500;
-
     font-size:13px;
-
     letter-spacing:6px;
 }
 
 .hero p{
     max-width:650px;
-
     margin:25px auto;
 
     color:#888;
-
     font-size:16px;
-
     line-height:1.7;
 }
 
 .buttons{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:14px;
-
     margin-top:30px;
 }
 
 .btn{
     display:inline-flex;
-
     justify-content:center;
     align-items:center;
 
     padding:15px 26px;
-
     border-radius:9px;
-
     border:0;
 
     font-size:12px;
-
     font-weight:1000;
 
     transition:.3s;
-
     cursor:pointer;
 }
 
 .primary{
-    background:
-        linear-gradient(
-            135deg,
-            #ff7800,
-            #ff2100
-        );
-
+    background:linear-gradient(135deg,#ff7800,#ff2100);
     color:white;
 
     box-shadow:
@@ -749,9 +523,7 @@ button{
 }
 
 .primary:hover{
-    transform:
-        translateY(-5px)
-        scale(1.04);
+    transform:translateY(-5px) scale(1.04);
 
     box-shadow:
         0 0 60px rgba(255,60,0,.7);
@@ -759,24 +531,16 @@ button{
 
 .secondary{
     color:#ff6500;
-
-    border:
-        1px solid #ff5500;
-
-    background:
-        rgba(255,50,0,.04);
+    border:1px solid #ff5500;
+    background:rgba(255,50,0,.04);
 }
 
 .secondary:hover{
     transform:translateY(-5px);
-
-    background:
-        rgba(255,50,0,.12);
+    background:rgba(255,50,0,.12);
 }
 
-/* =====================================================
-   SECCIONES
-===================================================== */
+/* ================= SECCIONES ================= */
 
 section{
     padding:110px 7%;
@@ -784,27 +548,20 @@ section{
 
 .head{
     max-width:800px;
-
     margin:0 auto 55px;
-
     text-align:center;
 }
 
 .label{
     color:#ff6500;
-
     font-size:9px;
-
     letter-spacing:5px;
-
     font-weight:bold;
 }
 
 .head h2{
     margin-top:12px;
-
-    font-size:
-        clamp(32px,5vw,52px);
+    font-size:clamp(32px,5vw,52px);
 
     text-shadow:
         0 0 25px rgba(255,60,0,.35);
@@ -812,19 +569,14 @@ section{
 
 .head p{
     margin-top:15px;
-
     color:#777;
-
     line-height:1.7;
 }
 
-/* =====================================================
-   REVEAL
-===================================================== */
+/* ================= REVEAL ================= */
 
 .reveal{
     opacity:0;
-
     transform:translateY(55px);
 
     transition:
@@ -842,130 +594,14 @@ section{
 
 .reveal.show{
     opacity:1;
-
     transform:translate(0);
 }
 
-/* =====================================================
-   ANUNCIO
-===================================================== */
-
-.announcement{
-    max-width:1100px;
-
-    margin:0 auto 70px;
-
-    position:relative;
-
-    padding:22px 25px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            110deg,
-            rgba(70,8,0,.95),
-            rgba(15,1,0,.96)
-        );
-
-    border:
-        1px solid rgba(255,90,0,.28);
-
-    box-shadow:
-        0 0 45px rgba(255,50,0,.09);
-
-    overflow:hidden;
-}
-
-.announcement::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-    bottom:0;
-
-    width:4px;
-
-    background:
-        linear-gradient(
-            #ffb000,
-            #ff2200
-        );
-
-    box-shadow:
-        0 0 20px #ff4500;
-}
-
-.announcement-icon{
-    width:52px;
-    height:52px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
-
-    border-radius:14px;
-
-    background:
-        rgba(255,60,0,.08);
-
-    font-size:25px;
-}
-
-.announcement-content{
-    flex:1;
-}
-
-.announcement-content span{
-    color:#ff6500;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-}
-
-.announcement-content h3{
-    margin-top:5px;
-
-    font-size:18px;
-}
-
-.announcement-content p{
-    margin-top:5px;
-
-    color:#777;
-
-    font-size:12px;
-}
-
-.announcement .btn{
-    flex-shrink:0;
-
-    padding:12px 18px;
-}
-
-/* =====================================================
-   DISCORD
-===================================================== */
+/* ================= DISCORD ================= */
 
 .discord{
     max-width:1100px;
-
     margin:auto;
-
     padding:30px;
 
     border-radius:25px;
@@ -977,8 +613,7 @@ section{
             rgba(7,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 
     box-shadow:
         0 30px 100px rgba(255,40,0,.08);
@@ -986,9 +621,7 @@ section{
 
 .server{
     display:flex;
-
     align-items:center;
-
     gap:20px;
 
     padding-bottom:25px;
@@ -1000,9 +633,7 @@ section{
 .server img{
     width:82px;
     height:82px;
-
     border-radius:20px;
-
     object-fit:cover;
 
     border:2px solid #ff5500;
@@ -1021,70 +652,51 @@ section{
 
 .server-info p{
     margin-top:5px;
-
     color:#666;
 }
 
 .connection{
     margin-top:10px;
-
     font-size:9px;
-
     color:#42ff68;
-
     font-weight:bold;
 }
 
 .live{
     padding:7px 12px;
-
     border-radius:50px;
 
     color:#42ff68;
 
-    border:
-        1px solid rgba(40,255,80,.2);
-
-    background:
-        rgba(40,255,80,.04);
+    border:1px solid rgba(40,255,80,.2);
+    background:rgba(40,255,80,.04);
 
     font-size:8px;
-
     font-weight:bold;
 }
 
 .stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
-
     margin-top:25px;
 }
 
 .stat{
     padding:28px 15px;
-
     text-align:center;
 
     border-radius:17px;
 
-    background:
-        rgba(20,2,0,.8);
-
-    border:
-        1px solid rgba(255,70,0,.13);
+    background:rgba(20,2,0,.8);
+    border:1px solid rgba(255,70,0,.13);
 
     transition:.3s;
 }
 
 .stat:hover{
     transform:translateY(-8px);
-
-    border-color:
-        rgba(255,90,0,.6);
+    border-color:rgba(255,90,0,.6);
 }
 
 .stat-icon{
@@ -1093,54 +705,40 @@ section{
 
 .number{
     display:block;
-
     margin-top:9px;
 
     color:#ff6500;
-
     font-size:32px;
-
     font-weight:1000;
 }
 
 .stat small{
     display:block;
-
     margin-top:5px;
 
     color:#666;
-
     font-size:8px;
-
     letter-spacing:2px;
 }
 
-/* =====================================================
-   JUEGOS
-===================================================== */
+/* ================= JUEGOS ================= */
 
 .games{
     max-width:1100px;
-
     margin:auto;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .game-card{
     position:relative;
-
-    min-height:270px;
+    min-height:290px;
 
     padding:32px;
 
     display:flex;
-
     flex-direction:column;
 
     border-radius:22px;
@@ -1152,31 +750,10 @@ section{
             rgba(8,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.15);
+    border:1px solid rgba(255,70,0,.15);
 
     overflow:hidden;
-
     transition:.4s;
-}
-
-.game-card::after{
-    content:"";
-
-    position:absolute;
-
-    width:150px;
-    height:150px;
-
-    right:-60px;
-    bottom:-60px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,60,0,.08);
-
-    filter:blur(10px);
 }
 
 .game-card:hover{
@@ -1191,47 +768,35 @@ section{
 
 .game-icon{
     font-size:48px;
-
     margin-bottom:22px;
 }
 
 .game-card h3{
     color:#ff6500;
-
     font-size:24px;
 }
 
 .game-card p{
     margin-top:10px;
-
     color:#777;
-
     line-height:1.65;
 }
 
 .game-tag{
     display:inline-block;
-
     align-self:flex-start;
 
     margin-top:auto;
-
     padding:7px 11px;
 
     border-radius:50px;
 
     color:#ff6500;
-
-    background:
-        rgba(255,60,0,.06);
-
-    border:
-        1px solid rgba(255,70,0,.2);
+    background:rgba(255,60,0,.06);
+    border:1px solid rgba(255,70,0,.2);
 
     font-size:8px;
-
     letter-spacing:1.5px;
-
     font-weight:bold;
 }
 
@@ -1239,32 +804,25 @@ section{
     opacity:.72;
 }
 
-/* =====================================================
-   MINECRAFT
-===================================================== */
+/* ================= MINECRAFT + ROBLOX ================= */
 
-.minecraft{
+.minecraft,
+.roblox-container{
     max-width:1100px;
-
     margin:auto;
 
     display:grid;
-
-    grid-template-columns:
-        1.2fr .8fr;
-
+    grid-template-columns:1.2fr .8fr;
     gap:20px;
 }
 
-.mc-main{
+.mc-main,
+.roblox-main{
     min-height:350px;
-
     padding:45px;
 
     display:flex;
-
     justify-content:center;
-
     flex-direction:column;
 
     border-radius:25px;
@@ -1276,171 +834,150 @@ section{
             rgba(10,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 }
 
-.mc-main h3{
-    font-size:
-        clamp(35px,5vw,58px);
-
+.mc-main h3,
+.roblox-main h3{
+    font-size:clamp(35px,5vw,58px);
     line-height:1;
 }
 
-.mc-main h3 span{
+.mc-main h3 span,
+.roblox-main h3 span{
     color:#ff6500;
 }
 
-.mc-main p{
+.mc-main p,
+.roblox-main p{
     max-width:600px;
-
     margin-top:20px;
-
     color:#888;
-
     line-height:1.7;
 }
 
-.mc-main .btn{
+.mc-main .btn,
+.roblox-main .btn{
     align-self:flex-start;
-
     margin-top:25px;
 }
 
-.mc-boxes{
+.mc-boxes,
+.roblox-boxes{
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:15px;
 }
 
-.mc-box{
+.mc-box,
+.roblox-box{
     padding:28px;
 
     border-radius:18px;
 
-    background:
-        rgba(25,2,0,.85);
-
-    border:
-        1px solid rgba(255,70,0,.15);
+    background:rgba(25,2,0,.85);
+    border:1px solid rgba(255,70,0,.15);
 
     transition:.3s;
 }
 
-.mc-box:hover{
+.mc-box:hover,
+.roblox-box:hover{
     transform:translateY(-7px);
-
-    border-color:
-        rgba(255,80,0,.55);
+    border-color:rgba(255,80,0,.55);
 }
 
-.mc-box div{
+.mc-box div,
+.roblox-box div{
     font-size:35px;
 }
 
-.mc-box h4{
+.mc-box h4,
+.roblox-box h4{
     margin-top:12px;
-
     color:#ff6500;
 }
 
-.mc-box p{
+.mc-box p,
+.roblox-box p{
     margin-top:7px;
-
     color:#666;
-
     font-size:12px;
 }
 
-/* =====================================================
-   ROBLOX
-===================================================== */
+/* ================= ROBLOX V19 ================= */
 
-.roblox-panel{
-    max-width:1100px;
-
-    margin:25px auto 0;
-
-    padding:45px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:30px;
-
-    border-radius:25px;
-
+.roblox-main{
     background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,70,0,.16),
+            transparent 35%
+        ),
         linear-gradient(
             135deg,
-            rgba(55,5,0,.88),
-            rgba(8,1,0,.98)
+            rgba(75,9,0,.88),
+            rgba(10,1,0,.98)
+        );
+}
+
+.roblox-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    width:max-content;
+
+    padding:8px 12px;
+    border-radius:50px;
+
+    color:#ff6500;
+
+    border:1px solid rgba(255,80,0,.25);
+    background:rgba(255,50,0,.06);
+
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.roblox-main h3{
+    margin-top:20px;
+}
+
+.roblox-box.featured{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(70,7,0,.95),
+            rgba(18,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.2);
-
-    transition:.4s;
-}
-
-.roblox-panel:hover{
-    border-color:
-        rgba(255,90,0,.5);
-
     box-shadow:
-        0 25px 80px rgba(255,40,0,.10);
+        inset 0 0 35px rgba(255,50,0,.05);
 }
 
-.roblox-icon{
-    font-size:65px;
+.roblox-box small{
+    display:block;
+    margin-top:10px;
+    color:#555;
+    font-size:9px;
+    letter-spacing:1px;
 }
 
-.roblox-info{
-    flex:1;
-}
-
-.roblox-info h3{
-    font-size:35px;
-}
-
-.roblox-info h3 span{
-    color:#ff6500;
-}
-
-.roblox-info p{
-    margin-top:12px;
-
-    color:#777;
-
-    line-height:1.7;
-}
-
-/* =====================================================
-   STAFF
-===================================================== */
+/* ================= STAFF ================= */
 
 .staff-grid{
     max-width:1100px;
-
     margin:auto;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
 
 .staff-card{
     padding:30px 20px;
-
     text-align:center;
 
     border-radius:22px;
@@ -1452,16 +989,13 @@ section{
             rgba(8,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.16);
+    border:1px solid rgba(255,70,0,.16);
 
     transition:.4s;
 }
 
 .staff-card:hover{
-    transform:
-        translateY(-12px)
-        scale(1.02);
+    transform:translateY(-12px) scale(1.02);
 
     border-color:
         rgba(255,90,0,.65);
@@ -1475,11 +1009,9 @@ section{
     height:105px;
 
     margin:0 auto 20px;
-
     display:block;
 
     object-fit:cover;
-
     border-radius:50%;
 
     border:3px solid #ff5500;
@@ -1499,9 +1031,7 @@ section{
 
 .staff-name{
     font-size:20px;
-
     font-weight:1000;
-
     min-height:24px;
 }
 
@@ -1509,43 +1039,30 @@ section{
     display:inline-block;
 
     margin-top:10px;
-
     padding:9px 16px;
 
     border-radius:50px;
 
     color:#ff6500;
-
-    background:
-        rgba(255,60,0,.06);
-
-    border:
-        1px solid rgba(255,70,0,.25);
+    background:rgba(255,60,0,.06);
+    border:1px solid rgba(255,70,0,.25);
 
     font-size:12px;
-
     font-weight:bold;
-
     letter-spacing:1.4px;
-
     text-transform:uppercase;
 }
 
 .staff-user{
     margin-top:12px;
-
     color:#777;
-
     font-size:10px;
 }
 
 .staff-status{
     margin-top:14px;
-
     font-size:11px;
-
     font-weight:bold;
-
     letter-spacing:1px;
 }
 
@@ -1556,61 +1073,45 @@ section{
         0 0 10px rgba(67,255,104,.6);
 }
 
-/* =====================================================
-   EVENTOS
-===================================================== */
+/* ================= EVENTOS ================= */
 
 .events{
     max-width:950px;
-
     margin:auto;
 }
 
 .event{
     display:grid;
-
-    grid-template-columns:
-        75px 1fr auto;
+    grid-template-columns:75px 1fr auto;
 
     align-items:center;
-
     gap:20px;
 
     padding:24px;
-
     margin-bottom:13px;
 
     border-radius:18px;
 
-    background:
-        rgba(25,2,0,.82);
-
-    border:
-        1px solid rgba(255,70,0,.13);
+    background:rgba(25,2,0,.82);
+    border:1px solid rgba(255,70,0,.13);
 
     transition:.3s;
 }
 
 .event:hover{
     transform:translateX(8px);
-
-    border-color:
-        rgba(255,80,0,.55);
+    border-color:rgba(255,80,0,.55);
 }
 
 .event-number{
     text-align:center;
-
     color:#ff6500;
-
     font-size:9px;
-
     font-weight:bold;
 }
 
 .event-number strong{
     display:block;
-
     font-size:28px;
 }
 
@@ -1620,7 +1121,6 @@ section{
 
 .event-info p{
     color:#666;
-
     font-size:12px;
 }
 
@@ -1630,30 +1130,22 @@ section{
     border-radius:50px;
 
     color:#ff6500;
-
-    border:
-        1px solid rgba(255,70,0,.2);
+    border:1px solid rgba(255,70,0,.2);
 
     font-size:8px;
-
     font-weight:bold;
 }
 
-/* =====================================================
-   REDES
-===================================================== */
+/* ================= SOCIAL ================= */
 
 .social-card{
     max-width:700px;
-
     margin:auto;
 
     padding:30px;
 
     display:flex;
-
     align-items:center;
-
     gap:20px;
 
     border-radius:22px;
@@ -1665,8 +1157,7 @@ section{
             rgba(8,1,0,.98)
         );
 
-    border:
-        1px solid rgba(255,70,0,.16);
+    border:1px solid rgba(255,70,0,.16);
 
     transition:.3s;
 }
@@ -1686,14 +1177,12 @@ section{
     height:60px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:17px;
 
-    background:
-        rgba(255,60,0,.08);
+    background:rgba(255,60,0,.08);
 
     font-size:30px;
 }
@@ -1708,23 +1197,17 @@ section{
 
 .social-info p{
     margin-top:5px;
-
     color:#666;
-
     font-size:12px;
 }
 
-/* =====================================================
-   CTA
-===================================================== */
+/* ================= CTA ================= */
 
 .cta{
     max-width:1000px;
-
     margin:auto;
 
     padding:90px 30px;
-
     text-align:center;
 
     border-radius:30px;
@@ -1737,168 +1220,35 @@ section{
         ),
         rgba(20,2,0,.9);
 
-    border:
-        1px solid rgba(255,70,0,.25);
+    border:1px solid rgba(255,70,0,.25);
 }
 
 .cta h2{
-    font-size:
-        clamp(35px,6vw,60px);
+    font-size:clamp(35px,6vw,60px);
 }
 
 .cta p{
     max-width:600px;
-
     margin:18px auto 30px;
 
     color:#777;
-
     line-height:1.7;
 }
 
-/* =====================================================
-   NOTIFICACIÓN
-===================================================== */
-
-.notification{
-    position:fixed;
-
-    right:25px;
-    bottom:25px;
-
-    z-index:2000;
-
-    width:min(
-        390px,
-        calc(100vw - 35px)
-    );
-
-    padding:22px;
-
-    display:flex;
-
-    gap:15px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(55,6,0,.98),
-            rgba(8,1,0,.99)
-        );
-
-    border:
-        1px solid rgba(255,90,0,.35);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.65),
-        0 0 40px rgba(255,50,0,.13);
-
-    transform:translateY(130px);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.5s cubic-bezier(.2,.8,.2,1);
-}
-
-.notification.show{
-    transform:translateY(0);
-
-    opacity:1;
-    visibility:visible;
-}
-
-.notification-icon{
-    font-size:28px;
-}
-
-.notification-content{
-    flex:1;
-}
-
-.notification-label{
-    color:#ff6500;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-}
-
-.notification h3{
-    margin-top:5px;
-
-    font-size:16px;
-}
-
-.notification p{
-    margin-top:5px;
-
-    color:#777;
-
-    font-size:11px;
-
-    line-height:1.5;
-}
-
-.notification-actions{
-    display:flex;
-
-    gap:8px;
-
-    margin-top:12px;
-}
-
-.notification .btn{
-    padding:9px 13px;
-
-    font-size:9px;
-}
-
-.notification-close{
-    position:absolute;
-
-    top:8px;
-    right:10px;
-
-    border:0;
-
-    background:transparent;
-
-    color:#555;
-
-    cursor:pointer;
-
-    font-size:18px;
-}
-
-.notification-close:hover{
-    color:#fff;
-}
-
-/* =====================================================
-   MODAL
-===================================================== */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
-
     inset:0;
-
     z-index:3000;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     padding:20px;
 
-    background:
-        rgba(0,0,0,.78);
+    background:rgba(0,0,0,.78);
 
     backdrop-filter:blur(10px);
 
@@ -1916,11 +1266,7 @@ section{
 .modal-content{
     position:relative;
 
-    width:min(
-        600px,
-        100%
-    );
-
+    width:min(600px,100%);
     padding:40px;
 
     border-radius:25px;
@@ -1932,15 +1278,13 @@ section{
             #070100
         );
 
-    border:
-        1px solid rgba(255,80,0,.35);
+    border:1px solid rgba(255,80,0,.35);
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.8),
         0 0 50px rgba(255,50,0,.15);
 
     transform:scale(.9);
-
     transition:.3s;
 }
 
@@ -1950,21 +1294,17 @@ section{
 
 .modal-content h2{
     color:#ff6500;
-
     font-size:32px;
 }
 
 .modal-content p{
     margin-top:15px;
-
     color:#888;
-
     line-height:1.7;
 }
 
 .modal-close{
     position:absolute;
-
     top:15px;
     right:18px;
 
@@ -1973,28 +1313,118 @@ section{
 
     border-radius:50%;
 
-    border:
-        1px solid rgba(255,70,0,.2);
-
-    background:
-        rgba(255,50,0,.05);
+    border:1px solid rgba(255,70,0,.2);
+    background:rgba(255,50,0,.05);
 
     color:#aaa;
-
-    cursor:pointer;
 }
 
 .modal-close:hover{
     color:white;
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= NOTIFICACION ================= */
+
+.notification{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:2000;
+
+    width:min(390px,calc(100vw - 35px));
+
+    padding:22px;
+
+    display:flex;
+    gap:15px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(55,6,0,.98),
+            rgba(8,1,0,.99)
+        );
+
+    border:1px solid rgba(255,90,0,.35);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 40px rgba(255,50,0,.13);
+
+    transform:translateY(130px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.notification.show{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+}
+
+.notification-icon{
+    font-size:28px;
+}
+
+.notification-content{
+    flex:1;
+}
+
+.notification-label{
+    color:#ff6500;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.notification h3{
+    margin-top:5px;
+    font-size:16px;
+}
+
+.notification p{
+    margin-top:5px;
+    color:#777;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.notification-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.notification .btn{
+    padding:9px 13px;
+    font-size:9px;
+}
+
+.notification-close{
+    position:absolute;
+    top:8px;
+    right:10px;
+
+    border:0;
+    background:transparent;
+
+    color:#555;
+    font-size:18px;
+}
+
+.notification-close:hover{
+    color:#fff;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
     padding:45px 20px;
-
     text-align:center;
 
     color:#444;
@@ -2009,13 +1439,10 @@ footer strong{
     color:#ff6500;
 }
 
-/* =====================================================
-   BOTÓN TOP
-===================================================== */
+/* ================= TOP ================= */
 
 #top{
     position:fixed;
-
     right:22px;
     bottom:22px;
 
@@ -2023,7 +1450,6 @@ footer strong{
     height:48px;
 
     border:0;
-
     border-radius:50%;
 
     color:white;
@@ -2038,13 +1464,10 @@ footer strong{
     box-shadow:
         0 0 25px rgba(255,60,0,.5);
 
-    cursor:pointer;
-
     opacity:0;
     visibility:hidden;
 
     transform:translateY(15px);
-
     transition:.3s;
 
     z-index:900;
@@ -2053,13 +1476,10 @@ footer strong{
 #top.show{
     opacity:1;
     visibility:visible;
-
     transform:translateY(0);
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1050px){
 
@@ -2068,8 +1488,7 @@ footer strong{
     }
 
     .staff-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .games{
@@ -2077,25 +1496,15 @@ footer strong{
     }
 
     .stats{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
 @media(max-width:850px){
 
-    .minecraft{
+    .minecraft,
+    .roblox-container{
         grid-template-columns:1fr;
-    }
-
-    .roblox-panel{
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .roblox-panel .btn{
-        width:100%;
     }
 }
 
@@ -2107,7 +1516,6 @@ footer strong{
 
     .brand{
         letter-spacing:1px;
-
         font-size:13px;
     }
 
@@ -2135,7 +1543,6 @@ footer strong{
 
     .server{
         flex-direction:column;
-
         text-align:center;
     }
 
@@ -2151,27 +1558,17 @@ footer strong{
         grid-template-columns:1fr;
     }
 
-    .mc-boxes{
+    .mc-boxes,
+    .roblox-boxes{
         grid-template-columns:1fr;
     }
 
     .event{
-        grid-template-columns:
-            60px 1fr;
+        grid-template-columns:60px 1fr;
     }
 
     .event-status{
         display:none;
-    }
-
-    .announcement{
-        align-items:flex-start;
-
-        flex-wrap:wrap;
-    }
-
-    .announcement .btn{
-        width:100%;
     }
 
     .notification{
@@ -2182,6 +1579,14 @@ footer strong{
     .modal-content{
         padding:30px 22px;
     }
+
+    .social-card{
+        flex-wrap:wrap;
+    }
+
+    .social-card .btn{
+        width:100%;
+    }
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -2189,25 +1594,16 @@ footer strong{
     *,
     *::before,
     *::after{
-
         animation-duration:.01ms!important;
-
         animation-iteration-count:1!important;
-
         scroll-behavior:auto!important;
-
         transition-duration:.01ms!important;
     }
 }
-
 </style>
 </head>
 
 <body>
-
-<!-- =====================================================
-     FONDO
-===================================================== -->
 
 <div class="bg">
     <div class="lava"></div>
@@ -2219,33 +1615,24 @@ footer strong{
 
 <div id="particles"></div>
 
-<!-- =====================================================
-     NAV
-===================================================== -->
+<!-- ================= NAV ================= -->
 
 <nav class="nav" id="nav">
 
 <a href="#" class="brand">
-
     <img
         src="https://cdn.discordapp.com/icons/1518452934604755015/2efbb4bcbaa6f04aa147590b17d8397a.webp?size=256"
         alt="Netherrealm"
     >
-
     NETHERREALM
-
 </a>
 
 <div class="links">
 
     <a href="#discord">DISCORD</a>
-
     <a href="#games">JUEGOS</a>
-
     <a href="#minecraft">MINECRAFT</a>
-
     <a href="#roblox">ROBLOX</a>
-
     <a href="#events">EVENTOS</a>
 
     <button
@@ -2267,20 +1654,13 @@ footer strong{
     </a>
 
 </div>
-
 </nav>
 
-<!-- =====================================================
-     BUSCADOR
-===================================================== -->
+<!-- ================= SEARCH ================= -->
 
-<div
-    class="search-wrap"
-    id="searchWrap"
->
+<div class="search-wrap" id="searchWrap">
 
     <div class="search-box">
-
         <span>🔍</span>
 
         <input
@@ -2289,7 +1669,6 @@ footer strong{
             placeholder="Buscar en Netherrealm..."
             autocomplete="off"
         >
-
     </div>
 
     <div
@@ -2299,20 +1678,15 @@ footer strong{
 
 </div>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <header class="hero">
 
 <div class="hero-inner">
 
     <div class="status">
-
         <span class="dot"></span>
-
         NETHERREALM ONLINE
-
     </div>
 
     <img
@@ -2352,54 +1726,9 @@ footer strong{
     </div>
 
 </div>
-
 </header>
 
-<!-- =====================================================
-     ANUNCIO
-===================================================== -->
-
-<section>
-
-<div
-    class="announcement reveal"
-    id="announcement"
->
-
-    <div class="announcement-icon">
-        🔥
-    </div>
-
-    <div class="announcement-content">
-
-        <span>NOVEDAD</span>
-
-        <h3>
-            Nuevo evento disponible en Netherrealm
-        </h3>
-
-        <p>
-            Mantente atento a las novedades y
-            actividades de nuestra comunidad.
-        </p>
-
-    </div>
-
-    <button
-        class="btn primary"
-        id="eventAnnouncementButton"
-        type="button"
-    >
-        VER EVENTO
-    </button>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     DISCORD
-===================================================== -->
+<!-- ================= DISCORD ================= -->
 
 <section id="discord">
 
@@ -2414,8 +1743,7 @@ footer strong{
     </h2>
 
     <p>
-        Datos obtenidos directamente desde
-        Netherrealm.
+        Datos obtenidos directamente desde Netherrealm.
     </p>
 
 </div>
@@ -2466,10 +1794,7 @@ footer strong{
     <div class="stats">
 
         <div class="stat reveal">
-
-            <div class="stat-icon">
-                👥
-            </div>
+            <div class="stat-icon">👥</div>
 
             <span
                 class="number"
@@ -2478,17 +1803,11 @@ footer strong{
                 —
             </span>
 
-            <small>
-                MIEMBROS
-            </small>
-
+            <small>MIEMBROS</small>
         </div>
 
         <div class="stat reveal">
-
-            <div class="stat-icon">
-                🟢
-            </div>
+            <div class="stat-icon">🟢</div>
 
             <span
                 class="number"
@@ -2497,53 +1816,35 @@ footer strong{
                 —
             </span>
 
-            <small>
-                ONLINE
-            </small>
-
+            <small>ONLINE</small>
         </div>
 
         <div class="stat reveal">
+            <div class="stat-icon">🛡️</div>
 
-            <div class="stat-icon">
-                🛡️
-            </div>
-
-            <span class="number">
-                4
+            <span class="number" id="staffCount">
+                —
             </span>
 
-            <small>
-                STAFF
-            </small>
-
+            <small>STAFF</small>
         </div>
 
         <div class="stat reveal">
-
-            <div class="stat-icon">
-                🔥
-            </div>
+            <div class="stat-icon">🔥</div>
 
             <span class="number">
                 24/7
             </span>
 
-            <small>
-                COMUNIDAD
-            </small>
-
+            <small>COMUNIDAD</small>
         </div>
 
     </div>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     JUEGOS
-===================================================== -->
+<!-- ================= JUEGOS ================= -->
 
 <section id="games">
 
@@ -2568,13 +1869,9 @@ footer strong{
 
     <article class="game-card reveal left">
 
-        <div class="game-icon">
-            ⛏️
-        </div>
+        <div class="game-icon">⛏️</div>
 
-        <h3>
-            Minecraft
-        </h3>
+        <h3>Minecraft</h3>
 
         <p>
             Construye, explora, sobrevive y
@@ -2590,18 +1887,14 @@ footer strong{
 
     <article class="game-card reveal">
 
-        <div class="game-icon">
-            🎮
-        </div>
+        <div class="game-icon">🎮</div>
 
-        <h3>
-            Roblox
-        </h3>
+        <h3>Roblox</h3>
 
         <p>
-            Comparte experiencias, encuentra
-            jugadores y disfruta Roblox con
-            otros miembros de Netherrealm.
+            Descubre experiencias, arma partidas
+            y encuentra jugadores de Netherrealm
+            para jugar Roblox.
         </p>
 
         <span class="game-tag">
@@ -2612,18 +1905,13 @@ footer strong{
 
     <article class="game-card coming reveal right">
 
-        <div class="game-icon">
-            ➕
-        </div>
+        <div class="game-icon">➕</div>
 
-        <h3>
-            Próximamente
-        </h3>
+        <h3>Próximamente</h3>
 
         <p>
             Nuevos juegos podrán llegar a
-            Netherrealm. Mantente atento a
-            nuestros anuncios.
+            Netherrealm. Mantente atento.
         </p>
 
         <span class="game-tag">
@@ -2633,12 +1921,9 @@ footer strong{
     </article>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     MINECRAFT
-===================================================== -->
+<!-- ================= MINECRAFT ================= -->
 
 <section id="minecraft">
 
@@ -2688,70 +1973,43 @@ footer strong{
     <div class="mc-boxes">
 
         <div class="mc-box reveal right">
-
             <div>⛏️</div>
-
-            <h4>
-                SUPERVIVENCIA
-            </h4>
-
+            <h4>SUPERVIVENCIA</h4>
             <p>
                 Construye y sobrevive.
             </p>
-
         </div>
 
         <div class="mc-box reveal right">
-
             <div>🌋</div>
-
-            <h4>
-                NETHER
-            </h4>
-
+            <h4>NETHER</h4>
             <p>
                 Explora el inframundo.
             </p>
-
         </div>
 
         <div class="mc-box reveal right">
-
             <div>⚔️</div>
-
-            <h4>
-                AVENTURAS
-            </h4>
-
+            <h4>AVENTURAS</h4>
             <p>
                 Nuevos retos.
             </p>
-
         </div>
 
         <div class="mc-box reveal right">
-
             <div>🌎</div>
-
-            <h4>
-                EXPLORACIÓN
-            </h4>
-
+            <h4>EXPLORACIÓN</h4>
             <p>
                 Descubre nuevos mundos.
             </p>
-
         </div>
 
     </div>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     ROBLOX
-===================================================== -->
+<!-- ================= ROBLOX V19 ================= -->
 
 <section id="roblox">
 
@@ -2766,49 +2024,126 @@ footer strong{
     </h2>
 
     <p>
-        Encuentra personas con quienes jugar
-        y comparte tus experiencias favoritas.
+        Una zona dedicada exclusivamente a
+        las experiencias y partidas de Roblox.
     </p>
 
 </div>
 
-<div class="roblox-panel reveal">
+<div class="roblox-container">
 
-    <div class="roblox-icon">
-        🎮
-    </div>
+    <div class="roblox-main reveal left">
 
-    <div class="roblox-info">
+        <div class="roblox-badge">
+            🎮 ROBLOX COMMUNITY
+        </div>
 
         <h3>
-            ENTER
-            <span>ROBLOX</span>
+            PLAY
+            <span>TOGETHER</span>
         </h3>
 
         <p>
-            Únete a la comunidad, encuentra
-            jugadores y descubre nuevas
-            experiencias de Roblox.
+            Encuentra jugadores de Netherrealm,
+            comparte tus experiencias favoritas,
+            arma partidas y descubre nuevos juegos.
         </p>
+
+        <a
+            class="btn primary"
+            href="https://discord.gg/eY5yMRek3b"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            🎮 ENCONTRAR JUGADORES
+        </a>
 
     </div>
 
-    <a
-        class="btn primary"
-        href="https://discord.gg/eY5yMRek3b"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        🎮 ENCONTRAR JUGADORES
-    </a>
+    <div class="roblox-boxes">
+
+        <div class="roblox-box featured reveal right">
+
+            <div>⚔️</div>
+
+            <h4>
+                PVP
+            </h4>
+
+            <p>
+                Forma equipos y compite
+                contra otros jugadores.
+            </p>
+
+            <small>
+                COMPETITIVO
+            </small>
+
+        </div>
+
+        <div class="roblox-box reveal right">
+
+            <div>🌎</div>
+
+            <h4>
+                EXPERIENCIAS
+            </h4>
+
+            <p>
+                Comparte tus juegos
+                favoritos de Roblox.
+            </p>
+
+            <small>
+                DESCUBRE
+            </small>
+
+        </div>
+
+        <div class="roblox-box reveal right">
+
+            <div>👥</div>
+
+            <h4>
+                PARTIDAS
+            </h4>
+
+            <p>
+                Encuentra gente para
+                jugar en grupo.
+            </p>
+
+            <small>
+                COMUNIDAD
+            </small>
+
+        </div>
+
+        <div class="roblox-box reveal right">
+
+            <div>🏆</div>
+
+            <h4>
+                RETOS
+            </h4>
+
+            <p>
+                Crea desafíos y
+                dinámicas con amigos.
+            </p>
+
+            <small>
+                EVENTOS
+            </small>
+
+        </div>
+
+    </div>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     STAFF
-===================================================== -->
+<!-- ================= STAFF ================= -->
 
 <section id="staff">
 
@@ -2835,7 +2170,6 @@ footer strong{
 >
 
     <article class="staff-card reveal">
-
         <img
             class="staff-avatar"
             src="https://cdn.discordapp.com/embed/avatars/0.png"
@@ -2847,7 +2181,7 @@ footer strong{
         </div>
 
         <div class="staff-role">
-            OWNER
+            STAFF
         </div>
 
         <div class="staff-user"></div>
@@ -2855,11 +2189,9 @@ footer strong{
         <div class="staff-status online">
             ● ONLINE
         </div>
-
     </article>
 
     <article class="staff-card reveal">
-
         <img
             class="staff-avatar"
             src="https://cdn.discordapp.com/embed/avatars/1.png"
@@ -2871,7 +2203,7 @@ footer strong{
         </div>
 
         <div class="staff-role">
-            CO-OWNER
+            STAFF
         </div>
 
         <div class="staff-user"></div>
@@ -2879,11 +2211,9 @@ footer strong{
         <div class="staff-status online">
             ● ONLINE
         </div>
-
     </article>
 
     <article class="staff-card reveal">
-
         <img
             class="staff-avatar"
             src="https://cdn.discordapp.com/embed/avatars/2.png"
@@ -2895,7 +2225,7 @@ footer strong{
         </div>
 
         <div class="staff-role">
-            CO-OWNER ALT
+            STAFF
         </div>
 
         <div class="staff-user"></div>
@@ -2903,11 +2233,9 @@ footer strong{
         <div class="staff-status online">
             ● ONLINE
         </div>
-
     </article>
 
     <article class="staff-card reveal">
-
         <img
             class="staff-avatar"
             src="https://cdn.discordapp.com/embed/avatars/3.png"
@@ -2919,7 +2247,7 @@ footer strong{
         </div>
 
         <div class="staff-role">
-            MANAGER
+            STAFF
         </div>
 
         <div class="staff-user"></div>
@@ -2927,16 +2255,12 @@ footer strong{
         <div class="staff-status online">
             ● ONLINE
         </div>
-
     </article>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     EVENTOS
-===================================================== -->
+<!-- ================= EVENTOS ================= -->
 
 <section id="events">
 
@@ -2962,13 +2286,8 @@ footer strong{
     <div class="event reveal left">
 
         <div class="event-number">
-
-            <strong>
-                01
-            </strong>
-
+            <strong>01</strong>
             EVENTO
-
         </div>
 
         <div class="event-info">
@@ -2992,13 +2311,8 @@ footer strong{
     <div class="event reveal right">
 
         <div class="event-number">
-
-            <strong>
-                02
-            </strong>
-
+            <strong>02</strong>
             EVENTO
-
         </div>
 
         <div class="event-info">
@@ -3020,12 +2334,9 @@ footer strong{
     </div>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     REDES
-===================================================== -->
+<!-- ================= SOCIAL ================= -->
 
 <section id="social">
 
@@ -3074,12 +2385,9 @@ footer strong{
     </span>
 
 </a>
-
 </section>
 
-<!-- =====================================================
-     CTA
-===================================================== -->
+<!-- ================= CTA ================= -->
 
 <section>
 
@@ -3117,28 +2425,17 @@ footer strong{
     </div>
 
 </div>
-
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     © 2026
-
-    <strong>
-        NETHERREALM
-    </strong>
-
+    <strong>NETHERREALM</strong>
     — Comunidad oficial.
 
 </footer>
-
-<!-- =====================================================
-     BOTÓN ARRIBA
-===================================================== -->
 
 <button
     id="top"
@@ -3148,9 +2445,7 @@ footer strong{
     ↑
 </button>
 
-<!-- =====================================================
-     NOTIFICACIÓN
-===================================================== -->
+<!-- ================= NOTIFICACION ================= -->
 
 <div
     class="notification"
@@ -3206,12 +2501,9 @@ footer strong{
         </div>
 
     </div>
-
 </div>
 
-<!-- =====================================================
-     MODAL
-===================================================== -->
+<!-- ================= MODAL ================= -->
 
 <div
     class="modal"
@@ -3269,7 +2561,6 @@ footer strong{
         </div>
 
     </div>
-
 </div>
 
 <script>
@@ -3288,13 +2579,13 @@ const TIKTOK =
     "https://www.tiktok.com/@holanosoyyo514";
 
 /* =====================================================
-   PARTÍCULAS
+   PARTICULAS
 ===================================================== */
 
 const particles =
     document.getElementById("particles");
 
-for(let i = 0; i < 80; i++){
+for(let i=0;i<80;i++){
 
     const particle =
         document.createElement("span");
@@ -3303,22 +2594,22 @@ for(let i = 0; i < 80; i++){
         "particle";
 
     particle.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100+"%";
 
     particle.style.animationDuration =
-        (5 + Math.random() * 10) + "s";
+        (5+Math.random()*10)+"s";
 
     particle.style.animationDelay =
-        (-Math.random() * 15) + "s";
+        (-Math.random()*15)+"s";
 
     const size =
-        2 + Math.random() * 3;
+        2+Math.random()*3;
 
     particle.style.width =
-        size + "px";
+        size+"px";
 
     particle.style.height =
-        size + "px";
+        size+"px";
 
     particles.appendChild(
         particle
@@ -3326,67 +2617,59 @@ for(let i = 0; i < 80; i++){
 }
 
 /* =====================================================
-   DISCORD
+   DISCORD + STAFF
 ===================================================== */
+
+async function getAPIData(){
+
+    const response =
+        await fetch(
+            API+"?t="+Date.now(),
+            {
+                cache:"no-store"
+            }
+        );
+
+    if(!response.ok){
+
+        throw new Error(
+            "HTTP "+response.status
+        );
+    }
+
+    return await response.json();
+}
 
 async function loadDiscord(){
 
     try{
 
-        const response =
-            await fetch(
-                API + "?t=" + Date.now(),
-                {
-                    cache:"no-store"
-                }
-            );
-
-        if(!response.ok){
-
-            throw new Error(
-                "HTTP " +
-                response.status
-            );
-        }
-
         const data =
-            await response.json();
+            await getAPIData();
 
-        const serverName =
-            document.getElementById(
-                "serverName"
-            );
-
-        const members =
-            document.getElementById(
-                "members"
-            );
-
-        const online =
-            document.getElementById(
-                "online"
-            );
-
-        const connection =
-            document.getElementById(
-                "connection"
-            );
-
-        serverName.textContent =
+        document.getElementById(
+            "serverName"
+        ).textContent =
             data.name ||
             "Netherrealm";
 
-        members.textContent =
-            typeof data.members === "number"
+        document.getElementById(
+            "members"
+        ).textContent =
+            typeof data.members==="number"
                 ? data.members.toLocaleString("es-ES")
                 : "—";
 
-        online.textContent =
-            typeof data.online === "number"
+        document.getElementById(
+            "online"
+        ).textContent =
+            typeof data.online==="number"
                 ? data.online.toLocaleString("es-ES")
                 : "—";
 
-        connection.textContent =
+        document.getElementById(
+            "connection"
+        ).textContent =
             "● DISCORD CONECTADO";
 
     }
@@ -3405,7 +2688,7 @@ async function loadDiscord(){
 }
 
 /* =====================================================
-   STAFF
+   STAFF V19
 ===================================================== */
 
 async function loadStaff(){
@@ -3424,43 +2707,24 @@ async function loadStaff(){
 
     try{
 
-        const response =
-            await fetch(
-                API + "?t=" + Date.now(),
-                {
-                    cache:"no-store"
-                }
-            );
-
-        if(!response.ok){
-
-            throw new Error(
-                "HTTP " +
-                response.status
-            );
-        }
-
         const data =
-            await response.json();
+            await getAPIData();
 
-        if(
-            !Array.isArray(data.staff)
-        ){
+        const staff =
+            Array.isArray(data.staff)
+                ? data.staff
+                : [];
 
-            throw new Error(
-                "Staff no disponible"
-            );
-        }
+        document.getElementById(
+            "staffCount"
+        ).textContent =
+            staff.length || "0";
 
-        data.staff.forEach(
-            (member,index) => {
+        cards.forEach(
+            (card,index)=>{
 
-                const card =
-                    cards[index];
-
-                if(!card){
-                    return;
-                }
+                const member =
+                    staff[index];
 
                 const avatar =
                     card.querySelector(
@@ -3487,45 +2751,60 @@ async function loadStaff(){
                         ".staff-status"
                     );
 
+                if(!member){
+
+                    card.style.display =
+                        "none";
+
+                    return;
+                }
+
+                card.style.display =
+                    "";
+
+                /*
+                 * NOMBRE REAL
+                 *
+                 * Prioridad:
+                 * 1. global_name
+                 * 2. display_name
+                 * 3. username
+                 * 4. nick
+                 */
+
+                const displayName =
+                    member.global_name ||
+                    member.display_name ||
+                    member.username ||
+                    member.nick ||
+                    "Usuario";
+
+                name.textContent =
+                    displayName;
+
                 if(member.avatar){
 
                     avatar.src =
                         member.avatar;
                 }
+                else if(member.user_id){
 
-                const displayName =
-                    member.global_name &&
-                    member.global_name !== "Usuario"
-
-                        ? member.global_name
-
-                        : member.username &&
-                          member.username !== "Usuario"
-
-                            ? member.username
-
-                            : null;
-
-                if(displayName){
-
-                    name.textContent =
-                        displayName;
+                    avatar.src =
+                        "https://cdn.discordapp.com/avatars/"+
+                        member.user_id+
+                        "/"+
+                        member.avatar+
+                        ".png?size=256";
                 }
 
-                if(member.role){
+                /*
+                 * USERNAME
+                 */
 
-                    role.textContent =
-                        member.role;
-                }
-
-                if(
-                    member.username &&
-                    member.username !== "Usuario"
-                ){
+                if(member.username){
 
                     username.textContent =
-                        "@" +
-                        member.username;
+                        "@"+member.username;
                 }
                 else{
 
@@ -3533,21 +2812,40 @@ async function loadStaff(){
                         "";
                 }
 
+                /*
+                 * ROL
+                 */
+
+                role.textContent =
+                    member.role ||
+                    member.roles?.[0] ||
+                    "STAFF";
+
+                /*
+                 * ESTADO
+                 */
+
+                const isOnline =
+                    member.online !== false &&
+                    member.status !== "offline";
+
                 status.className =
-                    "staff-status online";
+                    isOnline
+                        ? "staff-status online"
+                        : "staff-status";
 
                 status.textContent =
-                    "● ONLINE";
+                    isOnline
+                        ? "● ONLINE"
+                        : "● OFFLINE";
 
                 setTimeout(
-                    () => {
-
+                    ()=>{
                         card.classList.add(
                             "show"
                         );
-
                     },
-                    index * 120
+                    index*120
                 );
             }
         );
@@ -3560,29 +2858,15 @@ async function loadStaff(){
             error
         );
 
+        document.getElementById(
+            "staffCount"
+        ).textContent =
+            "—";
+
         cards.forEach(
-            (card,index) => {
-
-                const status =
-                    card.querySelector(
-                        ".staff-status"
-                    );
-
-                status.className =
-                    "staff-status online";
-
-                status.textContent =
-                    "● ONLINE";
-
-                setTimeout(
-                    () => {
-
-                        card.classList.add(
-                            "show"
-                        );
-
-                    },
-                    index * 120
+            card=>{
+                card.classList.add(
+                    "show"
                 );
             }
         );
@@ -3612,10 +2896,10 @@ setInterval(
 
 const observer =
     new IntersectionObserver(
-        entries => {
+        entries=>{
 
             entries.forEach(
-                entry => {
+                entry=>{
 
                     if(
                         entry.isIntersecting
@@ -3629,7 +2913,6 @@ const observer =
                             entry.target
                         );
                     }
-
                 }
             );
 
@@ -3644,7 +2927,7 @@ document
         ".reveal"
     )
     .forEach(
-        element =>
+        element=>
             observer.observe(
                 element
             )
@@ -3666,11 +2949,9 @@ const topButton =
 
 window.addEventListener(
     "scroll",
-    () => {
+    ()=>{
 
-        if(
-            window.scrollY > 70
-        ){
+        if(window.scrollY>70){
 
             nav.classList.add(
                 "scrolled"
@@ -3700,13 +2981,11 @@ window.addEventListener(
 
 topButton.addEventListener(
     "click",
-    () => {
-
+    ()=>{
         window.scrollTo({
             top:0,
             behavior:"smooth"
         });
-
     }
 );
 
@@ -3744,7 +3023,7 @@ const searchableSections = [
     },
 
     {
-        title:"Juegos de la comunidad",
+        title:"Juegos",
         description:
             "Minecraft, Roblox y próximos juegos",
         target:"#games"
@@ -3760,7 +3039,7 @@ const searchableSections = [
     {
         title:"Roblox",
         description:
-            "Jugadores y experiencias de Roblox",
+            "PVP, experiencias, partidas y retos",
         target:"#roblox"
     },
 
@@ -3774,7 +3053,7 @@ const searchableSections = [
     {
         title:"Eventos",
         description:
-            "Eventos y dinámicas de la comunidad",
+            "Eventos y dinámicas",
         target:"#events"
     },
 
@@ -3784,29 +3063,24 @@ const searchableSections = [
             "Red social oficial",
         target:"#social"
     }
-
 ];
 
 function renderSearchResults(
-    value = ""
+    value=""
 ){
 
     const query =
-        value
-            .trim()
-            .toLowerCase();
+        value.trim().toLowerCase();
 
     if(!query){
 
-        searchResults.innerHTML =
-            "";
-
+        searchResults.innerHTML="";
         return;
     }
 
     const results =
         searchableSections.filter(
-            item =>
+            item=>
                 item.title
                     .toLowerCase()
                     .includes(query) ||
@@ -3831,7 +3105,7 @@ function renderSearchResults(
     searchResults.innerHTML =
         results
             .map(
-                item => `
+                item=>`
                     <a
                         class="search-result"
                         href="${item.target}"
@@ -3853,21 +3127,17 @@ function renderSearchResults(
             ".search-result"
         )
         .forEach(
-            result => {
+            result=>{
 
                 result.addEventListener(
                     "click",
-                    () => {
-
+                    ()=>{
                         searchWrap.classList.remove(
                             "open"
                         );
 
-                        searchInput.value =
-                            "";
-
-                        searchResults.innerHTML =
-                            "";
+                        searchInput.value="";
+                        searchResults.innerHTML="";
                     }
                 );
             }
@@ -3876,7 +3146,7 @@ function renderSearchResults(
 
 searchToggle.addEventListener(
     "click",
-    event => {
+    event=>{
 
         event.stopPropagation();
 
@@ -3891,8 +3161,9 @@ searchToggle.addEventListener(
         ){
 
             setTimeout(
-                () =>
-                    searchInput.focus(),
+                ()=>{
+                    searchInput.focus();
+                },
                 100
             );
         }
@@ -3901,8 +3172,7 @@ searchToggle.addEventListener(
 
 searchInput.addEventListener(
     "input",
-    () => {
-
+    ()=>{
         renderSearchResults(
             searchInput.value
         );
@@ -3911,13 +3181,13 @@ searchInput.addEventListener(
 
 document.addEventListener(
     "click",
-    event => {
+    event=>{
 
         if(
             !searchWrap.contains(
                 event.target
             ) &&
-            event.target !== searchToggle
+            event.target!==searchToggle
         ){
 
             searchWrap.classList.remove(
@@ -3968,15 +3238,6 @@ function closeEventModal(){
     );
 }
 
-document
-    .getElementById(
-        "eventAnnouncementButton"
-    )
-    .addEventListener(
-        "click",
-        openEventModal
-    );
-
 modalClose.addEventListener(
     "click",
     closeEventModal
@@ -3989,10 +3250,10 @@ modalCloseButton.addEventListener(
 
 eventModal.addEventListener(
     "click",
-    event => {
+    event=>{
 
         if(
-            event.target === eventModal
+            event.target===eventModal
         ){
 
             closeEventModal();
@@ -4002,11 +3263,9 @@ eventModal.addEventListener(
 
 document.addEventListener(
     "keydown",
-    event => {
+    event=>{
 
-        if(
-            event.key === "Escape"
-        ){
+        if(event.key==="Escape"){
 
             closeEventModal();
 
@@ -4067,17 +3326,11 @@ notificationDismiss.addEventListener(
 
 notificationEvent.addEventListener(
     "click",
-    () => {
-
+    ()=>{
         hideNotification();
-
         openEventModal();
     }
 );
-
-/* =====================================================
-   MOSTRAR NOTIFICACIÓN
-===================================================== */
 
 setTimeout(
     showNotification,
@@ -4085,11 +3338,11 @@ setTimeout(
 );
 
 /* =====================================================
-   V17 - CONFIRMACIÓN DEL FAVICON
+   NETHERREALM V19
 ===================================================== */
 
 console.log(
-    "🔥 Netherrealm V17 cargado correctamente."
+    "🔥 Netherrealm V19 cargado correctamente."
 );
 
 </script>
